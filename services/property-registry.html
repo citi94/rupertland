@@ -95,7 +95,7 @@
 
                     <h2 class="govuk-heading-l">Search property records</h2>
                     
-                    <form class="form" action="/services/property-search" method="post">
+                    <form action="/services/property-search" method="post" novalidate>
                         <div class="govuk-form-group">
                             <fieldset class="govuk-fieldset">
                                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
@@ -103,7 +103,7 @@
                                 </legend>
                                 <div class="govuk-radios">
                                     <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="search-address" name="search-type" type="radio" value="address" checked>
+                                        <input class="govuk-radios__input" id="search-address" name="search-type" type="radio" value="address" checked required>
                                         <label class="govuk-label govuk-radios__label" for="search-address">
                                             By property address
                                         </label>
@@ -137,7 +137,7 @@
                             <div id="search-query-hint" class="govuk-hint">
                                 Enter the property address, title number, or owner name
                             </div>
-                            <input class="govuk-input govuk-input--width-20" id="search-query" name="search-query" type="text" aria-describedby="search-query-hint">
+                            <input class="govuk-input govuk-input--width-20" id="search-query" name="search-query" type="text" aria-describedby="search-query-hint" required autocomplete="off">
                         </div>
 
                         <button class="govuk-button" data-module="govuk-button">
