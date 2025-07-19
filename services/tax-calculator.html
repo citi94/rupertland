@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Tax Calculator - GOV.RP</title>
+    <meta name="description" content="Calculate your annual tax obligations to the Principality of Rupertland. Get accurate estimates for income tax, benefits, and deductions.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏰</text></svg>">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class="govuk-template__body">
+    <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+
+    <header class="govuk-header" role="banner">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">GOV.RP</span>
+                    </span>
+                </a>
+            </div>
+            <div class="govuk-header__content">
+                <a href="/" class="govuk-header__link govuk-header__service-name">
+                    Principality of Rupertland
+                </a>
+                <nav aria-label="Top level navigation" class="govuk-header__navigation">
+                    <ul id="navigation" class="govuk-header__navigation-list">
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/">Home</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/about">About Rupertland</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/services">Services</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/news">News</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/laws-regulations">Laws</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/tourism-culture">Tourism</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="govuk-width-container">
+        <div class="govuk-breadcrumbs">
+            <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="/">Home</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="/services">Services</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="/tax">Tax services</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    Tax Calculator
+                </li>
+            </ol>
+        </div>
+
+        <main class="govuk-main-wrapper" id="main-content" role="main">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Tax Calculator</h1>
+                    
+                    <p class="govuk-body-l">
+                        Calculate your annual tax obligations to the Principality of Rupertland. 
+                        Get estimates for income tax, deductions, and benefits.
+                    </p>
+
+                    <div class="govuk-inset-text">
+                        This calculator provides estimates based on 2024-25 tax rates. 
+                        For official calculations, consult your tax return or speak to a tax advisor.
+                    </div>
+
+                    <h2 class="govuk-heading-l">Personal tax calculator</h2>
+                    
+                    <form class="form" action="/services/tax-calculator/calculate" method="post">
+                        
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--m" for="annual-income">
+                                Annual gross income
+                            </label>
+                            <div id="annual-income-hint" class="govuk-hint">
+                                Enter your total income before tax and deductions
+                            </div>
+                            <div class="govuk-input__wrapper">
+                                <div class="govuk-input__prefix" aria-hidden="true">RP</div>
+                                <input class="govuk-input govuk-input--width-10" id="annual-income" name="annual-income" type="text" inputmode="numeric" aria-describedby="annual-income-hint">
+                            </div>
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset">
+                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                    Tax year
+                                </legend>
+                                <div class="govuk-radios govuk-radios--inline">
+                                    <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="tax-year-current" name="tax-year" type="radio" value="2024-25" checked>
+                                        <label class="govuk-label govuk-radios__label" for="tax-year-current">
+                                            2024-25 (current)
+                                        </label>
+                                    </div>
+                                    <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="tax-year-next" name="tax-year" type="radio" value="2025-26">
+                                        <label class="govuk-label govuk-radios__label" for="tax-year-next">
+                                            2025-26 (upcoming)
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <div class="govuk-form-group">
+                            <fieldset class="govuk-fieldset">
+                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                    Employment status
+                                </legend>
+                                <div class="govuk-radios">
+                                    <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="status-employed" name="employment-status" type="radio" value="employed">
+                                        <label class="govuk-label govuk-radios__label" for="status-employed">
+                                            Employed (PAYE)
+                                        </label>
+                                    </div>
+                                    <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="status-self-employed" name="employment-status" type="radio" value="self-employed">
+                                        <label class="govuk-label govuk-radios__label" for="status-self-employed">
+                                            Self-employed
+                                        </label>
+                                    </div>
+                                    <div class="govuk-radios__item">
+                                        <input class="govuk-radios__input" id="status-mixed" name="employment-status" type="radio" value="mixed">
+                                        <label class="govuk-label govuk-radios__label" for="status-mixed">
+                                            Mixed (employed and self-employed)
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+
+                        <details class="govuk-details" data-module="govuk-details">
+                            <summary class="govuk-details__summary">
+                                <span class="govuk-details__summary-text">
+                                    Additional income and deductions
+                                </span>
+                            </summary>
+                            <div class="govuk-details__text">
+                                
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="pension-contributions">
+                                        Pension contributions
+                                    </label>
+                                    <div class="govuk-input__wrapper">
+                                        <div class="govuk-input__prefix" aria-hidden="true">RP</div>
+                                        <input class="govuk-input govuk-input--width-10" id="pension-contributions" name="pension-contributions" type="text" inputmode="numeric">
+                                    </div>
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="charitable-donations">
+                                        Charitable donations
+                                    </label>
+                                    <div class="govuk-input__wrapper">
+                                        <div class="govuk-input__prefix" aria-hidden="true">RP</div>
+                                        <input class="govuk-input govuk-input--width-10" id="charitable-donations" name="charitable-donations" type="text" inputmode="numeric">
+                                    </div>
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <label class="govuk-label govuk-label--s" for="investment-income">
+                                        Investment income (dividends, interest)
+                                    </label>
+                                    <div class="govuk-input__wrapper">
+                                        <div class="govuk-input__prefix" aria-hidden="true">RP</div>
+                                        <input class="govuk-input govuk-input--width-10" id="investment-income" name="investment-income" type="text" inputmode="numeric">
+                                    </div>
+                                </div>
+
+                                <div class="govuk-form-group">
+                                    <fieldset class="govuk-fieldset">
+                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
+                                            Do you have dependents?
+                                        </legend>
+                                        <div class="govuk-checkboxes govuk-checkboxes--small">
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="spouse-dependent" name="dependents" type="checkbox" value="spouse">
+                                                <label class="govuk-label govuk-checkboxes__label" for="spouse-dependent">
+                                                    Spouse/partner (non-working)
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="children-dependent" name="dependents" type="checkbox" value="children">
+                                                <label class="govuk-label govuk-checkboxes__label" for="children-dependent">
+                                                    Children under 18
+                                                </label>
+                                            </div>
+                                            <div class="govuk-checkboxes__item">
+                                                <input class="govuk-checkboxes__input" id="elderly-dependent" name="dependents" type="checkbox" value="elderly">
+                                                <label class="govuk-label govuk-checkboxes__label" for="elderly-dependent">
+                                                    Elderly parents/relatives
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </details>
+
+                        <button class="govuk-button" data-module="govuk-button">
+                            Calculate my tax
+                        </button>
+                    </form>
+
+                    <h2 class="govuk-heading-l">Current tax rates (2024-25)</h2>
+                    
+                    <h3 class="govuk-heading-m">Personal income tax bands</h3>
+                    <table class="govuk-table">
+                        <thead class="govuk-table__head">
+                            <tr class="govuk-table__row">
+                                <th scope="col" class="govuk-table__header">Income band</th>
+                                <th scope="col" class="govuk-table__header">Tax rate</th>
+                            </tr>
+                        </thead>
+                        <tbody class="govuk-table__body">
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">RP 0 - RP 15,000</td>
+                                <td class="govuk-table__cell">0% (Personal allowance)</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">RP 15,001 - RP 50,000</td>
+                                <td class="govuk-table__cell">20% (Basic rate)</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">RP 50,001 - RP 125,000</td>
+                                <td class="govuk-table__cell">35% (Higher rate)</td>
+                            </tr>
+                            <tr class="govuk-table__row">
+                                <td class="govuk-table__cell">Over RP 125,000</td>
+                                <td class="govuk-table__cell">45% (Additional rate)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="govuk-heading-m">Tax allowances and reliefs</h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Personal allowance: RP 15,000 (full allowance)</li>
+                        <li>Spouse allowance: RP 3,000 (if spouse not working)</li>
+                        <li>Child allowance: RP 2,500 per child under 18</li>
+                        <li>Pension contribution relief: Up to RP 40,000 annually</li>
+                        <li>Charitable donation relief: 25% tax relief on donations</li>
+                    </ul>
+
+                    <h2 class="govuk-heading-l">Example calculations</h2>
+                    
+                    <div class="govuk-summary-card">
+                        <div class="govuk-summary-card__title-wrapper">
+                            <h3 class="govuk-summary-card__title">
+                                Example 1: Basic rate taxpayer
+                            </h3>
+                        </div>
+                        <div class="govuk-summary-card__content">
+                            <dl class="govuk-summary-list">
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        Annual income
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                        RP 35,000
+                                    </dd>
+                                </div>
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        Personal allowance
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                        RP 15,000
+                                    </dd>
+                                </div>
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        Taxable income
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                        RP 20,000
+                                    </dd>
+                                </div>
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        Income tax (20%)
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                        <strong>RP 4,000</strong>
+                                    </dd>
+                                </div>
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        Take-home pay
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                        <strong>RP 31,000</strong>
+                                    </dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <div class="govuk-summary-card">
+                        <div class="govuk-summary-card__title-wrapper">
+                            <h3 class="govuk-summary-card__title">
+                                Example 2: Higher rate taxpayer
+                            </h3>
+                        </div>
+                        <div class="govuk-summary-card__content">
+                            <dl class="govuk-summary-list">
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        Annual income
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                        RP 75,000
+                                    </dd>
+                                </div>
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        Tax calculation
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                        RP 0 (first RP 15,000)<br>
+                                        RP 7,000 (RP 15,001 - RP 50,000 at 20%)<br>
+                                        RP 8,750 (RP 50,001 - RP 75,000 at 35%)
+                                    </dd>
+                                </div>
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        Total income tax
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                        <strong>RP 15,750</strong>
+                                    </dd>
+                                </div>
+                                <div class="govuk-summary-list__row">
+                                    <dt class="govuk-summary-list__key">
+                                        Take-home pay
+                                    </dt>
+                                    <dd class="govuk-summary-list__value">
+                                        <strong>RP 59,250</strong>
+                                    </dd>
+                                </div>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <h2 class="govuk-heading-l">Important information</h2>
+                    
+                    <div class="govuk-warning-text">
+                        <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                        <strong class="govuk-warning-text__text">
+                            <span class="govuk-warning-text__assistive">Warning</span>
+                            This calculator provides estimates only. Your actual tax may differ based on your specific circumstances.
+                        </strong>
+                    </div>
+
+                    <h3 class="govuk-heading-m">What this calculator doesn't include</h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Social security contributions</li>
+                        <li>Capital gains tax</li>
+                        <li>Inheritance tax</li>
+                        <li>Property taxes</li>
+                        <li>Business rates</li>
+                        <li>VAT obligations</li>
+                    </ul>
+
+                    <h3 class="govuk-heading-m">For complex tax situations</h3>
+                    <p class="govuk-body">
+                        If you have complex tax affairs, consider:
+                    </p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Consulting a qualified tax advisor</li>
+                        <li>Using professional tax software</li>
+                        <li>Contacting the tax office directly</li>
+                        <li>Booking a tax advice session</li>
+                    </ul>
+
+                    <h2 class="govuk-heading-l">Next steps</h2>
+                    
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half">
+                            <div class="govuk-summary-card">
+                                <div class="govuk-summary-card__title-wrapper">
+                                    <h3 class="govuk-summary-card__title">
+                                        <a href="/services/tax-return" class="govuk-link">File tax return</a>
+                                    </h3>
+                                </div>
+                                <div class="govuk-summary-card__content">
+                                    <p class="govuk-body">Submit your annual tax return online or by post.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="govuk-grid-column-one-half">
+                            <div class="govuk-summary-card">
+                                <div class="govuk-summary-card__title-wrapper">
+                                    <h3 class="govuk-summary-card__title">
+                                        <a href="/services/payment-plan" class="govuk-link">Set up payment plan</a>
+                                    </h3>
+                                </div>
+                                <div class="govuk-summary-card__content">
+                                    <p class="govuk-body">Spread your tax payments over the year.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items" role="complementary">
+                        <h2 class="govuk-heading-m">Related content</h2>
+                        <nav role="navigation">
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><a href="/tax" class="govuk-link">Tax services</a></li>
+                                <li><a href="/services/tax-return" class="govuk-link">File tax return</a></li>
+                                <li><a href="/services/tax-refund" class="govuk-link">Check refund status</a></li>
+                                <li><a href="/contact/tax-office" class="govuk-link">Tax office contact</a></li>
+                                <li><a href="/laws/taxation-act-2019" class="govuk-link">Taxation Act 2019</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="govuk-footer" role="contentinfo">
+        <div class="govuk-width-container">
+            <div class="govuk-footer__navigation">
+                <div class="govuk-footer__section govuk-grid-column-two-thirds">
+                    <h2 class="govuk-footer__heading govuk-heading-m">Services and information</h2>
+                    <ul class="govuk-footer__list govuk-footer__list--columns-2">
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/benefits">Benefits</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/births-deaths-marriages">Births, deaths, marriages</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/business">Business and industry</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/environment">Environment</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/education">Education and learning</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/driving">Driving and transport</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-footer__section govuk-grid-column-one-third">
+                    <h2 class="govuk-footer__heading govuk-heading-m">Government activity</h2>
+                    <ul class="govuk-footer__list">
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/departments">Departments</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/news">News</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/guidance">Guidance and regulation</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/policy">Policy papers</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/transparency">Transparency</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="govuk-footer__section-break">
+            <div class="govuk-footer__meta">
+                <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                    <ul class="govuk-footer__inline-list">
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/help">Help</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/privacy">Privacy</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/cookies">Cookies</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/accessibility">Accessibility statement</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/contact">Contact</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/terms">Terms and conditions</a>
+                        </li>
+                    </ul>
+                    <span class="govuk-footer__licence-description">
+                        All content is available under the Open Government Licence v3.0, except where otherwise stated
+                    </span>
+                </div>
+                <div class="govuk-footer__meta-item">
+                    <a class="govuk-footer__link govuk-footer__copyright-logo" href="#">© Crown copyright</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
