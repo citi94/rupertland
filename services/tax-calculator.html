@@ -93,163 +93,63 @@
                     </div>
 
                     <!-- Calculator Form Section -->
-                    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary" style="display: none;" id="error-summary">
-                        <h2 class="govuk-error-summary__title" id="error-summary-title">
-                            There is a problem
-                        </h2>
-                        <div class="govuk-error-summary__body">
-                            <ul class="govuk-list govuk-error-summary__list">
-                                <!-- Errors populated by JavaScript -->
-                            </ul>
-                        </div>
-                    </div>
 
-                    <form class="govuk-form" novalidate>
+                    <form onsubmit="calculateTax(event)">
                         
-                        <div class="govuk-form-group" id="income-group">
-                            <fieldset class="govuk-fieldset" aria-describedby="income-hint">
-                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                                    <h2 class="govuk-fieldset__heading">
-                                        Your annual income
-                                    </h2>
-                                </legend>
-                                <div id="income-hint" class="govuk-hint">
-                                    Enter your total gross income before tax for the 2024-25 tax year. 
-                                    Include salary, bonuses, and any other taxable income.
-                                </div>
-                                <div class="govuk-input__wrapper">
-                                    <div class="govuk-input__prefix" aria-hidden="true">RP</div>
-                                    <input class="govuk-input govuk-input--width-10 govuk-!-font-size-19" 
-                                           id="annual-income" 
-                                           name="annual-income" 
-                                           type="text" 
-                                           inputmode="numeric" 
-                                           aria-describedby="income-hint"
-                                           autocomplete="off">
-                                </div>
-                            </fieldset>
+                        <div class="form-group">
+                            <label class="form-label" for="annual-income">Your annual income</label>
+                            <div class="form-hint">Enter your total gross income before tax for the 2024-25 tax year. Include salary, bonuses, and any other taxable income.</div>
+                            <input type="text" id="annual-income" class="form-input" placeholder="e.g. 35000" required>
                         </div>
 
-                        <div class="govuk-form-group" id="status-group">
-                            <fieldset class="govuk-fieldset" aria-describedby="status-hint">
-                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-                                    <h2 class="govuk-fieldset__heading">
-                                        Your employment status
-                                    </h2>
-                                </legend>
-                                <div id="status-hint" class="govuk-hint">
-                                    This affects how much tax you pay and which allowances you can claim.
-                                </div>
-                                <div class="govuk-radios govuk-radios--large">
-                                    <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="employed" name="employment-status" type="radio" value="employed">
-                                        <label class="govuk-label govuk-radios__label" for="employed">
-                                            <span class="govuk-!-font-weight-bold">Employed</span>
-                                        </label>
-                                        <div id="employed-item-hint" class="govuk-hint govuk-radios__hint">
-                                            You work for an employer who deducts tax through PAYE
-                                        </div>
-                                    </div>
-                                    <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="self-employed" name="employment-status" type="radio" value="self-employed">
-                                        <label class="govuk-label govuk-radios__label" for="self-employed">
-                                            <span class="govuk-!-font-weight-bold">Self-employed</span>
-                                        </label>
-                                        <div id="self-employed-item-hint" class="govuk-hint govuk-radios__hint">
-                                            You run your own business or work for yourself
-                                        </div>
-                                    </div>
-                                    <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="both" name="employment-status" type="radio" value="both">
-                                        <label class="govuk-label govuk-radios__label" for="both">
-                                            <span class="govuk-!-font-weight-bold">Both employed and self-employed</span>
-                                        </label>
-                                        <div id="both-item-hint" class="govuk-hint govuk-radios__hint">
-                                            You have both employment and self-employment income
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div>
-
-                        <details class="govuk-details" data-module="govuk-details">
-                            <summary class="govuk-details__summary">
-                                <span class="govuk-details__summary-text">
-                                    Add deductions and reliefs (optional)
-                                </span>
-                            </summary>
-                            <div class="govuk-details__text">
-                                
-                                <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-label--s" for="pension">
-                                        Pension contributions
-                                    </label>
-                                    <div id="pension-hint" class="govuk-hint">
-                                        Total amount you've paid into pension schemes this tax year
-                                    </div>
-                                    <div class="govuk-input__wrapper">
-                                        <div class="govuk-input__prefix" aria-hidden="true">RP</div>
-                                        <input class="govuk-input govuk-input--width-10" 
-                                               id="pension" 
-                                               name="pension" 
-                                               type="text" 
-                                               inputmode="numeric" 
-                                               aria-describedby="pension-hint"
-                                               autocomplete="off">
-                                    </div>
-                                </div>
-
-                                <div class="govuk-form-group">
-                                    <label class="govuk-label govuk-label--s" for="charity">
-                                        Charitable donations
-                                    </label>
-                                    <div id="charity-hint" class="govuk-hint">
-                                        Donations made through Gift Aid to registered charities
-                                    </div>
-                                    <div class="govuk-input__wrapper">
-                                        <div class="govuk-input__prefix" aria-hidden="true">RP</div>
-                                        <input class="govuk-input govuk-input--width-10" 
-                                               id="charity" 
-                                               name="charity" 
-                                               type="text" 
-                                               inputmode="numeric" 
-                                               aria-describedby="charity-hint"
-                                               autocomplete="off">
-                                    </div>
-                                </div>
-
-                                <div class="govuk-form-group">
-                                    <fieldset class="govuk-fieldset">
-                                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--s">
-                                            Do you have any dependents?
-                                        </legend>
-                                        <div class="govuk-checkboxes govuk-checkboxes--small">
-                                            <div class="govuk-checkboxes__item">
-                                                <input class="govuk-checkboxes__input" id="spouse" name="dependents" type="checkbox" value="spouse">
-                                                <label class="govuk-label govuk-checkboxes__label" for="spouse">
-                                                    Spouse or civil partner (not working)
-                                                </label>
-                                            </div>
-                                            <div class="govuk-checkboxes__item">
-                                                <input class="govuk-checkboxes__input" id="children" name="dependents" type="checkbox" value="children">
-                                                <label class="govuk-label govuk-checkboxes__label" for="children">
-                                                    Children under 18
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
+                        <div class="form-group">
+                            <label class="form-label">Your employment status</label>
+                            <div class="form-hint">This affects how much tax you pay and which allowances you can claim.</div>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="employment-status" value="employed" required>
+                                    Employed - You work for an employer who deducts tax through PAYE
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="employment-status" value="self-employed">
+                                    Self-employed - You run your own business or work for yourself
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="employment-status" value="both">
+                                    Both employed and self-employed
+                                </label>
                             </div>
-                        </details>
+                        </div>
 
-                        <button class="govuk-button govuk-button--start govuk-!-margin-top-2 govuk-!-margin-bottom-8" 
-                                data-module="govuk-button" 
-                                type="submit">
-                            Calculate my tax
-                            <svg class="govuk-button__start-icon" xmlns="http://www.w3.org/2000/svg" width="17.5" height="19" viewBox="0 0 33 40" aria-hidden="true" focusable="false">
-                                <path fill="currentColor" d="m0,0 20,0 0,20 -5,0 0,-10 -10,0 z M15,15 l0,20 10,0 0,-15 -5,0 0,-5 z"/>
-                            </svg>
-                        </button>
+                        <h3>Deductions and reliefs (optional)</h3>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="pension">Pension contributions</label>
+                            <div class="form-hint">Total amount you've paid into pension schemes this tax year</div>
+                            <input type="text" id="pension" class="form-input" placeholder="e.g. 5000">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="charity">Charitable donations</label>
+                            <div class="form-hint">Donations made through Gift Aid to registered charities</div>
+                            <input type="text" id="charity" class="form-input" placeholder="e.g. 1000">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Do you have any dependents?</label>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="checkbox" name="dependents" value="spouse">
+                                    Spouse or civil partner (not working)
+                                </label>
+                                <label class="radio-item">
+                                    <input type="checkbox" name="dependents" value="children">
+                                    Children under 18
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="button">Calculate my tax</button>
 
                     </form>
 
@@ -450,246 +350,84 @@
     </footer>
 
     <script>
-        // Enhanced GOV.UK-style form validation and calculation
-        document.addEventListener('DOMContentLoaded', function() {
-            const form = document.querySelector('form');
-            const errorSummary = document.getElementById('error-summary');
+        function formatNumber(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        }
+        
+        function parseNumber(str) {
+            return parseFloat(str.replace(/,/g, '')) || 0;
+        }
+        
+        function calculateTax(event) {
+            event.preventDefault();
             
-            // Format number inputs with commas
-            function formatNumber(num) {
-                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+            const income = parseNumber(document.getElementById('annual-income').value);
+            const status = document.querySelector('input[name="employment-status"]:checked');
+            const pension = parseNumber(document.getElementById('pension').value);
+            const charity = parseNumber(document.getElementById('charity').value);
+            const hasSpouse = document.querySelector('input[value="spouse"]').checked;
+            const hasChildren = document.querySelector('input[value="children"]').checked;
+            
+            if (!income || income <= 0) {
+                alert('Please enter your annual income');
+                return;
             }
             
-            // Parse number removing commas
-            function parseNumber(str) {
-                return parseFloat(str.replace(/,/g, '')) || 0;
+            if (!status) {
+                alert('Please select your employment status');
+                return;
             }
             
-            // Add formatting to number inputs
-            document.querySelectorAll('input[inputmode="numeric"]').forEach(function(input) {
-                input.addEventListener('input', function() {
-                    const value = parseNumber(this.value);
-                    if (value > 0) {
-                        this.value = formatNumber(value);
-                    }
-                });
-            });
+            // Calculate allowances
+            let personalAllowance = 15000;
+            if (hasSpouse) personalAllowance += 3000;
+            if (hasChildren) personalAllowance += 2500;
             
-            function showError(fieldId, message) {
-                const field = document.getElementById(fieldId);
-                const group = document.getElementById(fieldId + '-group');
-                
-                // Add error styling
-                group.classList.add('govuk-form-group--error');
-                field.classList.add('govuk-input--error');
-                field.setAttribute('aria-invalid', 'true');
-                
-                // Add error message
-                if (!document.getElementById(fieldId + '-error')) {
-                    const errorMsg = document.createElement('p');
-                    errorMsg.id = fieldId + '-error';
-                    errorMsg.className = 'govuk-error-message';
-                    errorMsg.innerHTML = '<span class="govuk-visually-hidden">Error:</span> ' + message;
-                    
-                    const hint = field.parentNode.previousElementSibling;
-                    if (hint && hint.classList.contains('govuk-hint')) {
-                        hint.insertAdjacentElement('afterend', errorMsg);
-                    } else {
-                        field.parentNode.insertAdjacentElement('beforebegin', errorMsg);
-                    }
+            // Calculate taxable income
+            let taxableIncome = Math.max(0, income - personalAllowance - pension - charity);
+            
+            // Calculate tax
+            let tax = 0;
+            if (taxableIncome > 0) {
+                if (taxableIncome <= 35000) {
+                    tax = taxableIncome * 0.20;
+                } else if (taxableIncome <= 110000) {
+                    tax = (35000 * 0.20) + ((taxableIncome - 35000) * 0.35);
+                } else {
+                    tax = (35000 * 0.20) + (75000 * 0.35) + ((taxableIncome - 110000) * 0.45);
                 }
             }
             
-            function clearErrors() {
-                document.querySelectorAll('.govuk-form-group--error').forEach(function(group) {
-                    group.classList.remove('govuk-form-group--error');
-                });
-                document.querySelectorAll('.govuk-input--error').forEach(function(input) {
-                    input.classList.remove('govuk-input--error');
-                    input.setAttribute('aria-invalid', 'false');
-                });
-                document.querySelectorAll('.govuk-error-message').forEach(function(error) {
-                    error.remove();
-                });
-                errorSummary.style.display = 'none';
-            }
+            showResults(income, tax, personalAllowance, taxableIncome);
+        }
+        
+        function showResults(income, tax, allowance, taxableIncome) {
+            const takeHome = income - tax;
+            const effectiveRate = income > 0 ? (tax / income * 100) : 0;
             
-            function validateAndCalculate() {
-                clearErrors();
+            const resultsHtml = `
+                <div class="success-panel">
+                    <h2>Tax calculation complete</h2>
+                    <p>Your estimated Income Tax for 2024-25 is: <strong>RP ${formatNumber(Math.round(tax))}</strong></p>
+                </div>
                 
-                const income = parseNumber(document.getElementById('annual-income').value);
-                const status = document.querySelector('input[name="employment-status"]:checked');
+                <h3>Your calculation breakdown</h3>
+                <table>
+                    <tr><td>Total income</td><td>RP ${formatNumber(income)}</td></tr>
+                    <tr><td>Total allowances</td><td>RP ${formatNumber(allowance)}</td></tr>
+                    <tr><td>Taxable income</td><td>RP ${formatNumber(Math.round(taxableIncome))}</td></tr>
+                    <tr><td>Income Tax</td><td><strong>RP ${formatNumber(Math.round(tax))}</strong></td></tr>
+                    <tr><td>Income after tax</td><td><strong>RP ${formatNumber(Math.round(takeHome))}</strong></td></tr>
+                    <tr><td>Effective tax rate</td><td>${effectiveRate.toFixed(1)}%</td></tr>
+                </table>
                 
-                let errors = [];
+                <p><em>This calculation is an estimate. Your actual tax liability may differ.</em></p>
                 
-                // Validate income
-                if (!income || income <= 0) {
-                    errors.push({
-                        field: 'annual-income',
-                        message: 'Enter your annual income',
-                        anchor: '#annual-income'
-                    });
-                    showError('annual-income', 'Enter your annual income');
-                } else if (income > 10000000) {
-                    errors.push({
-                        field: 'annual-income',
-                        message: 'Annual income must be less than RP 10,000,000',
-                        anchor: '#annual-income'
-                    });
-                    showError('annual-income', 'Annual income must be less than RP 10,000,000');
-                }
-                
-                // Validate employment status
-                if (!status) {
-                    errors.push({
-                        field: 'employment-status',
-                        message: 'Select your employment status',
-                        anchor: '#employed'
-                    });
-                    showError('status', 'Select your employment status');
-                }
-                
-                if (errors.length > 0) {
-                    // Show error summary
-                    const errorList = errorSummary.querySelector('.govuk-error-summary__list');
-                    errorList.innerHTML = '';
-                    
-                    errors.forEach(function(error) {
-                        const li = document.createElement('li');
-                        li.innerHTML = '<a href="' + error.anchor + '">' + error.message + '</a>';
-                        errorList.appendChild(li);
-                    });
-                    
-                    errorSummary.style.display = 'block';
-                    errorSummary.scrollIntoView({ behavior: 'smooth' });
-                    errorSummary.focus();
-                    return false;
-                }
-                
-                // Calculate tax
-                const pension = parseNumber(document.getElementById('pension').value);
-                const charity = parseNumber(document.getElementById('charity').value);
-                const hasSpouse = document.getElementById('spouse').checked;
-                const hasChildren = document.getElementById('children').checked;
-                
-                // Calculate allowances
-                let personalAllowance = 15000;
-                if (hasSpouse) personalAllowance += 3000;
-                if (hasChildren) personalAllowance += 2500; // Simplified - assume 1 child
-                
-                // Calculate taxable income
-                let taxableIncome = Math.max(0, income - personalAllowance - pension - charity);
-                
-                // Calculate tax
-                let tax = 0;
-                if (taxableIncome > 0) {
-                    if (taxableIncome <= 35000) {
-                        tax = taxableIncome * 0.20;
-                    } else if (taxableIncome <= 110000) {
-                        tax = (35000 * 0.20) + ((taxableIncome - 35000) * 0.35);
-                    } else {
-                        tax = (35000 * 0.20) + (75000 * 0.35) + ((taxableIncome - 110000) * 0.45);
-                    }
-                }
-                
-                showResults(income, tax, personalAllowance, taxableIncome, status.value);
-                return true;
-            }
+                <button class="button" onclick="location.reload()">Calculate again</button>
+            `;
             
-            function showResults(income, tax, allowance, taxableIncome, status) {
-                const takeHome = income - tax;
-                const effectiveRate = income > 0 ? (tax / income * 100) : 0;
-                
-                const resultsHtml = `
-                    <div class="govuk-panel govuk-panel--confirmation">
-                        <h1 class="govuk-panel__title">
-                            Calculation complete
-                        </h1>
-                        <div class="govuk-panel__body">
-                            Your estimated Income Tax for 2024-25 is<br>
-                            <strong>RP ${formatNumber(Math.round(tax))}</strong>
-                        </div>
-                    </div>
-                    
-                    <h2 class="govuk-heading-l">Your tax calculation</h2>
-                    
-                    <dl class="govuk-summary-list">
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Total income
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                RP ${formatNumber(income)}
-                            </dd>
-                        </div>
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Total allowances
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                RP ${formatNumber(allowance)}
-                            </dd>
-                        </div>
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Taxable income
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                RP ${formatNumber(Math.round(taxableIncome))}
-                            </dd>
-                        </div>
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Income Tax
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                <strong>RP ${formatNumber(Math.round(tax))}</strong>
-                            </dd>
-                        </div>
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Income after tax
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                <strong>RP ${formatNumber(Math.round(takeHome))}</strong>
-                            </dd>
-                        </div>
-                        <div class="govuk-summary-list__row">
-                            <dt class="govuk-summary-list__key">
-                                Effective tax rate
-                            </dt>
-                            <dd class="govuk-summary-list__value">
-                                ${effectiveRate.toFixed(1)}%
-                            </dd>
-                        </div>
-                    </dl>
-                    
-                    <div class="govuk-inset-text">
-                        <p>This calculation is an estimate based on the information you provided. 
-                        Your actual tax liability may differ.</p>
-                    </div>
-                    
-                    <h3 class="govuk-heading-m">What happens next</h3>
-                    <ul class="govuk-list govuk-list--bullet">
-                        <li><a href="/services/tax-return" class="govuk-link">Submit your annual tax return</a> by 31 January 2026</li>
-                        <li><a href="/services/payment-plan" class="govuk-link">Set up a payment plan</a> if you need to pay tax</li>
-                        <li><a href="/services/find-tax-advisor" class="govuk-link">Get professional advice</a> for complex situations</li>
-                    </ul>
-                    
-                    <p class="govuk-body">
-                        <a href="#" class="govuk-link" onclick="location.reload(); return false;">Calculate again</a>
-                    </p>
-                `;
-                
-                form.parentNode.innerHTML = resultsHtml;
-            }
-            
-            // Form submission
-            form.addEventListener('submit', function(e) {
-                e.preventDefault();
-                validateAndCalculate();
-            });
-        });
+            document.querySelector('form').innerHTML = resultsHtml;
+        }
     </script>
 </body>
 </html>

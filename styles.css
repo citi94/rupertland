@@ -1,5 +1,86 @@
 /* GOV.UK Design System CSS for Principality of Rupertland */
 
+/* Simple form styles (ofcat-inspired) */
+.form-group {
+    margin-bottom: 30px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+    font-size: 1.9rem;
+}
+
+.form-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 2px solid #0b0c0c;
+    font-size: 1.9rem;
+    font-family: "nta", Arial, sans-serif;
+}
+
+.form-hint {
+    color: #505a5f;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.radio-group {
+    margin-bottom: 20px;
+}
+
+.radio-item {
+    display: block;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 40px;
+    cursor: pointer;
+}
+
+.radio-item input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.button {
+    display: inline-block;
+    background-color: #00703c;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: 400;
+    margin: 20px 0;
+    box-shadow: 0 2px 0 #002d18;
+    cursor: pointer;
+    border: none;
+    font-size: 1.9rem;
+    font-family: "nta", Arial, sans-serif;
+}
+
+.button:hover {
+    background-color: #005a30;
+}
+
+.success-panel {
+    background-color: #d4e8d4;
+    border-left: 5px solid #00703c;
+    padding: 20px;
+    margin: 30px 0;
+}
+
+.error-panel {
+    background-color: #f8d7da;
+    border-left: 5px solid #d4351c;
+    padding: 20px;
+    margin: 30px 0;
+}
+
 /* Reset and base styles */
 * {
     box-sizing: border-box;
