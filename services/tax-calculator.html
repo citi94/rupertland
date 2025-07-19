@@ -90,18 +90,29 @@
 
                     <h2 class="govuk-heading-l">Personal tax calculator</h2>
                     
+                    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary" style="display: none;" id="error-summary">
+                        <h2 class="govuk-error-summary__title" id="error-summary-title">
+                            There is a problem
+                        </h2>
+                        <div class="govuk-error-summary__body">
+                            <ul class="govuk-list govuk-error-summary__list">
+                                <!-- Errors will be populated here by JavaScript -->
+                            </ul>
+                        </div>
+                    </div>
+
                     <form action="/services/tax-calculator/calculate" method="post" novalidate>
                         
-                        <div class="govuk-form-group">
+                        <div class="govuk-form-group" id="annual-income-group">
                             <label class="govuk-label govuk-label--m" for="annual-income">
                                 Annual gross income
                             </label>
                             <div id="annual-income-hint" class="govuk-hint">
-                                Enter your total income before tax and deductions in Rupert Pounds
+                                Enter your total income before tax and deductions in Rupert Pounds. For example, 35000
                             </div>
                             <div class="govuk-input__wrapper">
                                 <div class="govuk-input__prefix" aria-hidden="true">RP</div>
-                                <input class="govuk-input govuk-input--width-10" id="annual-income" name="annual-income" type="number" min="0" step="1" inputmode="numeric" aria-describedby="annual-income-hint" required autocomplete="off">
+                                <input class="govuk-input govuk-input--width-10" id="annual-income" name="annual-income" type="number" min="0" max="9999999" step="1" inputmode="numeric" aria-describedby="annual-income-hint" required autocomplete="off" data-required="true" data-error-message="Enter your annual gross income">
                             </div>
                         </div>
 
@@ -127,14 +138,17 @@
                             </fieldset>
                         </div>
 
-                        <div class="govuk-form-group">
-                            <fieldset class="govuk-fieldset">
+                        <div class="govuk-form-group" id="employment-status-group">
+                            <fieldset class="govuk-fieldset" aria-describedby="employment-status-hint">
                                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                                     Employment status
                                 </legend>
+                                <div id="employment-status-hint" class="govuk-hint">
+                                    Select the option that best describes your main employment situation
+                                </div>
                                 <div class="govuk-radios">
                                     <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="status-employed" name="employment-status" type="radio" value="employed" required>
+                                        <input class="govuk-radios__input" id="status-employed" name="employment-status" type="radio" value="employed" required data-required="true" data-error-message="Select your employment status">
                                         <label class="govuk-label govuk-radios__label" for="status-employed">
                                             Employed (PAYE)
                                         </label>
@@ -223,10 +237,183 @@
                             </div>
                         </details>
 
-                        <button class="govuk-button" data-module="govuk-button">
+                        <button class="govuk-button" data-module="govuk-button" type="submit">
                             Calculate my tax
                         </button>
                     </form>
+
+                    <script>
+                        // GOV.UK compliant form validation
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const form = document.querySelector('form');
+                            const errorSummary = document.getElementById('error-summary');
+                            
+                            function showError(fieldId, errorMessage) {
+                                const fieldGroup = document.getElementById(fieldId + '-group');
+                                const field = document.getElementById(fieldId);
+                                
+                                // Add error classes
+                                fieldGroup.classList.add('govuk-form-group--error');
+                                field.classList.add('govuk-input--error');
+                                field.setAttribute('aria-invalid', 'true');
+                                
+                                // Add error message
+                                let errorElement = document.getElementById(fieldId + '-error');
+                                if (!errorElement) {
+                                    errorElement = document.createElement('p');
+                                    errorElement.id = fieldId + '-error';
+                                    errorElement.className = 'govuk-error-message';
+                                    errorElement.innerHTML = '<span class="govuk-visually-hidden">Error:</span> ' + errorMessage;
+                                    
+                                    const hint = document.getElementById(fieldId + '-hint');
+                                    if (hint) {
+                                        hint.insertAdjacentElement('afterend', errorElement);
+                                    } else {
+                                        field.insertAdjacentElement('beforebegin', errorElement);
+                                    }
+                                    
+                                    // Update aria-describedby
+                                    const describedBy = field.getAttribute('aria-describedby') || '';
+                                    field.setAttribute('aria-describedby', describedBy + ' ' + fieldId + '-error');
+                                }
+                            }
+                            
+                            function clearError(fieldId) {
+                                const fieldGroup = document.getElementById(fieldId + '-group');
+                                const field = document.getElementById(fieldId);
+                                const errorElement = document.getElementById(fieldId + '-error');
+                                
+                                if (fieldGroup) fieldGroup.classList.remove('govuk-form-group--error');
+                                if (field) {
+                                    field.classList.remove('govuk-input--error');
+                                    field.setAttribute('aria-invalid', 'false');
+                                }
+                                if (errorElement) errorElement.remove();
+                            }
+                            
+                            function validateForm() {
+                                let errors = [];
+                                
+                                // Clear previous errors
+                                clearError('annual-income');
+                                clearError('employment-status');
+                                
+                                // Validate annual income
+                                const annualIncome = document.getElementById('annual-income');
+                                if (!annualIncome.value || annualIncome.value <= 0) {
+                                    errors.push({
+                                        field: 'annual-income',
+                                        message: 'Enter your annual gross income',
+                                        link: '#annual-income'
+                                    });
+                                    showError('annual-income', 'Enter your annual gross income');
+                                } else if (annualIncome.value > 9999999) {
+                                    errors.push({
+                                        field: 'annual-income',
+                                        message: 'Annual income must be less than RP 10,000,000',
+                                        link: '#annual-income'
+                                    });
+                                    showError('annual-income', 'Annual income must be less than RP 10,000,000');
+                                }
+                                
+                                // Validate employment status
+                                const employmentStatus = document.querySelector('input[name="employment-status"]:checked');
+                                if (!employmentStatus) {
+                                    errors.push({
+                                        field: 'employment-status',
+                                        message: 'Select your employment status',
+                                        link: '#status-employed'
+                                    });
+                                    showError('employment-status', 'Select your employment status');
+                                }
+                                
+                                // Show error summary if errors exist
+                                if (errors.length > 0) {
+                                    const errorList = errorSummary.querySelector('.govuk-error-summary__list');
+                                    errorList.innerHTML = '';
+                                    
+                                    errors.forEach(function(error) {
+                                        const li = document.createElement('li');
+                                        li.innerHTML = '<a href="' + error.link + '">' + error.message + '</a>';
+                                        errorList.appendChild(li);
+                                    });
+                                    
+                                    errorSummary.style.display = 'block';
+                                    errorSummary.scrollIntoView();
+                                    errorSummary.focus();
+                                    
+                                    return false;
+                                } else {
+                                    errorSummary.style.display = 'none';
+                                    return true;
+                                }
+                            }
+                            
+                            // Form submission handler
+                            form.addEventListener('submit', function(e) {
+                                e.preventDefault();
+                                
+                                if (validateForm()) {
+                                    // Show calculation results
+                                    showCalculationResults();
+                                }
+                            });
+                            
+                            function showCalculationResults() {
+                                const annualIncome = parseFloat(document.getElementById('annual-income').value);
+                                const employmentStatus = document.querySelector('input[name="employment-status"]:checked').value;
+                                
+                                // Simple tax calculation
+                                let tax = 0;
+                                let takeHome = annualIncome;
+                                
+                                if (annualIncome > 15000) {
+                                    if (annualIncome <= 50000) {
+                                        tax = (annualIncome - 15000) * 0.20;
+                                    } else if (annualIncome <= 125000) {
+                                        tax = (35000 * 0.20) + ((annualIncome - 50000) * 0.35);
+                                    } else {
+                                        tax = (35000 * 0.20) + (75000 * 0.35) + ((annualIncome - 125000) * 0.45);
+                                    }
+                                }
+                                
+                                takeHome = annualIncome - tax;
+                                
+                                // Create results display
+                                const resultsHTML = `
+                                    <div class="govuk-panel govuk-panel--confirmation">
+                                        <h2 class="govuk-panel__title">Tax calculation complete</h2>
+                                        <div class="govuk-panel__body">
+                                            Your estimated annual tax: <strong>RP ${tax.toLocaleString()}</strong>
+                                        </div>
+                                    </div>
+                                    
+                                    <h3 class="govuk-heading-m">Your tax breakdown</h3>
+                                    <dl class="govuk-summary-list">
+                                        <div class="govuk-summary-list__row">
+                                            <dt class="govuk-summary-list__key">Gross income</dt>
+                                            <dd class="govuk-summary-list__value">RP ${annualIncome.toLocaleString()}</dd>
+                                        </div>
+                                        <div class="govuk-summary-list__row">
+                                            <dt class="govuk-summary-list__key">Income tax</dt>
+                                            <dd class="govuk-summary-list__value">RP ${tax.toLocaleString()}</dd>
+                                        </div>
+                                        <div class="govuk-summary-list__row">
+                                            <dt class="govuk-summary-list__key">Take-home pay</dt>
+                                            <dd class="govuk-summary-list__value"><strong>RP ${takeHome.toLocaleString()}</strong></dd>
+                                        </div>
+                                    </dl>
+                                    
+                                    <p class="govuk-body">
+                                        <a href="#" class="govuk-link" onclick="window.location.reload(); return false;">Calculate again</a>
+                                    </p>
+                                `;
+                                
+                                // Replace form with results
+                                form.parentNode.innerHTML = resultsHTML;
+                            }
+                        });
+                    </script>
 
                     <h2 class="govuk-heading-l">Current tax rates (2024-25)</h2>
                     

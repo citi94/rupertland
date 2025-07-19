@@ -95,55 +95,322 @@
 
                     <h2 class="govuk-heading-l">Search property records</h2>
                     
+                    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary" style="display: none;" id="error-summary">
+                        <h2 class="govuk-error-summary__title" id="error-summary-title">
+                            There is a problem
+                        </h2>
+                        <div class="govuk-error-summary__body">
+                            <ul class="govuk-list govuk-error-summary__list">
+                                <!-- Errors will be populated here by JavaScript -->
+                            </ul>
+                        </div>
+                    </div>
+                    
                     <form action="/services/property-search" method="post" novalidate>
-                        <div class="govuk-form-group">
-                            <fieldset class="govuk-fieldset">
+                        <div class="govuk-form-group" id="search-type-group">
+                            <fieldset class="govuk-fieldset" aria-describedby="search-type-hint">
                                 <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
                                     How do you want to search?
                                 </legend>
+                                <div id="search-type-hint" class="govuk-hint">
+                                    Choose the type of search that matches the information you have
+                                </div>
                                 <div class="govuk-radios">
                                     <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="search-address" name="search-type" type="radio" value="address" checked required>
+                                        <input class="govuk-radios__input" id="search-address" name="search-type" type="radio" value="address" checked required data-required="true" data-error-message="Select how you want to search">
                                         <label class="govuk-label govuk-radios__label" for="search-address">
                                             By property address
                                         </label>
+                                        <div id="search-address-item-hint" class="govuk-hint govuk-radios__hint">
+                                            For example, "123 Main Street, Capital District"
+                                        </div>
                                     </div>
                                     <div class="govuk-radios__item">
                                         <input class="govuk-radios__input" id="search-title" name="search-type" type="radio" value="title">
                                         <label class="govuk-label govuk-radios__label" for="search-title">
                                             By title number
                                         </label>
+                                        <div id="search-title-item-hint" class="govuk-hint govuk-radios__hint">
+                                            For example, "RP123456"
+                                        </div>
                                     </div>
                                     <div class="govuk-radios__item">
                                         <input class="govuk-radios__input" id="search-owner" name="search-type" type="radio" value="owner">
                                         <label class="govuk-label govuk-radios__label" for="search-owner">
                                             By owner name
                                         </label>
+                                        <div id="search-owner-item-hint" class="govuk-hint govuk-radios__hint">
+                                            Current registered owner's full name
+                                        </div>
                                     </div>
                                     <div class="govuk-radios__item">
                                         <input class="govuk-radios__input" id="search-map" name="search-type" type="radio" value="map">
                                         <label class="govuk-label govuk-radios__label" for="search-map">
                                             Interactive map search
                                         </label>
+                                        <div id="search-map-item-hint" class="govuk-hint govuk-radios__hint">
+                                            Find properties using our online map tool
+                                        </div>
                                     </div>
                                 </div>
                             </fieldset>
                         </div>
 
-                        <div class="govuk-form-group">
+                        <div class="govuk-form-group" id="search-query-group">
                             <label class="govuk-label govuk-label--m" for="search-query">
                                 Enter search details
                             </label>
                             <div id="search-query-hint" class="govuk-hint">
-                                Enter the property address, title number, or owner name
+                                Enter the property address, title number, or owner name based on your selection above
                             </div>
-                            <input class="govuk-input govuk-input--width-20" id="search-query" name="search-query" type="text" aria-describedby="search-query-hint" required autocomplete="off">
+                            <input class="govuk-input govuk-input--width-20" id="search-query" name="search-query" type="text" aria-describedby="search-query-hint" required autocomplete="off" data-required="true" data-error-message="Enter your search details">
                         </div>
 
-                        <button class="govuk-button" data-module="govuk-button">
+                        <button class="govuk-button" data-module="govuk-button" type="submit">
                             Search property records
                         </button>
                     </form>
+
+                    <script>
+                        // GOV.UK compliant form validation for property search
+                        document.addEventListener('DOMContentLoaded', function() {
+                            const form = document.querySelector('form');
+                            const errorSummary = document.getElementById('error-summary');
+                            const searchQuery = document.getElementById('search-query');
+                            const searchTypeRadios = document.querySelectorAll('input[name="search-type"]');
+                            
+                            // Update input placeholder based on search type
+                            function updateSearchInput() {
+                                const selectedType = document.querySelector('input[name="search-type"]:checked');
+                                if (selectedType) {
+                                    switch(selectedType.value) {
+                                        case 'address':
+                                            searchQuery.placeholder = 'e.g. 123 Main Street, Capital District';
+                                            break;
+                                        case 'title':
+                                            searchQuery.placeholder = 'e.g. RP123456';
+                                            break;
+                                        case 'owner':
+                                            searchQuery.placeholder = 'e.g. John Smith';
+                                            break;
+                                        case 'map':
+                                            searchQuery.placeholder = 'This will open interactive map';
+                                            break;
+                                    }
+                                }
+                            }
+                            
+                            // Add event listeners to radio buttons
+                            searchTypeRadios.forEach(function(radio) {
+                                radio.addEventListener('change', updateSearchInput);
+                            });
+                            
+                            // Initialize placeholder
+                            updateSearchInput();
+                            
+                            function showError(fieldId, errorMessage) {
+                                const fieldGroup = document.getElementById(fieldId + '-group');
+                                const field = document.getElementById(fieldId);
+                                
+                                // Add error classes
+                                fieldGroup.classList.add('govuk-form-group--error');
+                                if (field.type === 'text') {
+                                    field.classList.add('govuk-input--error');
+                                }
+                                field.setAttribute('aria-invalid', 'true');
+                                
+                                // Add error message
+                                let errorElement = document.getElementById(fieldId + '-error');
+                                if (!errorElement) {
+                                    errorElement = document.createElement('p');
+                                    errorElement.id = fieldId + '-error';
+                                    errorElement.className = 'govuk-error-message';
+                                    errorElement.innerHTML = '<span class="govuk-visually-hidden">Error:</span> ' + errorMessage;
+                                    
+                                    const hint = document.getElementById(fieldId + '-hint');
+                                    if (hint) {
+                                        hint.insertAdjacentElement('afterend', errorElement);
+                                    } else {
+                                        field.insertAdjacentElement('beforebegin', errorElement);
+                                    }
+                                    
+                                    // Update aria-describedby
+                                    const describedBy = field.getAttribute('aria-describedby') || '';
+                                    field.setAttribute('aria-describedby', describedBy + ' ' + fieldId + '-error');
+                                }
+                            }
+                            
+                            function clearError(fieldId) {
+                                const fieldGroup = document.getElementById(fieldId + '-group');
+                                const field = document.getElementById(fieldId);
+                                const errorElement = document.getElementById(fieldId + '-error');
+                                
+                                if (fieldGroup) fieldGroup.classList.remove('govuk-form-group--error');
+                                if (field) {
+                                    field.classList.remove('govuk-input--error');
+                                    field.setAttribute('aria-invalid', 'false');
+                                }
+                                if (errorElement) errorElement.remove();
+                            }
+                            
+                            function validateForm() {
+                                let errors = [];
+                                
+                                // Clear previous errors
+                                clearError('search-type');
+                                clearError('search-query');
+                                
+                                // Validate search type selection
+                                const searchType = document.querySelector('input[name="search-type"]:checked');
+                                if (!searchType) {
+                                    errors.push({
+                                        field: 'search-type',
+                                        message: 'Select how you want to search',
+                                        link: '#search-address'
+                                    });
+                                    showError('search-type', 'Select how you want to search');
+                                }
+                                
+                                // Validate search query
+                                const query = searchQuery.value.trim();
+                                if (!query) {
+                                    errors.push({
+                                        field: 'search-query',
+                                        message: 'Enter your search details',
+                                        link: '#search-query'
+                                    });
+                                    showError('search-query', 'Enter your search details');
+                                } else if (searchType) {
+                                    // Validate format based on search type
+                                    if (searchType.value === 'title' && !query.match(/^RP\d{6}$/i)) {
+                                        errors.push({
+                                            field: 'search-query',
+                                            message: 'Enter a valid title number, for example RP123456',
+                                            link: '#search-query'
+                                        });
+                                        showError('search-query', 'Enter a valid title number, for example RP123456');
+                                    } else if (searchType.value === 'owner' && query.length < 2) {
+                                        errors.push({
+                                            field: 'search-query',
+                                            message: 'Enter at least 2 characters for owner name search',
+                                            link: '#search-query'
+                                        });
+                                        showError('search-query', 'Enter at least 2 characters for owner name search');
+                                    }
+                                }
+                                
+                                // Show error summary if errors exist
+                                if (errors.length > 0) {
+                                    const errorList = errorSummary.querySelector('.govuk-error-summary__list');
+                                    errorList.innerHTML = '';
+                                    
+                                    errors.forEach(function(error) {
+                                        const li = document.createElement('li');
+                                        li.innerHTML = '<a href="' + error.link + '">' + error.message + '</a>';
+                                        errorList.appendChild(li);
+                                    });
+                                    
+                                    errorSummary.style.display = 'block';
+                                    errorSummary.scrollIntoView();
+                                    errorSummary.focus();
+                                    
+                                    return false;
+                                } else {
+                                    errorSummary.style.display = 'none';
+                                    return true;
+                                }
+                            }
+                            
+                            // Form submission handler
+                            form.addEventListener('submit', function(e) {
+                                e.preventDefault();
+                                
+                                if (validateForm()) {
+                                    // Show search results
+                                    showSearchResults();
+                                }
+                            });
+                            
+                            function showSearchResults() {
+                                const searchType = document.querySelector('input[name="search-type"]:checked').value;
+                                const query = searchQuery.value.trim();
+                                
+                                // Simulate search results
+                                const resultsHTML = `
+                                    <div class="govuk-panel govuk-panel--confirmation">
+                                        <h2 class="govuk-panel__title">Search complete</h2>
+                                        <div class="govuk-panel__body">
+                                            Found <strong>3 properties</strong> matching your search
+                                        </div>
+                                    </div>
+                                    
+                                    <h3 class="govuk-heading-m">Search results</h3>
+                                    <p class="govuk-body">Showing results for <strong>${searchType}</strong>: "${query}"</p>
+                                    
+                                    <div class="govuk-summary-card">
+                                        <div class="govuk-summary-card__title-wrapper">
+                                            <h4 class="govuk-summary-card__title">123 Main Street, Capital District</h4>
+                                            <ul class="govuk-summary-card__actions">
+                                                <li class="govuk-summary-card__action">
+                                                    <a class="govuk-link" href="/services/property-details/RP123456">View details</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="govuk-summary-card__content">
+                                            <dl class="govuk-summary-list">
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">Title number</dt>
+                                                    <dd class="govuk-summary-list__value">RP123456</dd>
+                                                </div>
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">Owner</dt>
+                                                    <dd class="govuk-summary-list__value">John Smith</dd>
+                                                </div>
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">Property type</dt>
+                                                    <dd class="govuk-summary-list__value">Residential - Detached house</dd>
+                                                </div>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="govuk-summary-card">
+                                        <div class="govuk-summary-card__title-wrapper">
+                                            <h4 class="govuk-summary-card__title">125 Main Street, Capital District</h4>
+                                            <ul class="govuk-summary-card__actions">
+                                                <li class="govuk-summary-card__action">
+                                                    <a class="govuk-link" href="/services/property-details/RP123457">View details</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="govuk-summary-card__content">
+                                            <dl class="govuk-summary-list">
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">Title number</dt>
+                                                    <dd class="govuk-summary-list__value">RP123457</dd>
+                                                </div>
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">Owner</dt>
+                                                    <dd class="govuk-summary-list__value">Jane Wilson</dd>
+                                                </div>
+                                                <div class="govuk-summary-list__row">
+                                                    <dt class="govuk-summary-list__key">Property type</dt>
+                                                    <dd class="govuk-summary-list__value">Residential - Terraced house</dd>
+                                                </div>
+                                            </dl>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="govuk-body">
+                                        <a href="#" class="govuk-link" onclick="window.location.reload(); return false;">Search again</a>
+                                    </p>
+                                `;
+                                
+                                // Replace form with results
+                                form.parentNode.innerHTML = resultsHTML;
+                            }
+                        });
+                    </script>
 
                     <div class="govuk-inset-text">
                         <p>
