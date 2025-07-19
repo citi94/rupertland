@@ -24,15 +24,108 @@
 
 [[redirects]]
   from = "/laws"
-  to = "/laws-regulations.html"
+  to = "/laws-regulations"
   status = 301
 
 [[redirects]]
   from = "/tourism"
-  to = "/tourism-culture.html"
+  to = "/tourism-culture"
   status = 301
 
 [[redirects]]
   from = "/culture"
-  to = "/tourism-culture.html"
+  to = "/tourism-culture"
   status = 301
+
+# Redirect common government sections to coming soon page
+[[redirects]]
+  from = "/benefits"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/business"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/education"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/environment"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/health"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/driving"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/departments"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/policy"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/transparency"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/guidance"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/help"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/privacy"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/cookies"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/accessibility"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/terms"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/feedback"
+  to = "/coming-soon"
+  status = 302
+
+[[redirects]]
+  from = "/newsletter"
+  to = "/coming-soon"
+  status = 302
+
+# Catch-all redirect for any other undefined pages
+[[redirects]]
+  from = "/*"
+  to = "/coming-soon"
+  status = 302
+  force = false
