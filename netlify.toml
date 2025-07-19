@@ -39,50 +39,7 @@
 
 # These pages now have real content - no redirects needed
 
-[[redirects]]
-  from = "/departments"
-  to = "/coming-soon"
-  status = 302
-
-[[redirects]]
-  from = "/policy"
-  to = "/coming-soon"
-  status = 302
-
-[[redirects]]
-  from = "/transparency"
-  to = "/coming-soon"
-  status = 302
-
-[[redirects]]
-  from = "/guidance"
-  to = "/coming-soon"
-  status = 302
-
-[[redirects]]
-  from = "/help"
-  to = "/coming-soon"
-  status = 302
-
-[[redirects]]
-  from = "/privacy"
-  to = "/coming-soon"
-  status = 302
-
-[[redirects]]
-  from = "/cookies"
-  to = "/coming-soon"
-  status = 302
-
-[[redirects]]
-  from = "/accessibility"
-  to = "/coming-soon"
-  status = 302
-
-[[redirects]]
-  from = "/terms"
-  to = "/coming-soon"
-  status = 302
+# All major pages now have real content - no more coming soon redirects needed
 
 [[redirects]]
   from = "/feedback"
