@@ -95,80 +95,38 @@
 
                     <h2 class="govuk-heading-l">Search property records</h2>
                     
-                    <div class="govuk-error-summary" aria-labelledby="error-summary-title" role="alert" data-module="govuk-error-summary" style="display: none;" id="error-summary">
-                        <h2 class="govuk-error-summary__title" id="error-summary-title">
-                            There is a problem
-                        </h2>
-                        <div class="govuk-error-summary__body">
-                            <ul class="govuk-list govuk-error-summary__list">
-                                <!-- Errors will be populated here by JavaScript -->
-                            </ul>
-                        </div>
-                    </div>
                     
-                    <form action="/services/property-search" method="post" novalidate>
-                        <div class="govuk-form-group" id="search-type-group">
-                            <fieldset class="govuk-fieldset" aria-describedby="search-type-hint">
-                                <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
-                                    How do you want to search?
-                                </legend>
-                                <div id="search-type-hint" class="govuk-hint">
-                                    Choose the type of search that matches the information you have
-                                </div>
-                                <div class="govuk-radios">
-                                    <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="search-address" name="search-type" type="radio" value="address" checked required data-required="true" data-error-message="Select how you want to search">
-                                        <label class="govuk-label govuk-radios__label" for="search-address">
-                                            By property address
-                                        </label>
-                                        <div id="search-address-item-hint" class="govuk-hint govuk-radios__hint">
-                                            For example, "123 Main Street, Capital District"
-                                        </div>
-                                    </div>
-                                    <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="search-title" name="search-type" type="radio" value="title">
-                                        <label class="govuk-label govuk-radios__label" for="search-title">
-                                            By title number
-                                        </label>
-                                        <div id="search-title-item-hint" class="govuk-hint govuk-radios__hint">
-                                            For example, "RP123456"
-                                        </div>
-                                    </div>
-                                    <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="search-owner" name="search-type" type="radio" value="owner">
-                                        <label class="govuk-label govuk-radios__label" for="search-owner">
-                                            By owner name
-                                        </label>
-                                        <div id="search-owner-item-hint" class="govuk-hint govuk-radios__hint">
-                                            Current registered owner's full name
-                                        </div>
-                                    </div>
-                                    <div class="govuk-radios__item">
-                                        <input class="govuk-radios__input" id="search-map" name="search-type" type="radio" value="map">
-                                        <label class="govuk-label govuk-radios__label" for="search-map">
-                                            Interactive map search
-                                        </label>
-                                        <div id="search-map-item-hint" class="govuk-hint govuk-radios__hint">
-                                            Find properties using our online map tool
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset>
-                        </div>
-
-                        <div class="govuk-form-group" id="search-query-group">
-                            <label class="govuk-label govuk-label--m" for="search-query">
-                                Enter search details
-                            </label>
-                            <div id="search-query-hint" class="govuk-hint">
-                                Enter the property address, title number, or owner name based on your selection above
+                    <form onsubmit="searchProperty(event)">
+                        <div class="form-group">
+                            <label class="form-label">How do you want to search?</label>
+                            <div class="form-hint">Choose the type of search that matches the information you have</div>
+                            <div class="radio-group">
+                                <label class="radio-item">
+                                    <input type="radio" name="search-type" value="address" checked required>
+                                    By property address - For example, "123 Main Street, Capital District"
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="search-type" value="title">
+                                    By title number - For example, "RP123456"
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="search-type" value="owner">
+                                    By owner name - Current registered owner's full name
+                                </label>
+                                <label class="radio-item">
+                                    <input type="radio" name="search-type" value="map">
+                                    Interactive map search - Find properties using our online map tool
+                                </label>
                             </div>
-                            <input class="govuk-input govuk-input--width-20" id="search-query" name="search-query" type="text" aria-describedby="search-query-hint" required autocomplete="off" data-required="true" data-error-message="Enter your search details">
                         </div>
 
-                        <button class="govuk-button" data-module="govuk-button" type="submit">
-                            Search property records
-                        </button>
+                        <div class="form-group">
+                            <label class="form-label" for="search-query">Enter search details</label>
+                            <div class="form-hint">Enter the property address, title number, or owner name based on your selection above</div>
+                            <input type="text" id="search-query" class="form-input" placeholder="e.g. 123 Main Street, Capital District" required>
+                        </div>
+
+                        <button type="submit" class="button">Search property records</button>
                     </form>
 
                     <script>
@@ -763,5 +721,75 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function updateSearchInput() {
+            const selectedType = document.querySelector('input[name="search-type"]:checked');
+            const searchQuery = document.getElementById('search-query');
+            if (selectedType) {
+                switch(selectedType.value) {
+                    case 'address':
+                        searchQuery.placeholder = 'e.g. 123 Main Street, Capital District';
+                        break;
+                    case 'title':
+                        searchQuery.placeholder = 'e.g. RP123456';
+                        break;
+                    case 'owner':
+                        searchQuery.placeholder = 'e.g. John Smith';
+                        break;
+                    case 'map':
+                        searchQuery.placeholder = 'This will open interactive map';
+                        break;
+                }
+            }
+        }
+        
+        // Add event listeners to radio buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchTypeRadios = document.querySelectorAll('input[name="search-type"]');
+            searchTypeRadios.forEach(function(radio) {
+                radio.addEventListener('change', updateSearchInput);
+            });
+            updateSearchInput();
+        });
+        
+        function searchProperty(event) {
+            event.preventDefault();
+            
+            const searchType = document.querySelector('input[name="search-type"]:checked');
+            const query = document.getElementById('search-query').value.trim();
+            
+            if (!searchType) {
+                alert('Please select how you want to search');
+                return;
+            }
+            
+            if (!query) {
+                alert('Please enter your search details');
+                return;
+            }
+            
+            // Simulate search results
+            const results = `
+                <div class="success-panel">
+                    <h2>Search Results</h2>
+                    <p>Found 3 properties matching "${query}" (${searchType.value})</p>
+                </div>
+                
+                <h3>Property Records</h3>
+                <table>
+                    <tr><th>Address</th><th>Title Number</th><th>Owner</th><th>Price</th></tr>
+                    <tr><td>123 Royal Avenue, Capital District</td><td>RP789012</td><td>Sarah Johnson</td><td>RP 450,000</td></tr>
+                    <tr><td>456 Castle Street, Historic Quarter</td><td>RP345678</td><td>Michael Chen</td><td>RP 680,000</td></tr>
+                    <tr><td>789 Crown Road, New Town</td><td>RP901234</td><td>Emma Williams</td><td>RP 320,000</td></tr>
+                </table>
+                
+                <p><em>This is a demonstration. In a real system, these would be actual property records.</em></p>
+                <button class="button" onclick="location.reload()">Search again</button>
+            `;
+            
+            document.querySelector('form').innerHTML = results;
+        }
+    </script>
 </body>
 </html>
