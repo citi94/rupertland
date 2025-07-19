@@ -42,14 +42,14 @@
 # All major pages now have real content - no more coming soon redirects needed
 
 [[redirects]]
-  from = "/feedback"
+  from = "/newsletter"
   to = "/coming-soon"
   status = 302
 
 [[redirects]]
-  from = "/newsletter"
-  to = "/coming-soon"
-  status = 302
+  from = "/consultations"
+  to = "/consultation"
+  status = 301
 
 # Catch-all redirect for any other undefined pages
 [[redirects]]

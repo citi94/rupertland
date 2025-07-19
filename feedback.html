@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Feedback - GOV.RP</title>
+    <meta name="description" content="Provide feedback on government services and help us improve the Principality of Rupertland website.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏰</text></svg>">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class="govuk-template__body">
+    <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+
+    <header class="govuk-header" role="banner">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">GOV.RP</span>
+                    </span>
+                </a>
+            </div>
+            <div class="govuk-header__content">
+                <a href="/" class="govuk-header__link govuk-header__service-name">
+                    Principality of Rupertland
+                </a>
+                <nav aria-label="Top level navigation" class="govuk-header__navigation">
+                    <ul id="navigation" class="govuk-header__navigation-list">
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/">Home</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/about">About Rupertland</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/services">Services</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/news">News</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/laws-regulations">Laws</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/tourism-culture">Tourism</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="govuk-width-container">
+        <main class="govuk-main-wrapper" id="main-content" role="main">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">Give feedback</h1>
+                    
+                    <p class="govuk-body-l">
+                        Help us improve government services by sharing your feedback and suggestions.
+                    </p>
+
+                    <h2 class="govuk-heading-l">What kind of feedback do you want to give?</h2>
+                    
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <div class="govuk-radios">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="feedback-website" name="feedback-type" type="radio" value="website">
+                                    <label class="govuk-label govuk-radios__label" for="feedback-website">
+                                        This website (GOV.RP)
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="feedback-service" name="feedback-type" type="radio" value="service">
+                                    <label class="govuk-label govuk-radios__label" for="feedback-service">
+                                        A government service
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="feedback-policy" name="feedback-type" type="radio" value="policy">
+                                    <label class="govuk-label govuk-radios__label" for="feedback-policy">
+                                        Government policy
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="feedback-general" name="feedback-type" type="radio" value="general">
+                                    <label class="govuk-label govuk-radios__label" for="feedback-general">
+                                        General feedback or suggestion
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="feedback-details">
+                            Tell us more about your feedback
+                        </label>
+                        <div id="feedback-details-hint" class="govuk-hint">
+                            Please provide as much detail as possible. This helps us understand and address your feedback effectively.
+                        </div>
+                        <textarea class="govuk-textarea" id="feedback-details" name="feedback-details" rows="8" aria-describedby="feedback-details-hint"></textarea>
+                    </div>
+
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="contact-email">
+                            Your email address (optional)
+                        </label>
+                        <div id="contact-email-hint" class="govuk-hint">
+                            We'll only use this to follow up on your feedback if needed.
+                        </div>
+                        <input class="govuk-input govuk-input--width-20" id="contact-email" name="contact-email" type="email" aria-describedby="contact-email-hint">
+                    </div>
+
+                    <div class="govuk-form-group">
+                        <fieldset class="govuk-fieldset">
+                            <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                                Can we contact you about your feedback?
+                            </legend>
+                            <div class="govuk-radios govuk-radios--inline">
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="contact-yes" name="contact-permission" type="radio" value="yes">
+                                    <label class="govuk-label govuk-radios__label" for="contact-yes">
+                                        Yes
+                                    </label>
+                                </div>
+                                <div class="govuk-radios__item">
+                                    <input class="govuk-radios__input" id="contact-no" name="contact-permission" type="radio" value="no">
+                                    <label class="govuk-label govuk-radios__label" for="contact-no">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+
+                    <button class="govuk-button" data-module="govuk-button">
+                        Send feedback
+                    </button>
+
+                    <h2 class="govuk-heading-l">Other ways to give feedback</h2>
+                    
+                    <h3 class="govuk-heading-m">Phone</h3>
+                    <p class="govuk-body">
+                        Call our feedback line: <strong>0800-FEEDBACK (0800-333-3322)</strong><br>
+                        Monday to Friday, 8am to 6pm
+                    </p>
+
+                    <h3 class="govuk-heading-m">Post</h3>
+                    <p class="govuk-body">
+                        Write to us at:<br>
+                        Public Feedback Office<br>
+                        Government Complex<br>
+                        Capital District<br>
+                        Rupertland RP1 1AA
+                    </p>
+
+                    <h3 class="govuk-heading-m">In person</h3>
+                    <p class="govuk-body">
+                        Visit any <a href="/locations/citizen-services" class="govuk-link">Citizen Service Centre</a> 
+                        to speak with someone in person.
+                    </p>
+
+                    <h2 class="govuk-heading-l">What happens to your feedback</h2>
+                    
+                    <p class="govuk-body">Your feedback helps us:</p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Improve government services</li>
+                        <li>Fix problems with websites and applications</li>
+                        <li>Develop better policies</li>
+                        <li>Understand what citizens need</li>
+                    </ul>
+
+                    <p class="govuk-body">
+                        We review all feedback and use it to make improvements. While we can't respond to every piece of feedback individually, your input is valuable and helps shape government services.
+                    </p>
+
+                    <div class="govuk-inset-text">
+                        <p>
+                            For urgent issues or complaints about specific services, please use our 
+                            <a href="/complaints" class="govuk-link">complaints procedure</a> instead.
+                        </p>
+                    </div>
+
+                    <h2 class="govuk-heading-l">Privacy and data protection</h2>
+                    
+                    <p class="govuk-body">
+                        We handle your feedback in accordance with our <a href="/privacy" class="govuk-link">privacy policy</a>. 
+                        Your personal information will only be used to follow up on your feedback if you give permission.
+                    </p>
+                </div>
+
+                <div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items" role="complementary">
+                        <h2 class="govuk-heading-m">Related content</h2>
+                        <nav role="navigation">
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><a href="/complaints" class="govuk-link">Make a complaint</a></li>
+                                <li><a href="/consultations" class="govuk-link">Government consultations</a></li>
+                                <li><a href="/help" class="govuk-link">Help using services</a></li>
+                                <li><a href="/contact" class="govuk-link">Contact government</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="govuk-footer" role="contentinfo">
+        <div class="govuk-width-container">
+            <div class="govuk-footer__navigation">
+                <div class="govuk-footer__section govuk-grid-column-two-thirds">
+                    <h2 class="govuk-footer__heading govuk-heading-m">Services and information</h2>
+                    <ul class="govuk-footer__list govuk-footer__list--columns-2">
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/benefits">Benefits</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/births-deaths-marriages">Births, deaths, marriages</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/business">Business and industry</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/environment">Environment</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/education">Education and learning</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/driving">Driving and transport</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-footer__section govuk-grid-column-one-third">
+                    <h2 class="govuk-footer__heading govuk-heading-m">Government activity</h2>
+                    <ul class="govuk-footer__list">
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/departments">Departments</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/news">News</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/guidance">Guidance and regulation</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/policy">Policy papers</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/transparency">Transparency</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="govuk-footer__section-break">
+            <div class="govuk-footer__meta">
+                <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                    <ul class="govuk-footer__inline-list">
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/help">Help</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/privacy">Privacy</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/cookies">Cookies</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/accessibility">Accessibility statement</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/contact">Contact</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/terms">Terms and conditions</a>
+                        </li>
+                    </ul>
+                    <span class="govuk-footer__licence-description">
+                        All content is available under the Open Government Licence v3.0, except where otherwise stated
+                    </span>
+                </div>
+                <div class="govuk-footer__meta-item">
+                    <a class="govuk-footer__link govuk-footer__copyright-logo" href="#">© Crown copyright</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
