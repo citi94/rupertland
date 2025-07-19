@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>RSS Feeds - GOV.RP</title>
+    <meta name="description" content="Subscribe to RSS feeds for automated updates from the Principality of Rupertland government websites.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏰</text></svg>">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body class="govuk-template__body">
+    <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+
+    <header class="govuk-header" role="banner">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="/" class="govuk-header__link govuk-header__link--homepage">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">GOV.RP</span>
+                    </span>
+                </a>
+            </div>
+            <div class="govuk-header__content">
+                <a href="/" class="govuk-header__link govuk-header__service-name">
+                    Principality of Rupertland
+                </a>
+                <nav aria-label="Top level navigation" class="govuk-header__navigation">
+                    <ul id="navigation" class="govuk-header__navigation-list">
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/">Home</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/about">About Rupertland</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/services">Services</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/news">News</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/laws-regulations">Laws</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/tourism-culture">Tourism</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link" href="/contact">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="govuk-width-container">
+        <div class="govuk-breadcrumbs">
+            <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="/">Home</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="/news">News</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    RSS Feeds
+                </li>
+            </ol>
+        </div>
+
+        <main class="govuk-main-wrapper" id="main-content" role="main">
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-two-thirds">
+                    <h1 class="govuk-heading-xl">RSS Feeds</h1>
+                    
+                    <p class="govuk-body-l">
+                        Subscribe to RSS feeds to automatically receive updates from Rupertland government websites 
+                        in your preferred RSS reader or news aggregator.
+                    </p>
+
+                    <div class="govuk-inset-text">
+                        <strong>What is RSS?</strong> RSS (Really Simple Syndication) allows you to receive automatic 
+                        updates from websites without visiting them directly. You'll need an RSS reader app or browser extension.
+                    </div>
+
+                    <h2 class="govuk-heading-l">Available RSS Feeds</h2>
+
+                    <h3 class="govuk-heading-m">News and Updates</h3>
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h4 class="govuk-heading-s">All Government News</h4>
+                        <p class="govuk-body">Complete feed of all government announcements, policy updates, and news releases.</p>
+                        <p class="govuk-body">
+                            <strong>Feed URL:</strong> <code>https://gov.rp/feeds/news.xml</code><br>
+                            <strong>Updates:</strong> Daily<br>
+                            <strong>Items:</strong> Last 50 articles
+                        </p>
+                        <p class="govuk-body">
+                            <a href="/feeds/news.xml" class="govuk-link">Subscribe to news feed</a>
+                        </p>
+                    </div>
+
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h4 class="govuk-heading-s">Press Releases</h4>
+                        <p class="govuk-body">Official press releases and media announcements from government departments.</p>
+                        <p class="govuk-body">
+                            <strong>Feed URL:</strong> <code>https://gov.rp/feeds/press.xml</code><br>
+                            <strong>Updates:</strong> As published<br>
+                            <strong>Items:</strong> Last 25 releases
+                        </p>
+                        <p class="govuk-body">
+                            <a href="/feeds/press.xml" class="govuk-link">Subscribe to press releases</a>
+                        </p>
+                    </div>
+
+                    <h3 class="govuk-heading-m">Department Feeds</h3>
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h4 class="govuk-heading-s">Ministry of Environment</h4>
+                        <p class="govuk-body">Environmental policy updates, sustainability initiatives, and climate action news.</p>
+                        <p class="govuk-body">
+                            <a href="/feeds/environment.xml" class="govuk-link">Subscribe to environment feed</a>
+                        </p>
+                    </div>
+
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h4 class="govuk-heading-s">Ministry of Commerce</h4>
+                        <p class="govuk-body">Business regulations, trade announcements, and economic development updates.</p>
+                        <p class="govuk-body">
+                            <a href="/feeds/commerce.xml" class="govuk-link">Subscribe to commerce feed</a>
+                        </p>
+                    </div>
+
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h4 class="govuk-heading-s">Ministry of Culture</h4>
+                        <p class="govuk-body">Cultural events, tourism updates, arts funding, and heritage preservation news.</p>
+                        <p class="govuk-body">
+                            <a href="/feeds/culture.xml" class="govuk-link">Subscribe to culture feed</a>
+                        </p>
+                    </div>
+
+                    <h3 class="govuk-heading-m">Specialized Feeds</h3>
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h4 class="govuk-heading-s">New Legislation</h4>
+                        <p class="govuk-body">Updates when new laws, regulations, or legal guidance are published.</p>
+                        <p class="govuk-body">
+                            <a href="/feeds/legislation.xml" class="govuk-link">Subscribe to legislation feed</a>
+                        </p>
+                    </div>
+
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h4 class="govuk-heading-s">Public Consultations</h4>
+                        <p class="govuk-body">New consultation opportunities and calls for public input on policy development.</p>
+                        <p class="govuk-body">
+                            <a href="/feeds/consultations.xml" class="govuk-link">Subscribe to consultations feed</a>
+                        </p>
+                    </div>
+
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h4 class="govuk-heading-s">Parliamentary Updates</h4>
+                        <p class="govuk-body">Parliamentary session schedules, voting results, and legislative progress.</p>
+                        <p class="govuk-body">
+                            <a href="/feeds/parliament.xml" class="govuk-link">Subscribe to parliament feed</a>
+                        </p>
+                    </div>
+
+                    <h2 class="govuk-heading-l">How to Use RSS Feeds</h2>
+
+                    <h3 class="govuk-heading-m">Popular RSS Readers</h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li><strong>Desktop:</strong> Thunderbird, Outlook, Apple Mail</li>
+                        <li><strong>Web-based:</strong> Feedly, Inoreader, The Old Reader</li>
+                        <li><strong>Mobile:</strong> Feedly app, RSS Reader apps</li>
+                        <li><strong>Browser extensions:</strong> RSS Feed Reader for Chrome, Firefox</li>
+                    </ul>
+
+                    <h3 class="govuk-heading-m">Setting Up RSS</h3>
+                    <ol class="govuk-list govuk-list--number">
+                        <li>Choose an RSS reader application or service</li>
+                        <li>Copy the feed URL from the feeds listed above</li>
+                        <li>Add the feed URL to your RSS reader</li>
+                        <li>Configure update frequency (recommended: check every hour)</li>
+                        <li>Organize feeds into folders by topic if desired</li>
+                    </ol>
+
+                    <h2 class="govuk-heading-l">Feed Information</h2>
+
+                    <h3 class="govuk-heading-m">Technical Details</h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li><strong>Format:</strong> RSS 2.0 and Atom 1.0 supported</li>
+                        <li><strong>Encoding:</strong> UTF-8</li>
+                        <li><strong>Update frequency:</strong> Varies by feed (hourly to daily)</li>
+                        <li><strong>Item retention:</strong> 25-50 most recent items per feed</li>
+                        <li><strong>Full content:</strong> Complete article text included in most feeds</li>
+                    </ul>
+
+                    <h3 class="govuk-heading-m">Feed Policies</h3>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>RSS feeds are provided free of charge for personal and non-commercial use</li>
+                        <li>Commercial use requires permission - contact <a href="mailto:feeds@gov.rp" class="govuk-link">feeds@gov.rp</a></li>
+                        <li>Feeds may be discontinued or modified with 30 days notice</li>
+                        <li>No guaranteed service level - feeds provided "as is"</li>
+                        <li>Rate limiting applies to prevent abuse</li>
+                    </ul>
+
+                    <h2 class="govuk-heading-l">Alternative Options</h2>
+
+                    <div class="govuk-grid-row">
+                        <div class="govuk-grid-column-one-half">
+                            <h3 class="govuk-heading-m">Email Newsletter</h3>
+                            <p class="govuk-body">
+                                Prefer email updates? Subscribe to our weekly government newsletter.
+                            </p>
+                            <p class="govuk-body">
+                                <a href="/newsletter" class="govuk-link">Subscribe to newsletter</a>
+                            </p>
+                        </div>
+                        <div class="govuk-grid-column-one-half">
+                            <h3 class="govuk-heading-m">Social Media</h3>
+                            <p class="govuk-body">
+                                Follow official government social media accounts for real-time updates.
+                            </p>
+                            <p class="govuk-body">
+                                <a href="/social-media" class="govuk-link">Social media accounts</a>
+                            </p>
+                        </div>
+                    </div>
+
+                    <h2 class="govuk-heading-l">Support</h2>
+
+                    <p class="govuk-body">
+                        Need help with RSS feeds or have suggestions for new feeds?
+                    </p>
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Email: <a href="mailto:feeds@gov.rp" class="govuk-link">feeds@gov.rp</a></li>
+                        <li>Phone: +41 555 123 456</li>
+                        <li>Office hours: Monday to Friday, 8:30 AM - 5:00 PM</li>
+                    </ul>
+                </div>
+
+                <div class="govuk-grid-column-one-third">
+                    <aside class="app-related-items" role="complementary">
+                        <h2 class="govuk-heading-m">Feed statistics</h2>
+                        <div style="background-color: #f8f8f8; padding: 15px; margin-bottom: 20px;">
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><strong>Total feeds:</strong> 8 available</li>
+                                <li><strong>Active subscribers:</strong> 2,340</li>
+                                <li><strong>Most popular:</strong> All Government News</li>
+                                <li><strong>Update frequency:</strong> Every hour</li>
+                                <li><strong>Average items per day:</strong> 3-5</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="govuk-heading-m">Quick subscribe</h2>
+                        <p class="govuk-body govuk-!-font-size-16">
+                            Copy and paste these URLs into your RSS reader:
+                        </p>
+                        <div style="background-color: #f3f2f1; padding: 15px; margin-bottom: 20px; font-family: monospace; font-size: 14px;">
+                            <p style="margin: 0; line-height: 1.4;">
+                                <strong>All News:</strong><br>
+                                https://gov.rp/feeds/news.xml<br><br>
+                                <strong>Press Releases:</strong><br>
+                                https://gov.rp/feeds/press.xml<br><br>
+                                <strong>New Laws:</strong><br>
+                                https://gov.rp/feeds/legislation.xml
+                            </p>
+                        </div>
+
+                        <h2 class="govuk-heading-m">RSS help</h2>
+                        <nav role="navigation">
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><a href="/help/rss" class="govuk-link">RSS setup guide</a></li>
+                                <li><a href="/help/feed-readers" class="govuk-link">Recommended RSS readers</a></li>
+                                <li><a href="/help/troubleshooting" class="govuk-link">Troubleshooting feeds</a></li>
+                            </ul>
+                        </nav>
+
+                        <h2 class="govuk-heading-m">Feed formats</h2>
+                        <p class="govuk-body govuk-!-font-size-16">
+                            All feeds available in multiple formats:
+                        </p>
+                        <ul class="govuk-list govuk-!-font-size-16">
+                            <li>RSS 2.0 (recommended)</li>
+                            <li>Atom 1.0</li>
+                            <li>JSON Feed</li>
+                        </ul>
+
+                        <h2 class="govuk-heading-m">Related services</h2>
+                        <nav role="navigation">
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><a href="/newsletter" class="govuk-link">Email newsletter</a></li>
+                                <li><a href="/alerts" class="govuk-link">Emergency alerts</a></li>
+                                <li><a href="/social-media" class="govuk-link">Social media</a></li>
+                                <li><a href="/news" class="govuk-link">All news</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="govuk-footer" role="contentinfo">
+        <div class="govuk-width-container">
+            <div class="govuk-footer__navigation">
+                <div class="govuk-footer__section govuk-grid-column-two-thirds">
+                    <h2 class="govuk-footer__heading govuk-heading-m">Services and information</h2>
+                    <ul class="govuk-footer__list govuk-footer__list--columns-2">
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/benefits">Benefits</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/births-deaths-marriages">Births, deaths, marriages</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/business">Business and industry</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/environment">Environment</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/education">Education and learning</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/driving">Driving and transport</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-footer__section govuk-grid-column-one-third">
+                    <h2 class="govuk-footer__heading govuk-heading-m">Government activity</h2>
+                    <ul class="govuk-footer__list">
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/departments">Departments</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/news">News</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/guidance">Guidance and regulation</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/policy">Policy papers</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link" href="/transparency">Transparency</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="govuk-footer__section-break">
+            <div class="govuk-footer__meta">
+                <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                    <ul class="govuk-footer__inline-list">
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/help">Help</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/privacy">Privacy</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/cookies">Cookies</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/accessibility">Accessibility statement</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/contact">Contact</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link" href="/terms">Terms and conditions</a>
+                        </li>
+                    </ul>
+                    <span class="govuk-footer__licence-description">
+                        All content is available under the Open Government Licence v3.0, except where otherwise stated
+                    </span>
+                </div>
+                <div class="govuk-footer__meta-item">
+                    <a class="govuk-footer__link govuk-footer__copyright-logo" href="#">© Crown copyright</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
