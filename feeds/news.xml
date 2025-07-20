@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rupertland Government News</title>
+    <description>Latest news and announcements from the Principality of Rupertland</description>
+    <link>https://gov.rp/news</link>
+    <atom:link href="https://gov.rp/feeds/news.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jul 2025 12:00:00 +0000</lastBuildDate>
+    <pubDate>Sun, 20 Jul 2025 12:00:00 +0000</pubDate>
+    
+    <item>
+      <title>New Digital ID Portal Launched</title>
+      <description>The government announces the launch of a new secure Digital ID portal to streamline citizen services and improve accessibility to government programs.</description>
+      <link>https://gov.rp/news/digital-id-launch</link>
+      <guid>https://gov.rp/news/digital-id-launch</guid>
+      <pubDate>Sun, 20 Jul 2025 09:00:00 +0000</pubDate>
+    </item>
+    
+    <item>
+      <title>Updated Business Registration Process</title>
+      <description>Significant improvements to the business registration system reduce processing times by 40% and eliminate paperwork through digital submission.</description>
+      <link>https://gov.rp/news/business-registration-update</link>
+      <guid>https://gov.rp/news/business-registration-update</guid>
+      <pubDate>Fri, 18 Jul 2025 14:30:00 +0000</pubDate>
+    </item>
+    
+    <item>
+      <title>Summer Festival Schedule Released</title>
+      <description>The annual Rupertland Summer Cultural Festival returns with expanded programming, featuring local artists, traditional crafts, and international cuisine.</description>
+      <link>https://gov.rp/news/summer-festival-2025</link>
+      <guid>https://gov.rp/news/summer-festival-2025</guid>
+      <pubDate>Wed, 16 Jul 2025 11:15:00 +0000</pubDate>
+    </item>
+    
+    <item>
+      <title>Enhanced Immigration Services Available</title>
+      <description>New online appointment system and extended office hours improve access to immigration and citizenship services for residents and visitors.</description>
+      <link>https://gov.rp/news/immigration-services-enhanced</link>
+      <guid>https://gov.rp/news/immigration-services-enhanced</guid>
+      <pubDate>Mon, 14 Jul 2025 08:45:00 +0000</pubDate>
+    </item>
+    
+    <item>
+      <title>Property Registry Goes Digital</title>
+      <description>The Property Registry Office completes full digitization, enabling 24/7 online searches and faster processing of property transactions.</description>
+      <link>https://gov.rp/news/property-registry-digital</link>
+      <guid>https://gov.rp/news/property-registry-digital</guid>
+      <pubDate>Fri, 11 Jul 2025 16:20:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

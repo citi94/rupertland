@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Government Appointment Booking - GOV.RP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .appointment-slot {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .appointment-slot:hover {
+            background-color: #f8f8f8;
+        }
+        .appointment-slot.selected {
+            background-color: #e8f5e8;
+            border-color: #00703c;
+        }
+        .appointment-slot.unavailable {
+            background-color: #f3f2f1;
+            color: #626a6e;
+            cursor: not-allowed;
+        }
+        .calendar-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin: 20px 0;
+        }
+        .calendar-day {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            min-height: 40px;
+        }
+        .calendar-day:hover:not(.unavailable) {
+            background-color: #f8f8f8;
+        }
+        .calendar-day.selected {
+            background-color: #00703c;
+            color: white;
+        }
+        .calendar-day.unavailable {
+            background-color: #f3f2f1;
+            color: #626a6e;
+            cursor: not-allowed;
+        }
+        .calendar-header {
+            font-weight: bold;
+            background-color: #0b0c0c;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="background: #0b0c0c; color: white; padding: 10px;">
+            <h1 style="margin: 0; font-size: 18px;">Principality of Rupertland - Government Appointments</h1>
+        </div>
+    </header>
+
+    <main style="max-width: 800px; margin: 20px auto; padding: 0 20px;">
+        <div class="govuk-breadcrumbs">
+            <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="index-spa.html">Home</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    Book Appointment
+                </li>
+            </ol>
+        </div>
+
+        <h1 class="govuk-heading-xl">Book Government Appointment</h1>
+
+        <div id="booking-form">
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--m" for="service-type">
+                    <strong>Select Service</strong>
+                </label>
+                <select class="govuk-select" id="service-type" name="service-type" onchange="updateAvailability()">
+                    <option value="">Choose a service...</option>
+                    <option value="immigration">Immigration Services</option>
+                    <option value="citizenship">Citizenship Application</option>
+                    <option value="business">Business Registration</option>
+                    <option value="benefits">Benefits Consultation</option>
+                    <option value="property">Property Registry</option>
+                    <option value="vital-records">Births, Deaths & Marriages</option>
+                    <option value="general">General Inquiry</option>
+                </select>
+            </div>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <strong>Select Date</strong>
+                    </legend>
+                    <div id="calendar">
+                        <div class="calendar-grid">
+                            <div class="calendar-day calendar-header">Sun</div>
+                            <div class="calendar-day calendar-header">Mon</div>
+                            <div class="calendar-day calendar-header">Tue</div>
+                            <div class="calendar-day calendar-header">Wed</div>
+                            <div class="calendar-day calendar-header">Thu</div>
+                            <div class="calendar-day calendar-header">Fri</div>
+                            <div class="calendar-day calendar-header">Sat</div>
+                        </div>
+                        <div id="calendar-days" class="calendar-grid"></div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group" id="time-slots" style="display: none;">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        <strong>Available Times</strong>
+                    </legend>
+                    <div id="time-slot-list"></div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--m" for="customer-name">
+                    <strong>Your Name</strong>
+                </label>
+                <input class="govuk-input" id="customer-name" name="customer-name" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--m" for="customer-email">
+                    <strong>Email Address</strong>
+                </label>
+                <input class="govuk-input" id="customer-email" name="customer-email" type="email">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--m" for="customer-phone">
+                    <strong>Phone Number</strong>
+                </label>
+                <input class="govuk-input" id="customer-phone" name="customer-phone" type="tel">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--m" for="appointment-reason">
+                    <strong>Purpose of Appointment</strong>
+                </label>
+                <textarea class="govuk-textarea" id="appointment-reason" name="appointment-reason" rows="3"></textarea>
+            </div>
+
+            <button class="govuk-button" onclick="bookAppointment()">
+                Book Appointment
+            </button>
+        </div>
+
+        <div id="booking-success" style="display: none;">
+            <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">Appointment Booked</h1>
+                <div class="govuk-panel__body">
+                    Your appointment reference number<br>
+                    <strong id="appointment-ref"></strong>
+                </div>
+            </div>
+            
+            <div class="govuk-inset-text">
+                <p><strong>What happens next</strong></p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>You will receive a confirmation email with appointment details</li>
+                    <li>Please arrive 15 minutes early with required documentation</li>
+                    <li>Bring valid photo identification</li>
+                    <li>If you need to cancel or reschedule, call +423 260 9000</li>
+                </ul>
+            </div>
+
+            <p class="govuk-body">
+                <a href="index-spa.html" class="govuk-link">Return to homepage</a>
+            </p>
+        </div>
+    </main>
+
+    <script>
+        let selectedDate = null;
+        let selectedTimeSlot = null;
+
+        function updateAvailability() {
+            const service = document.getElementById('service-type').value;
+            if (service) {
+                generateCalendar();
+            }
+        }
+
+        function generateCalendar() {
+            const today = new Date();
+            const currentMonth = today.getMonth();
+            const currentYear = today.getFullYear();
+            
+            const firstDay = new Date(currentYear, currentMonth, 1);
+            const lastDay = new Date(currentYear, currentMonth + 1, 0);
+            const startDate = new Date(firstDay);
+            startDate.setDate(startDate.getDate() - firstDay.getDay());
+            
+            const calendarDays = document.getElementById('calendar-days');
+            calendarDays.innerHTML = '';
+            
+            for (let i = 0; i < 42; i++) {
+                const day = new Date(startDate);
+                day.setDate(startDate.getDate() + i);
+                
+                const dayElement = document.createElement('div');
+                dayElement.className = 'calendar-day';
+                dayElement.textContent = day.getDate();
+                
+                // Disable past dates and weekends
+                if (day < today || day.getDay() === 0 || day.getDay() === 6 || day.getMonth() !== currentMonth) {
+                    dayElement.className += ' unavailable';
+                } else {
+                    dayElement.onclick = () => selectDate(day, dayElement);
+                }
+                
+                calendarDays.appendChild(dayElement);
+            }
+        }
+
+        function selectDate(date, element) {
+            // Remove previous selection
+            document.querySelectorAll('.calendar-day.selected').forEach(el => {
+                el.classList.remove('selected');
+            });
+            
+            // Select new date
+            element.classList.add('selected');
+            selectedDate = date;
+            
+            // Generate time slots
+            generateTimeSlots();
+        }
+
+        function generateTimeSlots() {
+            const timeSlots = document.getElementById('time-slots');
+            const timeSlotList = document.getElementById('time-slot-list');
+            
+            timeSlotList.innerHTML = '';
+            timeSlots.style.display = 'block';
+            
+            const slots = [
+                '09:00', '09:30', '10:00', '10:30', '11:00', '11:30',
+                '14:00', '14:30', '15:00', '15:30', '16:00', '16:30'
+            ];
+            
+            slots.forEach((time, index) => {
+                const slotElement = document.createElement('div');
+                slotElement.className = 'appointment-slot';
+                slotElement.innerHTML = `
+                    <strong>${time}</strong>
+                    <span style="float: right;">${Math.random() > 0.3 ? 'Available' : 'Unavailable'}</span>
+                `;
+                
+                if (Math.random() > 0.3) {
+                    slotElement.onclick = () => selectTimeSlot(time, slotElement);
+                } else {
+                    slotElement.className += ' unavailable';
+                }
+                
+                timeSlotList.appendChild(slotElement);
+            });
+        }
+
+        function selectTimeSlot(time, element) {
+            // Remove previous selection
+            document.querySelectorAll('.appointment-slot.selected').forEach(el => {
+                el.classList.remove('selected');
+            });
+            
+            // Select new time slot
+            element.classList.add('selected');
+            selectedTimeSlot = time;
+        }
+
+        function bookAppointment() {
+            const service = document.getElementById('service-type').value;
+            const name = document.getElementById('customer-name').value;
+            const email = document.getElementById('customer-email').value;
+            const phone = document.getElementById('customer-phone').value;
+            const reason = document.getElementById('appointment-reason').value;
+            
+            // Validation
+            if (!service || !selectedDate || !selectedTimeSlot || !name || !email) {
+                alert('Please complete all required fields and select a date and time.');
+                return;
+            }
+            
+            // Simulate booking process
+            const refNumber = 'APT-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 900000 + 100000);
+            
+            document.getElementById('appointment-ref').textContent = refNumber;
+            document.getElementById('booking-form').style.display = 'none';
+            document.getElementById('booking-success').style.display = 'block';
+            
+            // Scroll to success message
+            document.getElementById('booking-success').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize calendar on page load
+        window.onload = function() {
+            // Set default service if URL parameter exists
+            const urlParams = new URLSearchParams(window.location.search);
+            const service = urlParams.get('service');
+            if (service) {
+                document.getElementById('service-type').value = service;
+                updateAvailability();
+            }
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rupertland Legislation Updates</title>
+    <description>New laws, regulations, and legislative updates from the Rupertland Parliament</description>
+    <link>https://gov.rp/laws-regulations</link>
+    <atom:link href="https://gov.rp/feeds/legislation.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jul 2025 12:00:00 +0000</lastBuildDate>
+    
+    <item>
+      <title>Digital Rights Protection Act 2025</title>
+      <description>New legislation strengthens data protection rights and establishes digital privacy standards for all citizens and businesses operating in Rupertland.</description>
+      <link>https://gov.rp/laws-regulations/digital-rights-act-2025</link>
+      <guid>https://gov.rp/laws-regulations/digital-rights-act-2025</guid>
+      <pubDate>Thu, 17 Jul 2025 10:00:00 +0000</pubDate>
+    </item>
+    
+    <item>
+      <title>Small Business Support Regulations</title>
+      <description>Updated regulations provide streamlined registration process and tax incentives for small businesses with fewer than 10 employees.</description>
+      <link>https://gov.rp/laws-regulations/small-business-support-2025</link>
+      <guid>https://gov.rp/laws-regulations/small-business-support-2025</guid>
+      <pubDate>Tue, 15 Jul 2025 13:30:00 +0000</pubDate>
+    </item>
+    
+    <item>
+      <title>Environmental Protection Amendment</title>
+      <description>Amendment to the Environmental Protection Act introduces stricter emissions standards and enhanced penalties for environmental violations.</description>
+      <link>https://gov.rp/laws-regulations/environmental-amendment-2025</link>
+      <guid>https://gov.rp/laws-regulations/environmental-amendment-2025</guid>
+      <pubDate>Mon, 07 Jul 2025 09:15:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
