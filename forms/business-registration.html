@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Business Registration Form BR-100 - GOV.RP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        @media print {
+            .no-print { display: none; }
+            body { background: white; }
+        }
+        .form-section { margin-bottom: 30px; border: 1px solid #ddd; padding: 20px; }
+        .form-row { display: flex; gap: 20px; margin-bottom: 15px; }
+        .form-field { flex: 1; }
+        input[type="text"], input[type="email"], input[type="date"], select, textarea {
+            width: 100%; padding: 8px; border: 1px solid #ccc; font-family: inherit;
+        }
+        .checkbox-group { display: flex; gap: 20px; flex-wrap: wrap; }
+        .signature-box { border: 1px solid #ccc; height: 60px; padding: 10px; background: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <header class="no-print">
+        <div style="background: #0b0c0c; color: white; padding: 10px;">
+            <h1 style="margin: 0; font-size: 18px;">Principality of Rupertland - GOV.RP</h1>
+        </div>
+    </header>
+
+    <main style="max-width: 800px; margin: 20px auto; padding: 0 20px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h1>BUSINESS REGISTRATION APPLICATION</h1>
+            <h2>Form BR-100</h2>
+            <p><strong>Commercial Register Office - Principality of Rupertland</strong></p>
+        </div>
+
+        <div class="form-section">
+            <h3>1. BUSINESS TYPE</h3>
+            <div class="checkbox-group">
+                <label><input type="radio" name="business_type" value="sole"> Sole Proprietorship</label>
+                <label><input type="radio" name="business_type" value="llc"> Limited Liability Company (LLC)</label>
+                <label><input type="radio" name="business_type" value="corporation"> Corporation (AG)</label>
+                <label><input type="radio" name="business_type" value="partnership"> Partnership</label>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>2. BUSINESS INFORMATION</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Proposed Business Name:</strong></label>
+                    <input type="text" name="business_name">
+                </div>
+                <div class="form-field">
+                    <label><strong>Alternative Name (if first choice unavailable):</strong></label>
+                    <input type="text" name="alternative_name">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Business Activity Description:</strong></label>
+                    <textarea name="business_activity" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Industry Sector:</strong></label>
+                    <select name="industry_sector">
+                        <option value="">Select...</option>
+                        <option value="technology">Technology</option>
+                        <option value="finance">Finance</option>
+                        <option value="retail">Retail</option>
+                        <option value="manufacturing">Manufacturing</option>
+                        <option value="services">Services</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="education">Education</option>
+                        <option value="agriculture">Agriculture</option>
+                        <option value="tourism">Tourism</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label><strong>Expected Annual Revenue (CHF):</strong></label>
+                    <input type="text" name="expected_revenue">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>3. REGISTERED OFFICE ADDRESS</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Street Address:</strong></label>
+                    <input type="text" name="office_address">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Postal Code:</strong></label>
+                    <input type="text" name="office_postal_code">
+                </div>
+                <div class="form-field">
+                    <label><strong>City:</strong></label>
+                    <input type="text" name="office_city">
+                </div>
+                <div class="form-field">
+                    <label><strong>Phone:</strong></label>
+                    <input type="text" name="office_phone">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>4. OWNER/DIRECTOR INFORMATION</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Full Name:</strong></label>
+                    <input type="text" name="owner_name">
+                </div>
+                <div class="form-field">
+                    <label><strong>Date of Birth:</strong></label>
+                    <input type="date" name="owner_birth">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Nationality:</strong></label>
+                    <input type="text" name="owner_nationality">
+                </div>
+                <div class="form-field">
+                    <label><strong>ID/Passport Number:</strong></label>
+                    <input type="text" name="owner_id">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Home Address:</strong></label>
+                    <input type="text" name="owner_address">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Email:</strong></label>
+                    <input type="email" name="owner_email">
+                </div>
+                <div class="form-field">
+                    <label><strong>Phone:</strong></label>
+                    <input type="text" name="owner_phone">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>5. SHARE CAPITAL (LLC/Corporation only)</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Total Share Capital (CHF):</strong></label>
+                    <input type="text" name="share_capital">
+                </div>
+                <div class="form-field">
+                    <label><strong>Paid-in Capital (CHF):</strong></label>
+                    <input type="text" name="paid_capital">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Bank Confirmation Number:</strong></label>
+                    <input type="text" name="bank_confirmation">
+                </div>
+                <div class="form-field">
+                    <label><strong>Bank Name:</strong></label>
+                    <input type="text" name="bank_name">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>6. ADDITIONAL DIRECTORS/PARTNERS (if applicable)</h3>
+            <p><em>Complete for each additional director, partner, or significant shareholder</em></p>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Name:</strong></label>
+                    <input type="text" name="director2_name">
+                </div>
+                <div class="form-field">
+                    <label><strong>Role:</strong></label>
+                    <select name="director2_role">
+                        <option value="">Select...</option>
+                        <option value="director">Director</option>
+                        <option value="partner">Partner</option>
+                        <option value="shareholder">Shareholder</option>
+                        <option value="secretary">Company Secretary</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label><strong>Ownership %:</strong></label>
+                    <input type="number" name="director2_ownership" min="0" max="100">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>7. TAX AND VAT REGISTRATION</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="vat_registration" value="yes"> Apply for VAT registration</label>
+                <label><input type="checkbox" name="employer_registration" value="yes"> Apply for employer registration</label>
+            </div>
+            <div class="form-row" style="margin-top: 15px;">
+                <div class="form-field">
+                    <label><strong>Expected Number of Employees:</strong></label>
+                    <input type="number" name="expected_employees" min="0">
+                </div>
+                <div class="form-field">
+                    <label><strong>Accounting Year End:</strong></label>
+                    <select name="year_end">
+                        <option value="">Select...</option>
+                        <option value="dec">December 31</option>
+                        <option value="mar">March 31</option>
+                        <option value="jun">June 30</option>
+                        <option value="sep">September 30</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>8. SPECIAL PERMITS/LICENSES</h3>
+            <p><strong>Does your business require special permits or licenses?</strong></p>
+            <div class="checkbox-group">
+                <label><input type="radio" name="special_permits" value="no"> No</label>
+                <label><input type="radio" name="special_permits" value="yes"> Yes</label>
+            </div>
+            <div style="margin-top: 10px;">
+                <label><strong>If yes, specify:</strong></label>
+                <textarea name="permit_details" rows="2"></textarea>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>9. DECLARATION</h3>
+            <div class="checkbox-group" style="flex-direction: column; gap: 10px;">
+                <label><input type="checkbox" name="declaration1"> I declare that all information provided is accurate and complete</label>
+                <label><input type="checkbox" name="declaration2"> I understand that false information may result in rejection or legal consequences</label>
+                <label><input type="checkbox" name="declaration3"> I agree to comply with all applicable laws and regulations</label>
+                <label><input type="checkbox" name="declaration4"> I authorize the Commercial Register Office to verify the information provided</label>
+            </div>
+            
+            <div class="form-row" style="margin-top: 30px;">
+                <div class="form-field">
+                    <label><strong>Place and Date:</strong></label>
+                    <input type="text" name="declaration_place_date">
+                </div>
+                <div class="form-field">
+                    <label><strong>Applicant Signature:</strong></label>
+                    <div class="signature-box">Signature</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>FOR OFFICIAL USE ONLY</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Registration Number:</strong></label>
+                    <input type="text" name="registration_number">
+                </div>
+                <div class="form-field">
+                    <label><strong>Date Registered:</strong></label>
+                    <input type="date" name="date_registered">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Officer:</strong></label>
+                    <input type="text" name="officer">
+                </div>
+                <div class="form-field">
+                    <label><strong>Registration Fee Paid:</strong></label>
+                    <input type="text" name="fee_paid">
+                </div>
+            </div>
+        </div>
+
+        <div class="no-print" style="margin-top: 30px; text-align: center;">
+            <button onclick="window.print()" style="background: #00703c; color: white; padding: 10px 20px; border: none; font-size: 16px; cursor: pointer;">Print Form</button>
+            <button onclick="window.close()" style="background: #626a6e; color: white; padding: 10px 20px; border: none; font-size: 16px; cursor: pointer; margin-left: 10px;">Close</button>
+        </div>
+    </main>
+</body>
+</html>

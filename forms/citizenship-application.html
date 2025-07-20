@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Citizenship Application Form CZ-100 - GOV.RP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        @media print {
+            .no-print { display: none; }
+            body { background: white; }
+        }
+        .form-section { margin-bottom: 30px; border: 1px solid #ddd; padding: 20px; }
+        .form-row { display: flex; gap: 20px; margin-bottom: 15px; }
+        .form-field { flex: 1; }
+        input[type="text"], input[type="email"], input[type="date"], select, textarea {
+            width: 100%; padding: 8px; border: 1px solid #ccc; font-family: inherit;
+        }
+        .checkbox-group { display: flex; gap: 20px; flex-wrap: wrap; }
+        .signature-box { border: 1px solid #ccc; height: 60px; padding: 10px; background: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <header class="no-print">
+        <div style="background: #0b0c0c; color: white; padding: 10px;">
+            <h1 style="margin: 0; font-size: 18px;">Principality of Rupertland - GOV.RP</h1>
+        </div>
+    </header>
+
+    <main style="max-width: 800px; margin: 20px auto; padding: 0 20px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h1>CITIZENSHIP APPLICATION</h1>
+            <h2>Form CZ-100</h2>
+            <p><strong>Department of Citizenship and Immigration - Principality of Rupertland</strong></p>
+        </div>
+
+        <div class="form-section">
+            <h3>1. APPLICANT INFORMATION</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Family Name:</strong></label>
+                    <input type="text" name="family_name">
+                </div>
+                <div class="form-field">
+                    <label><strong>Given Names:</strong></label>
+                    <input type="text" name="given_names">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Date of Birth:</strong></label>
+                    <input type="date" name="birth_date">
+                </div>
+                <div class="form-field">
+                    <label><strong>Place of Birth:</strong></label>
+                    <input type="text" name="birth_place">
+                </div>
+                <div class="form-field">
+                    <label><strong>Current Nationality:</strong></label>
+                    <input type="text" name="nationality">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>2. TYPE OF APPLICATION</h3>
+            <div class="checkbox-group">
+                <label><input type="radio" name="application_type" value="naturalization"> Standard Naturalization</label>
+                <label><input type="radio" name="application_type" value="spouse"> Simplified (Spouse of Citizen)</label>
+                <label><input type="radio" name="application_type" value="descent"> Citizenship by Descent</label>
+                <label><input type="radio" name="application_type" value="former"> Former Citizen</label>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>3. RESIDENCE HISTORY</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Date of First Entry to Rupertland:</strong></label>
+                    <input type="date" name="first_entry">
+                </div>
+                <div class="form-field">
+                    <label><strong>Current Residence Permit:</strong></label>
+                    <select name="current_permit">
+                        <option value="">Select...</option>
+                        <option value="C">C Permit (Permanent)</option>
+                        <option value="B">B Permit (Temporary)</option>
+                        <option value="L">L Permit (Short-term)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Years of Continuous Residence:</strong></label>
+                    <input type="number" name="years_residence" min="0" max="50">
+                </div>
+                <div class="form-field">
+                    <label><strong>Permit Number:</strong></label>
+                    <input type="text" name="permit_number">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>4. LANGUAGE PROFICIENCY</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Rupertlandic Speaking Level:</strong></label>
+                    <select name="speaking_level">
+                        <option value="">Select...</option>
+                        <option value="A1">A1 (Basic)</option>
+                        <option value="A2">A2 (Elementary)</option>
+                        <option value="B1">B1 (Intermediate)</option>
+                        <option value="B2">B2 (Upper Intermediate)</option>
+                        <option value="C1">C1 (Advanced)</option>
+                        <option value="C2">C2 (Proficient)</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label><strong>Writing Level:</strong></label>
+                    <select name="writing_level">
+                        <option value="">Select...</option>
+                        <option value="A1">A1 (Basic)</option>
+                        <option value="A2">A2 (Elementary)</option>
+                        <option value="B1">B1 (Intermediate)</option>
+                        <option value="B2">B2 (Upper Intermediate)</option>
+                        <option value="C1">C1 (Advanced)</option>
+                        <option value="C2">C2 (Proficient)</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Language Test Date:</strong></label>
+                    <input type="date" name="language_test_date">
+                </div>
+                <div class="form-field">
+                    <label><strong>Test Center:</strong></label>
+                    <input type="text" name="test_center">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>5. CIVICS TEST</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Civics Test Date:</strong></label>
+                    <input type="date" name="civics_test_date">
+                </div>
+                <div class="form-field">
+                    <label><strong>Score (out of 40):</strong></label>
+                    <input type="number" name="civics_score" min="0" max="40">
+                </div>
+                <div class="form-field">
+                    <label><strong>Pass/Fail:</strong></label>
+                    <select name="civics_result">
+                        <option value="">Select...</option>
+                        <option value="pass">Pass</option>
+                        <option value="fail">Fail</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>6. SPOUSE INFORMATION (if applicable)</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Spouse Name:</strong></label>
+                    <input type="text" name="spouse_name">
+                </div>
+                <div class="form-field">
+                    <label><strong>Marriage Date:</strong></label>
+                    <input type="date" name="marriage_date">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Spouse Citizenship:</strong></label>
+                    <input type="text" name="spouse_citizenship">
+                </div>
+                <div class="form-field">
+                    <label><strong>Years Married:</strong></label>
+                    <input type="number" name="years_married" min="0">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>7. CRIMINAL HISTORY</h3>
+            <p><strong>Have you ever been convicted of a criminal offense in any country?</strong></p>
+            <div class="checkbox-group">
+                <label><input type="radio" name="criminal_history" value="no"> No</label>
+                <label><input type="radio" name="criminal_history" value="yes"> Yes</label>
+            </div>
+            <div style="margin-top: 10px;">
+                <label><strong>If yes, provide details:</strong></label>
+                <textarea name="criminal_details" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>8. INTEGRATION</h3>
+            <p><strong>Community involvement and integration activities:</strong></p>
+            <textarea name="integration_activities" rows="4" placeholder="Describe your involvement in local community, volunteer work, professional associations, etc."></textarea>
+        </div>
+
+        <div class="form-section">
+            <h3>9. DECLARATION AND OATH</h3>
+            <div class="checkbox-group" style="flex-direction: column; gap: 10px;">
+                <label><input type="checkbox" name="declaration1"> I declare that all information provided is true and complete</label>
+                <label><input type="checkbox" name="declaration2"> I understand that false information may result in rejection and legal consequences</label>
+                <label><input type="checkbox" name="declaration3"> I pledge allegiance to the Principality of Rupertland and its constitution</label>
+                <label><input type="checkbox" name="declaration4"> I will respect and obey the laws of Rupertland</label>
+                <label><input type="checkbox" name="declaration5"> I will fulfill the duties and responsibilities of Rupertlandic citizenship</label>
+            </div>
+            
+            <div class="form-row" style="margin-top: 30px;">
+                <div class="form-field">
+                    <label><strong>Place and Date:</strong></label>
+                    <input type="text" name="declaration_place_date">
+                </div>
+                <div class="form-field">
+                    <label><strong>Applicant Signature:</strong></label>
+                    <div class="signature-box">Signature</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>FOR OFFICIAL USE ONLY</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Application Number:</strong></label>
+                    <input type="text" name="app_number">
+                </div>
+                <div class="form-field">
+                    <label><strong>Date Received:</strong></label>
+                    <input type="date" name="date_received">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Background Check Status:</strong></label>
+                    <select name="background_check">
+                        <option value="">Pending</option>
+                        <option value="clear">Clear</option>
+                        <option value="review">Under Review</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label><strong>Decision:</strong></label>
+                    <select name="decision">
+                        <option value="">Pending</option>
+                        <option value="approved">Approved</option>
+                        <option value="rejected">Rejected</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-print" style="margin-top: 30px; text-align: center;">
+            <button onclick="window.print()" style="background: #00703c; color: white; padding: 10px 20px; border: none; font-size: 16px; cursor: pointer;">Print Form</button>
+            <button onclick="window.close()" style="background: #626a6e; color: white; padding: 10px 20px; border: none; font-size: 16px; cursor: pointer; margin-left: 10px;">Close</button>
+        </div>
+    </main>
+</body>
+</html>

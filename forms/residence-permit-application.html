@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Residence Permit Application Form RP-101 - GOV.RP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        @media print {
+            .no-print { display: none; }
+            body { background: white; }
+        }
+        .form-section { margin-bottom: 30px; border: 1px solid #ddd; padding: 20px; }
+        .form-row { display: flex; gap: 20px; margin-bottom: 15px; }
+        .form-field { flex: 1; }
+        input[type="text"], input[type="email"], input[type="date"], select, textarea {
+            width: 100%; padding: 8px; border: 1px solid #ccc; font-family: inherit;
+        }
+        .checkbox-group { display: flex; gap: 20px; flex-wrap: wrap; }
+        .signature-box { border: 1px solid #ccc; height: 60px; padding: 10px; background: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <header class="no-print">
+        <div style="background: #0b0c0c; color: white; padding: 10px;">
+            <h1 style="margin: 0; font-size: 18px;">Principality of Rupertland - GOV.RP</h1>
+        </div>
+    </header>
+
+    <main style="max-width: 800px; margin: 20px auto; padding: 0 20px;">
+        <div style="text-align: center; margin-bottom: 30px;">
+            <h1>RESIDENCE PERMIT APPLICATION</h1>
+            <h2>Form RP-101</h2>
+            <p><strong>Immigration Office - Principality of Rupertland</strong></p>
+        </div>
+
+        <div class="form-section">
+            <h3>1. PERSONAL INFORMATION</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Family Name:</strong></label>
+                    <input type="text" name="family_name">
+                </div>
+                <div class="form-field">
+                    <label><strong>Given Names:</strong></label>
+                    <input type="text" name="given_names">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Date of Birth:</strong></label>
+                    <input type="date" name="birth_date">
+                </div>
+                <div class="form-field">
+                    <label><strong>Place of Birth:</strong></label>
+                    <input type="text" name="birth_place">
+                </div>
+                <div class="form-field">
+                    <label><strong>Nationality:</strong></label>
+                    <input type="text" name="nationality">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Passport Number:</strong></label>
+                    <input type="text" name="passport_number">
+                </div>
+                <div class="form-field">
+                    <label><strong>Passport Expiry:</strong></label>
+                    <input type="date" name="passport_expiry">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>2. PERMIT TYPE REQUESTED</h3>
+            <div class="checkbox-group">
+                <label><input type="radio" name="permit_type" value="L"> L Permit (Short-term Work)</label>
+                <label><input type="radio" name="permit_type" value="B"> B Permit (Temporary Residence)</label>
+                <label><input type="radio" name="permit_type" value="C"> C Permit (Permanent Residence)</label>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>3. PURPOSE OF RESIDENCE</h3>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="purpose" value="employment"> Employment</label>
+                <label><input type="checkbox" name="purpose" value="study"> Study</label>
+                <label><input type="checkbox" name="purpose" value="family"> Family Reunification</label>
+                <label><input type="checkbox" name="purpose" value="other"> Other</label>
+            </div>
+            <div style="margin-top: 10px;">
+                <label><strong>Details:</strong></label>
+                <textarea name="purpose_details" rows="3"></textarea>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>4. ADDRESS IN RUPERTLAND</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Street Address:</strong></label>
+                    <input type="text" name="address">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Postal Code:</strong></label>
+                    <input type="text" name="postal_code">
+                </div>
+                <div class="form-field">
+                    <label><strong>City:</strong></label>
+                    <input type="text" name="city">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>5. EMPLOYMENT INFORMATION (if applicable)</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Employer Name:</strong></label>
+                    <input type="text" name="employer">
+                </div>
+                <div class="form-field">
+                    <label><strong>Position:</strong></label>
+                    <input type="text" name="position">
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Monthly Salary (CHF):</strong></label>
+                    <input type="text" name="salary">
+                </div>
+                <div class="form-field">
+                    <label><strong>Employment Start Date:</strong></label>
+                    <input type="date" name="employment_start">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>6. FAMILY INFORMATION</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Marital Status:</strong></label>
+                    <select name="marital_status">
+                        <option value="">Select...</option>
+                        <option value="single">Single</option>
+                        <option value="married">Married</option>
+                        <option value="divorced">Divorced</option>
+                        <option value="widowed">Widowed</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label><strong>Number of Children:</strong></label>
+                    <input type="number" name="children" min="0">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>7. DECLARATION</h3>
+            <p>I declare that all information provided is true and complete. I understand that false information may result in rejection of this application and/or legal consequences.</p>
+            
+            <div class="form-row" style="margin-top: 20px;">
+                <div class="form-field">
+                    <label><strong>Place and Date:</strong></label>
+                    <input type="text" name="declaration_place_date">
+                </div>
+                <div class="form-field">
+                    <label><strong>Applicant Signature:</strong></label>
+                    <div class="signature-box">Signature</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h3>FOR OFFICIAL USE ONLY</h3>
+            <div class="form-row">
+                <div class="form-field">
+                    <label><strong>Application Number:</strong></label>
+                    <input type="text" name="app_number">
+                </div>
+                <div class="form-field">
+                    <label><strong>Date Received:</strong></label>
+                    <input type="date" name="date_received">
+                </div>
+                <div class="form-field">
+                    <label><strong>Officer:</strong></label>
+                    <input type="text" name="officer">
+                </div>
+            </div>
+        </div>
+
+        <div class="no-print" style="margin-top: 30px; text-align: center;">
+            <button onclick="window.print()" style="background: #00703c; color: white; padding: 10px 20px; border: none; font-size: 16px; cursor: pointer;">Print Form</button>
+            <button onclick="window.close()" style="background: #626a6e; color: white; padding: 10px 20px; border: none; font-size: 16px; cursor: pointer; margin-left: 10px;">Close</button>
+        </div>
+    </main>
+</body>
+</html>
