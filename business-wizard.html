@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Business Registration Wizard - GOV.RP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div style="background: #0b0c0c; color: white; padding: 10px;">
+            <h1 style="margin: 0; font-size: 18px;">Principality of Rupertland - Business Registration Wizard</h1>
+        </div>
+    </header>
+
+    <main style="max-width: 800px; margin: 20px auto; padding: 0 20px;">
+        <div class="govuk-breadcrumbs">
+            <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="index-spa.html">Home</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    Business Registration Wizard
+                </li>
+            </ol>
+        </div>
+
+        <h1 class="govuk-heading-xl">Business Registration Wizard</h1>
+        
+        <div class="govuk-inset-text">
+            This wizard will guide you through the business registration process step by step.
+        </div>
+
+        <div id="step-1" class="wizard-step">
+            <h2 class="govuk-heading-l">Step 1: Business Type</h2>
+            
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        What type of business are you registering?
+                    </legend>
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="sole-trader" name="business-type" type="radio" value="sole-trader">
+                            <label class="govuk-label govuk-radios__label" for="sole-trader">
+                                Sole Trader
+                            </label>
+                            <div class="govuk-hint govuk-radios__hint">
+                                Simple business structure for individual entrepreneurs
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="limited-company" name="business-type" type="radio" value="limited-company">
+                            <label class="govuk-label govuk-radios__label" for="limited-company">
+                                Limited Company
+                            </label>
+                            <div class="govuk-hint govuk-radios__hint">
+                                Separate legal entity with limited liability
+                            </div>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="partnership" name="business-type" type="radio" value="partnership">
+                            <label class="govuk-label govuk-radios__label" for="partnership">
+                                Partnership
+                            </label>
+                            <div class="govuk-hint govuk-radios__hint">
+                                Business owned by 2 or more people
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <button class="govuk-button" onclick="nextStep(2)">Continue</button>
+        </div>
+
+        <div id="step-2" class="wizard-step" style="display: none;">
+            <h2 class="govuk-heading-l">Step 2: Business Details</h2>
+            
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--m" for="business-name">
+                    Business Name
+                </label>
+                <input class="govuk-input" id="business-name" name="business-name" type="text">
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--m" for="business-description">
+                    Business Description
+                </label>
+                <textarea class="govuk-textarea" id="business-description" name="business-description" rows="3"></textarea>
+            </div>
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" onclick="nextStep(3)">Continue</button>
+                <button class="govuk-button govuk-button--secondary" onclick="previousStep(1)">Previous</button>
+            </div>
+        </div>
+
+        <div id="step-3" class="wizard-step" style="display: none;">
+            <h2 class="govuk-heading-l">Step 3: Review and Submit</h2>
+            
+            <div class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Business Type</dt>
+                    <dd class="govuk-summary-list__value" id="review-type"></dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Business Name</dt>
+                    <dd class="govuk-summary-list__value" id="review-name"></dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Description</dt>
+                    <dd class="govuk-summary-list__value" id="review-description"></dd>
+                </div>
+            </div>
+
+            <div class="govuk-button-group">
+                <button class="govuk-button" onclick="submitRegistration()">Submit Registration</button>
+                <button class="govuk-button govuk-button--secondary" onclick="previousStep(2)">Previous</button>
+            </div>
+        </div>
+
+        <div id="step-success" class="wizard-step" style="display: none;">
+            <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">Registration Submitted</h1>
+                <div class="govuk-panel__body">
+                    Application reference number<br>
+                    <strong id="registration-ref"></strong>
+                </div>
+            </div>
+
+            <p class="govuk-body">
+                <a href="forms/business-registration.html" class="govuk-link">Download complete application form</a>
+            </p>
+        </div>
+    </main>
+
+    <script>
+        function nextStep(step) {
+            document.querySelectorAll('.wizard-step').forEach(el => el.style.display = 'none');
+            document.getElementById('step-' + step).style.display = 'block';
+            
+            if (step === 3) {
+                updateReview();
+            }
+        }
+
+        function previousStep(step) {
+            document.querySelectorAll('.wizard-step').forEach(el => el.style.display = 'none');
+            document.getElementById('step-' + step).style.display = 'block';
+        }
+
+        function updateReview() {
+            const type = document.querySelector('input[name="business-type"]:checked');
+            document.getElementById('review-type').textContent = type ? type.nextElementSibling.textContent : '';
+            document.getElementById('review-name').textContent = document.getElementById('business-name').value;
+            document.getElementById('review-description').textContent = document.getElementById('business-description').value;
+        }
+
+        function submitRegistration() {
+            const ref = 'BR-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 900000 + 100000);
+            document.getElementById('registration-ref').textContent = ref;
+            document.querySelectorAll('.wizard-step').forEach(el => el.style.display = 'none');
+            document.getElementById('step-success').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

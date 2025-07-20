@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Public Registry Search - GOV.RP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div style="background: #0b0c0c; color: white; padding: 10px;">
+            <h1 style="margin: 0; font-size: 18px;">Principality of Rupertland - Public Registry Search</h1>
+        </div>
+    </header>
+
+    <main style="max-width: 800px; margin: 20px auto; padding: 0 20px;">
+        <div class="govuk-breadcrumbs">
+            <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="index-spa.html">Home</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    Registry Search
+                </li>
+            </ol>
+        </div>
+
+        <h1 class="govuk-heading-xl">Public Registry Search</h1>
+        
+        <div class="govuk-tabs" data-module="govuk-tabs">
+            <h2 class="govuk-tabs__title">Search registry records</h2>
+
+            <ul class="govuk-tabs__list">
+                <li class="govuk-tabs__list-item govuk-tabs__list-item--selected">
+                    <a class="govuk-tabs__tab" href="#business">Business Registry</a>
+                </li>
+                <li class="govuk-tabs__list-item">
+                    <a class="govuk-tabs__tab" href="#property">Property Registry</a>
+                </li>
+                <li class="govuk-tabs__list-item">
+                    <a class="govuk-tabs__tab" href="#charity">Charity Registry</a>
+                </li>
+            </ul>
+
+            <div class="govuk-tabs__panel" id="business">
+                <h2 class="govuk-heading-l">Business Registry Search</h2>
+                
+                <form id="business-search-form">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="business-name">
+                            Business Name
+                        </label>
+                        <input class="govuk-input" id="business-name" name="business-name" type="text">
+                    </div>
+
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="registration-number">
+                            Registration Number
+                        </label>
+                        <input class="govuk-input govuk-input--width-10" id="registration-number" name="registration-number" type="text">
+                    </div>
+
+                    <button type="button" class="govuk-button" onclick="searchBusinesses()">
+                        Search Businesses
+                    </button>
+                </form>
+
+                <div id="business-results" style="display: none;">
+                    <h3 class="govuk-heading-m">Search Results</h3>
+                    <div id="business-results-content"></div>
+                </div>
+            </div>
+
+            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="property">
+                <h2 class="govuk-heading-l">Property Registry Search</h2>
+                
+                <form id="property-search-form">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="property-address">
+                            Property Address
+                        </label>
+                        <input class="govuk-input" id="property-address" name="property-address" type="text">
+                    </div>
+
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="plot-number">
+                            Plot Number
+                        </label>
+                        <input class="govuk-input govuk-input--width-10" id="plot-number" name="plot-number" type="text">
+                    </div>
+
+                    <button type="button" class="govuk-button" onclick="searchProperties()">
+                        Search Properties
+                    </button>
+                </form>
+
+                <div id="property-results" style="display: none;">
+                    <h3 class="govuk-heading-m">Search Results</h3>
+                    <div id="property-results-content"></div>
+                </div>
+            </div>
+
+            <div class="govuk-tabs__panel govuk-tabs__panel--hidden" id="charity">
+                <h2 class="govuk-heading-l">Charity Registry Search</h2>
+                
+                <form id="charity-search-form">
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="charity-name">
+                            Charity Name
+                        </label>
+                        <input class="govuk-input" id="charity-name" name="charity-name" type="text">
+                    </div>
+
+                    <div class="govuk-form-group">
+                        <label class="govuk-label govuk-label--m" for="charity-number">
+                            Charity Number
+                        </label>
+                        <input class="govuk-input govuk-input--width-10" id="charity-number" name="charity-number" type="text">
+                    </div>
+
+                    <button type="button" class="govuk-button" onclick="searchCharities()">
+                        Search Charities
+                    </button>
+                </form>
+
+                <div id="charity-results" style="display: none;">
+                    <h3 class="govuk-heading-m">Search Results</h3>
+                    <div id="charity-results-content"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function searchBusinesses() {
+            const name = document.getElementById('business-name').value;
+            const number = document.getElementById('registration-number').value;
+            
+            // Mock search results
+            const results = [
+                { name: 'Rupertland Trading Company Ltd', number: 'RC-2023-001', status: 'Active', registered: '2023-01-15' },
+                { name: 'Alpine Construction Services', number: 'RC-2022-157', status: 'Active', registered: '2022-08-22' },
+                { name: 'Digital Solutions Rupertland', number: 'RC-2024-089', status: 'Active', registered: '2024-03-10' }
+            ];
+            
+            displayBusinessResults(results);
+        }
+
+        function searchProperties() {
+            const address = document.getElementById('property-address').value;
+            const plot = document.getElementById('plot-number').value;
+            
+            // Mock search results
+            const results = [
+                { address: '123 Main Street, Neu-Rupertsberg', plot: 'P-2024-456', owner: 'Smith, John', registered: '2024-01-15' },
+                { address: '45 Castle View, Highland District', plot: 'P-2023-789', owner: 'Brown, Sarah', registered: '2023-11-22' },
+                { address: '7 River Road, Merchant Quarter', plot: 'P-2022-234', owner: 'Wilson, Mark', registered: '2022-06-18' }
+            ];
+            
+            displayPropertyResults(results);
+        }
+
+        function searchCharities() {
+            const name = document.getElementById('charity-name').value;
+            const number = document.getElementById('charity-number').value;
+            
+            // Mock search results
+            const results = [
+                { name: 'Rupertland Children\'s Foundation', number: 'CH-001', status: 'Active', purpose: 'Child welfare and education' },
+                { name: 'Environmental Protection Society', number: 'CH-027', status: 'Active', purpose: 'Environmental conservation' },
+                { name: 'Heritage Preservation Trust', number: 'CH-045', status: 'Active', purpose: 'Historical preservation' }
+            ];
+            
+            displayCharityResults(results);
+        }
+
+        function displayBusinessResults(results) {
+            let html = '<div class="govuk-summary-list">';
+            results.forEach(business => {
+                html += `
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">${business.name}</dt>
+                        <dd class="govuk-summary-list__value">
+                            <strong>Registration:</strong> ${business.number}<br>
+                            <strong>Status:</strong> ${business.status}<br>
+                            <strong>Registered:</strong> ${business.registered}
+                        </dd>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            document.getElementById('business-results-content').innerHTML = html;
+            document.getElementById('business-results').style.display = 'block';
+        }
+
+        function displayPropertyResults(results) {
+            let html = '<div class="govuk-summary-list">';
+            results.forEach(property => {
+                html += `
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">${property.address}</dt>
+                        <dd class="govuk-summary-list__value">
+                            <strong>Plot:</strong> ${property.plot}<br>
+                            <strong>Owner:</strong> ${property.owner}<br>
+                            <strong>Registered:</strong> ${property.registered}
+                        </dd>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            document.getElementById('property-results-content').innerHTML = html;
+            document.getElementById('property-results').style.display = 'block';
+        }
+
+        function displayCharityResults(results) {
+            let html = '<div class="govuk-summary-list">';
+            results.forEach(charity => {
+                html += `
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">${charity.name}</dt>
+                        <dd class="govuk-summary-list__value">
+                            <strong>Number:</strong> ${charity.number}<br>
+                            <strong>Status:</strong> ${charity.status}<br>
+                            <strong>Purpose:</strong> ${charity.purpose}
+                        </dd>
+                    </div>
+                `;
+            });
+            html += '</div>';
+            
+            document.getElementById('charity-results-content').innerHTML = html;
+            document.getElementById('charity-results').style.display = 'block';
+        }
+
+        // Simple tab switching for compatibility
+        document.querySelectorAll('.govuk-tabs__tab').forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active state from all tabs
+                document.querySelectorAll('.govuk-tabs__list-item').forEach(item => {
+                    item.classList.remove('govuk-tabs__list-item--selected');
+                });
+                
+                // Hide all panels
+                document.querySelectorAll('.govuk-tabs__panel').forEach(panel => {
+                    panel.classList.add('govuk-tabs__panel--hidden');
+                });
+                
+                // Activate clicked tab
+                this.parentElement.classList.add('govuk-tabs__list-item--selected');
+                
+                // Show corresponding panel
+                const targetPanel = document.querySelector(this.getAttribute('href'));
+                targetPanel.classList.remove('govuk-tabs__panel--hidden');
+            });
+        });
+    </script>
+</body>
+</html>

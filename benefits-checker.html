@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Benefits Eligibility Checker - GOV.RP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div style="background: #0b0c0c; color: white; padding: 10px;">
+            <h1 style="margin: 0; font-size: 18px;">Principality of Rupertland - Benefits Eligibility Checker</h1>
+        </div>
+    </header>
+
+    <main style="max-width: 800px; margin: 20px auto; padding: 0 20px;">
+        <div class="govuk-breadcrumbs">
+            <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="index-spa.html">Home</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    Benefits Eligibility Checker
+                </li>
+            </ol>
+        </div>
+
+        <h1 class="govuk-heading-xl">Check Your Benefits Eligibility</h1>
+        
+        <div class="govuk-inset-text">
+            Answer a few questions to see which benefits you might be entitled to.
+        </div>
+
+        <form id="eligibility-form">
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--m" for="age">
+                    What is your age?
+                </label>
+                <input class="govuk-input govuk-input--width-4" id="age" name="age" type="number" min="16" max="120">
+            </div>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        What is your employment status?
+                    </legend>
+                    <div class="govuk-radios">
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="employed" name="employment" type="radio" value="employed">
+                            <label class="govuk-label govuk-radios__label" for="employed">Employed</label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="unemployed" name="employment" type="radio" value="unemployed">
+                            <label class="govuk-label govuk-radios__label" for="unemployed">Unemployed</label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="student" name="employment" type="radio" value="student">
+                            <label class="govuk-label govuk-radios__label" for="student">Student</label>
+                        </div>
+                        <div class="govuk-radios__item">
+                            <input class="govuk-radios__input" id="retired" name="employment" type="radio" value="retired">
+                            <label class="govuk-label govuk-radios__label" for="retired">Retired</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="govuk-form-group">
+                <label class="govuk-label govuk-label--m" for="income">
+                    Annual household income (€)
+                </label>
+                <input class="govuk-input govuk-input--width-10" id="income" name="income" type="number" min="0">
+            </div>
+
+            <div class="govuk-form-group">
+                <fieldset class="govuk-fieldset">
+                    <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                        Do you have any dependents?
+                    </legend>
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="children" name="dependents" type="checkbox" value="children">
+                            <label class="govuk-label govuk-checkboxes__label" for="children">Children under 18</label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="disabled-adult" name="dependents" type="checkbox" value="disabled-adult">
+                            <label class="govuk-label govuk-checkboxes__label" for="disabled-adult">Disabled adult</label>
+                        </div>
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="elderly-parent" name="dependents" type="checkbox" value="elderly-parent">
+                            <label class="govuk-label govuk-checkboxes__label" for="elderly-parent">Elderly parent</label>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+
+            <button type="button" class="govuk-button" onclick="checkEligibility()">
+                Check Eligibility
+            </button>
+        </form>
+
+        <div id="results" style="display: none;">
+            <h2 class="govuk-heading-l">Your Benefits Eligibility</h2>
+            <div id="eligible-benefits"></div>
+            
+            <div class="govuk-inset-text">
+                <p><strong>Next steps:</strong></p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="appointments.html?service=benefits" class="govuk-link">Book an appointment</a> to discuss your application</li>
+                    <li>Gather required documents for your application</li>
+                    <li>Apply online or visit our office with completed forms</li>
+                </ul>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function checkEligibility() {
+            const age = parseInt(document.getElementById('age').value);
+            const employment = document.querySelector('input[name="employment"]:checked')?.value;
+            const income = parseInt(document.getElementById('income').value);
+            const dependents = Array.from(document.querySelectorAll('input[name="dependents"]:checked')).map(el => el.value);
+
+            let eligibleBenefits = [];
+
+            // Unemployment benefits
+            if (employment === 'unemployed' && age >= 18 && age < 65) {
+                eligibleBenefits.push({
+                    name: 'Unemployment Support',
+                    amount: '€850/month',
+                    description: 'Financial support while you look for work'
+                });
+            }
+
+            // Family benefits
+            if (dependents.includes('children')) {
+                eligibleBenefits.push({
+                    name: 'Child Benefit',
+                    amount: '€120/month per child',
+                    description: 'Monthly payment for each child under 18'
+                });
+            }
+
+            // Student support
+            if (employment === 'student' && age >= 18) {
+                eligibleBenefits.push({
+                    name: 'Student Support',
+                    amount: '€600/month',
+                    description: 'Financial assistance for full-time students'
+                });
+            }
+
+            // Pension
+            if (employment === 'retired' && age >= 65) {
+                eligibleBenefits.push({
+                    name: 'State Pension',
+                    amount: '€1,200/month',
+                    description: 'Monthly pension for eligible retirees'
+                });
+            }
+
+            // Housing benefit (income-based)
+            if (income < 30000) {
+                eligibleBenefits.push({
+                    name: 'Housing Benefit',
+                    amount: 'Up to €400/month',
+                    description: 'Help with rent or mortgage payments'
+                });
+            }
+
+            // Disability benefits
+            if (dependents.includes('disabled-adult')) {
+                eligibleBenefits.push({
+                    name: 'Disability Support',
+                    amount: '€950/month',
+                    description: 'Support for caring for disabled family members'
+                });
+            }
+
+            displayResults(eligibleBenefits);
+        }
+
+        function displayResults(benefits) {
+            const resultsDiv = document.getElementById('results');
+            const benefitsDiv = document.getElementById('eligible-benefits');
+            
+            if (benefits.length === 0) {
+                benefitsDiv.innerHTML = '<p class="govuk-body">Based on your answers, you may not be eligible for any benefits at this time.</p>';
+            } else {
+                let html = '<div class="govuk-summary-list">';
+                benefits.forEach(benefit => {
+                    html += `
+                        <div class="govuk-summary-list__row">
+                            <dt class="govuk-summary-list__key">${benefit.name}</dt>
+                            <dd class="govuk-summary-list__value">
+                                <strong>${benefit.amount}</strong><br>
+                                ${benefit.description}
+                            </dd>
+                        </div>
+                    `;
+                });
+                html += '</div>';
+                benefitsDiv.innerHTML = html;
+            }
+            
+            resultsDiv.style.display = 'block';
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
