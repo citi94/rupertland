@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Parliament Live Streaming - GOV.RP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .video-player {
+            width: 100%;
+            height: 400px;
+            background: #0b0c0c;
+            border: 2px solid #b1b4b6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            margin: 20px 0;
+            position: relative;
+        }
+        .live-indicator {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #d4351c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .offline-indicator {
+            background: #626a6e;
+        }
+        .control-bar {
+            background: #f3f2f1;
+            padding: 15px;
+            margin-top: -2px;
+            border: 2px solid #b1b4b6;
+            border-top: none;
+        }
+        .agenda-item {
+            border: 1px solid #b1b4b6;
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+        }
+        .agenda-item.current {
+            border-left: 4px solid #1d70b8;
+            background: #f8f8f8;
+        }
+        .agenda-item.completed {
+            opacity: 0.7;
+            background: #f8f8f8;
+        }
+        .chat-container {
+            border: 1px solid #b1b4b6;
+            height: 300px;
+            overflow-y: auto;
+            padding: 10px;
+            background: white;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .chat-message {
+            margin: 5px 0;
+            padding: 5px;
+            border-bottom: 1px solid #f3f2f1;
+        }
+        .chat-timestamp {
+            color: #626a6e;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="background: #0b0c0c; color: white; padding: 10px;">
+            <h1 style="margin: 0; font-size: 18px;">Principality of Rupertland - Parliament Live</h1>
+        </div>
+    </header>
+
+    <main style="max-width: 1200px; margin: 20px auto; padding: 0 20px;">
+        <div class="govuk-breadcrumbs">
+            <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="index-spa.html">Home</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="index-spa.html#parliament">Parliament</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    Live Streaming
+                </li>
+            </ol>
+        </div>
+
+        <h1 class="govuk-heading-xl">Parliament Live Streaming</h1>
+
+        <div class="govuk-grid-row">
+            <div class="govuk-grid-column-two-thirds">
+                <div id="live-stream" class="video-player">
+                    <div id="stream-status">
+                        <div class="live-indicator offline-indicator">OFFLINE</div>
+                        <div style="text-align: center;">
+                            <h2 style="margin: 0;">Parliament Stream Currently Offline</h2>
+                            <p style="margin: 10px 0;">Next session: Tuesday, 23 July 2025 at 14:00</p>
+                            <button class="govuk-button" onclick="simulateStream()" style="margin-top: 10px;">
+                                ▶ Start Test Stream
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="control-bar">
+                    <div class="govuk-button-group">
+                        <button class="govuk-button govuk-button--secondary" id="quality-btn" onclick="changeQuality()">
+                            Quality: HD
+                        </button>
+                        <button class="govuk-button govuk-button--secondary" onclick="toggleFullscreen()">
+                            Fullscreen
+                        </button>
+                        <button class="govuk-button govuk-button--secondary" onclick="toggleSubtitles()">
+                            Subtitles: OFF
+                        </button>
+                    </div>
+                </div>
+
+                <details class="govuk-details" style="margin-top: 20px;">
+                    <summary class="govuk-details__summary">
+                        <span class="govuk-details__summary-text">Alternative streaming options</span>
+                    </summary>
+                    <div class="govuk-details__text">
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li><strong>Audio only:</strong> <a href="#" class="govuk-link">Listen to parliament radio</a></li>
+                            <li><strong>Mobile app:</strong> Download "Rupertland Parliament" on iOS/Android</li>
+                            <li><strong>YouTube:</strong> <a href="#" class="govuk-link">Parliament of Rupertland channel</a></li>
+                            <li><strong>RSS feed:</strong> <a href="feeds/legislation.xml" class="govuk-link">Legislative updates</a></li>
+                        </ul>
+                    </div>
+                </details>
+            </div>
+
+            <div class="govuk-grid-column-one-third">
+                <h2 class="govuk-heading-m">Session Information</h2>
+                
+                <div class="govuk-summary-list">
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Current Session</dt>
+                        <dd class="govuk-summary-list__value">No active session</dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Next Session</dt>
+                        <dd class="govuk-summary-list__value">Tue, 23 Jul 2025 14:00</dd>
+                    </div>
+                    <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">Live Viewers</dt>
+                        <dd class="govuk-summary-list__value" id="viewer-count">0</dd>
+                    </div>
+                </div>
+
+                <h3 class="govuk-heading-s">Quick Links</h3>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li><a href="parliament-attendance.html" class="govuk-link">Book in-person attendance</a></li>
+                    <li><a href="#agenda" class="govuk-link">View today's agenda</a></li>
+                    <li><a href="index-spa.html#parliament" class="govuk-link">Parliament information</a></li>
+                    <li><a href="feeds/legislation.xml" class="govuk-link">Legislative RSS feed</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="govuk-grid-row" style="margin-top: 40px;">
+            <div class="govuk-grid-column-one-half">
+                <h2 class="govuk-heading-l" id="agenda">Today's Agenda</h2>
+                
+                <div class="agenda-item completed">
+                    <div class="govuk-body-s" style="color: #626a6e; margin: 0;">10:00 - 10:15</div>
+                    <div class="govuk-body-m" style="margin: 5px 0;"><strong>Opening & Roll Call</strong></div>
+                    <div class="govuk-body-s">Speaker: Dr. Michael Torres</div>
+                    <div class="govuk-tag govuk-tag--green" style="margin-top: 5px;">Completed</div>
+                </div>
+
+                <div class="agenda-item current">
+                    <div class="govuk-body-s" style="color: #626a6e; margin: 0;">14:00 - 16:00</div>
+                    <div class="govuk-body-m" style="margin: 5px 0;"><strong>Digital Rights Amendment Bill - Second Reading</strong></div>
+                    <div class="govuk-body-s">Speaker: Prime Minister Sarah Chen</div>
+                    <div class="govuk-tag govuk-tag--blue" style="margin-top: 5px;">Next Session</div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="govuk-body-s" style="color: #626a6e; margin: 0;">16:15 - 17:00</div>
+                    <div class="govuk-body-m" style="margin: 5px 0;"><strong>Committee Reports</strong></div>
+                    <div class="govuk-body-s">Multiple speakers</div>
+                    <div class="govuk-tag govuk-tag--grey" style="margin-top: 5px;">Scheduled</div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="govuk-body-s" style="color: #626a6e; margin: 0;">17:00 - 18:00</div>
+                    <div class="govuk-body-m" style="margin: 5px 0;"><strong>Parliamentary Questions</strong></div>
+                    <div class="govuk-body-s">All members</div>
+                    <div class="govuk-tag govuk-tag--grey" style="margin-top: 5px;">Scheduled</div>
+                </div>
+            </div>
+
+            <div class="govuk-grid-column-one-half">
+                <h2 class="govuk-heading-l">Live Comments</h2>
+                
+                <div class="chat-container" id="live-chat">
+                    <div class="chat-message">
+                        <span class="chat-timestamp">[10:15]</span> <strong>Moderator:</strong> Session has ended. Next session starts at 14:00.
+                    </div>
+                    <div class="chat-message">
+                        <span class="chat-timestamp">[10:14]</span> <strong>CitizenView:</strong> Thank you for the broadcast!
+                    </div>
+                    <div class="chat-message">
+                        <span class="chat-timestamp">[10:13]</span> <strong>Democracy_Watch:</strong> Clear explanation of voting procedures
+                    </div>
+                    <div class="chat-message">
+                        <span class="chat-timestamp">[10:11]</span> <strong>Student_Politics:</strong> This is helpful for my civics class
+                    </div>
+                </div>
+
+                <div style="margin-top: 10px;">
+                    <div class="govuk-form-group">
+                        <input class="govuk-input" placeholder="Type your comment..." disabled>
+                    </div>
+                    <button class="govuk-button govuk-button--disabled" disabled>
+                        Send Comment (Login Required)
+                    </button>
+                    <p class="govuk-body-s">
+                        <a href="citizen-portal.html" class="govuk-link">Sign in to participate</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div style="margin-top: 40px;">
+            <h2 class="govuk-heading-l">Parliament Archives</h2>
+            
+            <div class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Monday, 21 July 2025</dt>
+                    <dd class="govuk-summary-list__value">
+                        Budget Committee Session - Environmental Funding Review<br>
+                        <a href="#" class="govuk-link">Watch recording</a> | <a href="#" class="govuk-link">Download transcript</a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Friday, 19 July 2025</dt>
+                    <dd class="govuk-summary-list__value">
+                        Question Time & Government Updates<br>
+                        <a href="#" class="govuk-link">Watch recording</a> | <a href="#" class="govuk-link">Download transcript</a>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Wednesday, 17 July 2025</dt>
+                    <dd class="govuk-summary-list__value">
+                        Small Business Support Bill - Final Reading<br>
+                        <a href="#" class="govuk-link">Watch recording</a> | <a href="#" class="govuk-link">Download transcript</a>
+                    </dd>
+                </div>
+            </div>
+
+            <p class="govuk-body">
+                <a href="#" class="govuk-link">View complete parliament archive</a>
+            </p>
+        </div>
+    </main>
+
+    <script>
+        let isLive = false;
+        let viewerCount = 0;
+        let quality = 'HD';
+        let subtitles = false;
+
+        function simulateStream() {
+            if (!isLive) {
+                // Start simulated stream
+                isLive = true;
+                viewerCount = Math.floor(Math.random() * 500) + 100;
+                
+                document.getElementById('stream-status').innerHTML = `
+                    <div class="live-indicator">LIVE</div>
+                    <div style="text-align: center;">
+                        <h2 style="margin: 0;">Digital Rights Amendment Bill - Second Reading</h2>
+                        <p style="margin: 10px 0;">Prime Minister Sarah Chen speaking</p>
+                        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 5px;">
+                            <div style="width: 60%; height: 20px; background: #00703c; margin: 20px auto;"></div>
+                            <p style="font-size: 14px;">🎥 Live Parliament Stream</p>
+                        </div>
+                        <button class="govuk-button govuk-button--warning" onclick="simulateStream()">
+                            ⏹ Stop Stream
+                        </button>
+                    </div>
+                `;
+                
+                document.getElementById('viewer-count').textContent = viewerCount.toLocaleString();
+                
+                // Update session info
+                const summaryList = document.querySelector('.govuk-summary-list');
+                summaryList.children[0].children[1].textContent = 'Digital Rights Amendment Bill - Second Reading';
+                
+                // Add live chat messages
+                addLiveChatMessage('Moderator', 'Stream is now live! Welcome everyone.');
+                
+                // Simulate viewer count changes
+                setInterval(() => {
+                    if (isLive) {
+                        viewerCount += Math.floor(Math.random() * 20) - 10;
+                        if (viewerCount < 50) viewerCount = 50;
+                        document.getElementById('viewer-count').textContent = viewerCount.toLocaleString();
+                    }
+                }, 5000);
+                
+                // Simulate occasional chat messages
+                setInterval(() => {
+                    if (isLive && Math.random() < 0.3) {
+                        const users = ['CitizenView', 'Democracy_Watch', 'Student_Politics', 'Local_Resident', 'PolicyWatcher'];
+                        const messages = [
+                            'Excellent points being made',
+                            'Thank you for the live coverage',
+                            'When will the vote take place?',
+                            'Very informative session',
+                            'Great transparency from government'
+                        ];
+                        const user = users[Math.floor(Math.random() * users.length)];
+                        const message = messages[Math.floor(Math.random() * messages.length)];
+                        addLiveChatMessage(user, message);
+                    }
+                }, 15000);
+                
+            } else {
+                // Stop stream
+                isLive = false;
+                viewerCount = 0;
+                
+                document.getElementById('stream-status').innerHTML = `
+                    <div class="live-indicator offline-indicator">OFFLINE</div>
+                    <div style="text-align: center;">
+                        <h2 style="margin: 0;">Parliament Stream Currently Offline</h2>
+                        <p style="margin: 10px 0;">Next session: Tuesday, 23 July 2025 at 14:00</p>
+                        <button class="govuk-button" onclick="simulateStream()" style="margin-top: 10px;">
+                            ▶ Start Test Stream
+                        </button>
+                    </div>
+                `;
+                
+                document.getElementById('viewer-count').textContent = '0';
+                
+                // Update session info
+                const summaryList = document.querySelector('.govuk-summary-list');
+                summaryList.children[0].children[1].textContent = 'No active session';
+            }
+        }
+
+        function addLiveChatMessage(user, message) {
+            const chatContainer = document.getElementById('live-chat');
+            const timestamp = new Date().toTimeString().slice(0, 5);
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'chat-message';
+            messageDiv.innerHTML = `
+                <span class="chat-timestamp">[${timestamp}]</span> <strong>${user}:</strong> ${message}
+            `;
+            
+            chatContainer.appendChild(messageDiv);
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+            
+            // Keep only last 20 messages
+            while (chatContainer.children.length > 20) {
+                chatContainer.removeChild(chatContainer.firstChild);
+            }
+        }
+
+        function changeQuality() {
+            const qualities = ['HD', 'SD', 'Low'];
+            const currentIndex = qualities.indexOf(quality);
+            quality = qualities[(currentIndex + 1) % qualities.length];
+            document.getElementById('quality-btn').textContent = 'Quality: ' + quality;
+        }
+
+        function toggleSubtitles() {
+            subtitles = !subtitles;
+            const btn = event.target;
+            btn.textContent = 'Subtitles: ' + (subtitles ? 'ON' : 'OFF');
+        }
+
+        function toggleFullscreen() {
+            const player = document.getElementById('live-stream');
+            if (document.fullscreenElement) {
+                document.exitFullscreen();
+            } else {
+                player.requestFullscreen().catch(err => {
+                    alert('Fullscreen not supported in this browser');
+                });
+            }
+        }
+    </script>
+</body>
+</html>

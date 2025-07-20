@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Parliament Session Attendance - GOV.RP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .session-card {
+            border: 1px solid #b1b4b6;
+            padding: 20px;
+            margin: 15px 0;
+            position: relative;
+        }
+        .session-status {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+        }
+        .session-date {
+            font-size: 18px;
+            font-weight: bold;
+            color: #0b0c0c;
+        }
+        .available { border-left: 4px solid #00703c; }
+        .limited { border-left: 4px solid #f47738; }
+        .full { border-left: 4px solid #d4351c; }
+    </style>
+</head>
+<body>
+    <header>
+        <div style="background: #0b0c0c; color: white; padding: 10px;">
+            <h1 style="margin: 0; font-size: 18px;">Principality of Rupertland - Parliament Attendance</h1>
+        </div>
+    </header>
+
+    <main style="max-width: 900px; margin: 20px auto; padding: 0 20px;">
+        <div class="govuk-breadcrumbs">
+            <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="index-spa.html">Home</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="index-spa.html#parliament">Parliament</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    Book Attendance
+                </li>
+            </ol>
+        </div>
+
+        <h1 class="govuk-heading-xl">Book Parliament Session Attendance</h1>
+        
+        <div class="govuk-inset-text">
+            <p>Parliamentary sessions are open to the public. Book your place in the public gallery to observe parliamentary proceedings.</p>
+            <p><strong>Important:</strong> Security screening is required. Arrive 30 minutes early with photo ID.</p>
+        </div>
+
+        <div id="session-list">
+            <h2 class="govuk-heading-l">Upcoming Parliamentary Sessions</h2>
+            
+            <div class="session-card available">
+                <div class="session-status">
+                    <strong class="govuk-tag govuk-tag--green">Available</strong>
+                </div>
+                <div class="session-date">Tuesday, 23 July 2025</div>
+                <div class="govuk-body-l" style="margin: 10px 0;"><strong>Second Reading: Digital Rights Amendment Bill</strong></div>
+                <div class="govuk-body">
+                    <strong>Time:</strong> 14:00 - 18:00<br>
+                    <strong>Speaker:</strong> Prime Minister Sarah Chen<br>
+                    <strong>Public Seats:</strong> 28 available of 40<br>
+                    <strong>Location:</strong> Parliament Chamber, Neu-Rupertsberg
+                </div>
+                <div style="margin-top: 15px;">
+                    <button class="govuk-button" onclick="bookSession('2025-07-23', 'Digital Rights Amendment Bill')">
+                        Book Attendance
+                    </button>
+                    <a href="parliament-live.html" class="govuk-link">Watch live online instead</a>
+                </div>
+            </div>
+
+            <div class="session-card limited">
+                <div class="session-status">
+                    <strong class="govuk-tag govuk-tag--yellow">Limited Spaces</strong>
+                </div>
+                <div class="session-date">Thursday, 25 July 2025</div>
+                <div class="govuk-body-l" style="margin: 10px 0;"><strong>Question Time & Business Updates</strong></div>
+                <div class="govuk-body">
+                    <strong>Time:</strong> 10:00 - 12:00<br>
+                    <strong>Speaker:</strong> Parliament Speaker Dr. Michael Torres<br>
+                    <strong>Public Seats:</strong> 6 available of 40<br>
+                    <strong>Location:</strong> Parliament Chamber, Neu-Rupertsberg
+                </div>
+                <div style="margin-top: 15px;">
+                    <button class="govuk-button" onclick="bookSession('2025-07-25', 'Question Time & Business Updates')">
+                        Book Attendance
+                    </button>
+                    <a href="parliament-live.html" class="govuk-link">Watch live online instead</a>
+                </div>
+            </div>
+
+            <div class="session-card available">
+                <div class="session-status">
+                    <strong class="govuk-tag govuk-tag--green">Available</strong>
+                </div>
+                <div class="session-date">Monday, 28 July 2025</div>
+                <div class="govuk-body-l" style="margin: 10px 0;"><strong>Budget Review Committee Session</strong></div>
+                <div class="govuk-body">
+                    <strong>Time:</strong> 09:00 - 16:00<br>
+                    <strong>Speaker:</strong> Finance Minister Robert Klein<br>
+                    <strong>Public Seats:</strong> 35 available of 40<br>
+                    <strong>Location:</strong> Committee Room 1, Parliament Building
+                </div>
+                <div style="margin-top: 15px;">
+                    <button class="govuk-button" onclick="bookSession('2025-07-28', 'Budget Review Committee Session')">
+                        Book Attendance
+                    </button>
+                    <a href="parliament-live.html" class="govuk-link">Watch live online instead</a>
+                </div>
+            </div>
+
+            <div class="session-card full">
+                <div class="session-status">
+                    <strong class="govuk-tag govuk-tag--red">Fully Booked</strong>
+                </div>
+                <div class="session-date">Friday, 26 July 2025</div>
+                <div class="govuk-body-l" style="margin: 10px 0;"><strong>Prince's Annual Address to Parliament</strong></div>
+                <div class="govuk-body">
+                    <strong>Time:</strong> 11:00 - 12:00<br>
+                    <strong>Speaker:</strong> His Serene Highness Prince Rupert VIII<br>
+                    <strong>Public Seats:</strong> 0 available of 40 (Waiting list: 127)<br>
+                    <strong>Location:</strong> Parliament Chamber, Neu-Rupertsberg
+                </div>
+                <div style="margin-top: 15px;">
+                    <button class="govuk-button govuk-button--disabled" disabled>
+                        Fully Booked
+                    </button>
+                    <a href="parliament-live.html" class="govuk-link"><strong>Watch live online</strong></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="booking-form" style="display: none;">
+            <h2 class="govuk-heading-l">Book Your Attendance</h2>
+            
+            <div class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Session</dt>
+                    <dd class="govuk-summary-list__value" id="booking-session"></dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Date</dt>
+                    <dd class="govuk-summary-list__value" id="booking-date"></dd>
+                </div>
+            </div>
+
+            <form>
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="attendee-name">
+                        Full Name
+                    </label>
+                    <input class="govuk-input" id="attendee-name" name="attendee-name" type="text" required>
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="attendee-email">
+                        Email Address
+                    </label>
+                    <div class="govuk-hint">
+                        We'll send you a confirmation and entry details
+                    </div>
+                    <input class="govuk-input" id="attendee-email" name="attendee-email" type="email" required>
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="attendee-phone">
+                        Phone Number
+                    </label>
+                    <input class="govuk-input" id="attendee-phone" name="attendee-phone" type="tel">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="group-size">
+                        Number of Attendees
+                    </label>
+                    <div class="govuk-hint">
+                        Maximum 4 people per booking
+                    </div>
+                    <select class="govuk-select" id="group-size" name="group-size">
+                        <option value="1">1 person</option>
+                        <option value="2">2 people</option>
+                        <option value="3">3 people</option>
+                        <option value="4">4 people</option>
+                    </select>
+                </div>
+
+                <div class="govuk-form-group">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--m">
+                            Special Requirements
+                        </legend>
+                        <div class="govuk-checkboxes">
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="wheelchair" name="requirements" type="checkbox" value="wheelchair">
+                                <label class="govuk-label govuk-checkboxes__label" for="wheelchair">
+                                    Wheelchair access required
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="hearing-loop" name="requirements" type="checkbox" value="hearing-loop">
+                                <label class="govuk-label govuk-checkboxes__label" for="hearing-loop">
+                                    Hearing loop required
+                                </label>
+                            </div>
+                            <div class="govuk-checkboxes__item">
+                                <input class="govuk-checkboxes__input" id="assistance" name="requirements" type="checkbox" value="assistance">
+                                <label class="govuk-label govuk-checkboxes__label" for="assistance">
+                                    Personal assistance required
+                                </label>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="govuk-warning-text">
+                    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                    <strong class="govuk-warning-text__text">
+                        <span class="govuk-warning-text__assistive">Warning</span>
+                        Bring valid photo ID. Security screening takes 15-20 minutes.
+                    </strong>
+                </div>
+
+                <div class="govuk-button-group">
+                    <button type="button" class="govuk-button" onclick="confirmBooking()">
+                        Confirm Booking
+                    </button>
+                    <button type="button" class="govuk-button govuk-button--secondary" onclick="showSessionList()">
+                        Back to Sessions
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <div id="booking-success" style="display: none;">
+            <div class="govuk-panel govuk-panel--confirmation">
+                <h1 class="govuk-panel__title">Booking Confirmed</h1>
+                <div class="govuk-panel__body">
+                    Reference number<br>
+                    <strong id="booking-reference"></strong>
+                </div>
+            </div>
+
+            <div class="govuk-inset-text">
+                <p><strong>What happens next</strong></p>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>You'll receive a confirmation email with entry instructions</li>
+                    <li>Arrive 30 minutes early for security screening</li>
+                    <li>Bring photo ID matching the booking name</li>
+                    <li>Entry is through the public entrance on Parliament Square</li>
+                    <li>No bags, food, or drinks are permitted in the chamber</li>
+                </ul>
+            </div>
+
+            <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    If you cannot attend, please cancel at least 24 hours in advance by calling +423 260 6000
+                </strong>
+            </div>
+
+            <p class="govuk-body">
+                <a href="index-spa.html#parliament" class="govuk-link">Return to Parliament information</a>
+            </p>
+        </div>
+
+        <details class="govuk-details" style="margin-top: 40px;">
+            <summary class="govuk-details__summary">
+                <span class="govuk-details__summary-text">Parliament attendance guidelines</span>
+            </summary>
+            <div class="govuk-details__text">
+                <h3 class="govuk-heading-s">What to expect</h3>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Sessions may start late or be rescheduled with short notice</li>
+                    <li>Mobile phones must be switched off</li>
+                    <li>Photography and recording are strictly prohibited</li>
+                    <li>Food and drinks are not permitted in the gallery</li>
+                </ul>
+
+                <h3 class="govuk-heading-s">Security requirements</h3>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>All visitors must pass through security screening</li>
+                    <li>Large bags and electronic devices may be refused entry</li>
+                    <li>Photo ID is required and will be checked against booking details</li>
+                </ul>
+
+                <h3 class="govuk-heading-s">Accessibility</h3>
+                <ul class="govuk-list govuk-list--bullet">
+                    <li>Wheelchair accessible seating is available in the public gallery</li>
+                    <li>Hearing loops are available in designated areas</li>
+                    <li>Guide dogs are permitted</li>
+                    <li>Large print materials can be provided on request</li>
+                </ul>
+            </div>
+        </details>
+    </main>
+
+    <script>
+        let selectedSession = null;
+        let selectedDate = null;
+
+        function showSessionList() {
+            document.getElementById('session-list').style.display = 'block';
+            document.getElementById('booking-form').style.display = 'none';
+            document.getElementById('booking-success').style.display = 'none';
+        }
+
+        function bookSession(date, sessionName) {
+            selectedDate = date;
+            selectedSession = sessionName;
+            
+            document.getElementById('booking-date').textContent = new Date(date).toLocaleDateString('en-GB', { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+            document.getElementById('booking-session').textContent = sessionName;
+            
+            document.getElementById('session-list').style.display = 'none';
+            document.getElementById('booking-form').style.display = 'block';
+            document.getElementById('booking-success').style.display = 'none';
+        }
+
+        function confirmBooking() {
+            const name = document.getElementById('attendee-name').value;
+            const email = document.getElementById('attendee-email').value;
+            
+            if (!name || !email) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            // Generate booking reference
+            const reference = 'PAR-' + new Date().getFullYear() + '-' + Math.floor(Math.random() * 900000 + 100000);
+            document.getElementById('booking-reference').textContent = reference;
+
+            // Show success page
+            document.getElementById('session-list').style.display = 'none';
+            document.getElementById('booking-form').style.display = 'none';
+            document.getElementById('booking-success').style.display = 'block';
+
+            // Scroll to success message
+            document.getElementById('booking-success').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Initialize page
+        window.onload = function() {
+            showSessionList();
+        };
+    </script>
+</body>
+</html>

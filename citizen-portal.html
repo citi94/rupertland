@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Citizen Portal Login - GOV.RP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div style="background: #0b0c0c; color: white; padding: 10px;">
+            <h1 style="margin: 0; font-size: 18px;">Principality of Rupertland - Citizen Portal</h1>
+        </div>
+    </header>
+
+    <main style="max-width: 600px; margin: 20px auto; padding: 0 20px;">
+        <div class="govuk-breadcrumbs">
+            <ol class="govuk-breadcrumbs__list">
+                <li class="govuk-breadcrumbs__list-item">
+                    <a class="govuk-breadcrumbs__link" href="index-spa.html">Home</a>
+                </li>
+                <li class="govuk-breadcrumbs__list-item">
+                    Citizen Portal
+                </li>
+            </ol>
+        </div>
+
+        <div id="login-section">
+            <h1 class="govuk-heading-xl">Sign in to Citizen Portal</h1>
+            
+            <div class="govuk-inset-text">
+                Access your government services, view applications, and manage your account.
+            </div>
+
+            <form id="login-form">
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="username">
+                        Digital ID or Email
+                    </label>
+                    <div class="govuk-hint">
+                        Use your Digital ID number or registered email address
+                    </div>
+                    <input class="govuk-input" id="username" name="username" type="text" autocomplete="username">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="password">
+                        Password
+                    </label>
+                    <input class="govuk-input" id="password" name="password" type="password" autocomplete="current-password">
+                </div>
+
+                <div class="govuk-form-group">
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="remember" name="remember" type="checkbox">
+                            <label class="govuk-label govuk-checkboxes__label" for="remember">
+                                Keep me signed in
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="govuk-button-group">
+                    <button type="button" class="govuk-button" onclick="signIn()">Sign in</button>
+                    <a href="#" class="govuk-link" onclick="showForgotPassword(); return false;">Forgot your password?</a>
+                </div>
+            </form>
+
+            <div class="govuk-inset-text" style="margin-top: 30px;">
+                <p><strong>New to the Citizen Portal?</strong></p>
+                <p><a href="#" class="govuk-link" onclick="showRegistration(); return false;">Create an account</a> if you don't have a Digital ID yet.</p>
+            </div>
+
+            <details class="govuk-details">
+                <summary class="govuk-details__summary">
+                    <span class="govuk-details__summary-text">Help with signing in</span>
+                </summary>
+                <div class="govuk-details__text">
+                    <ul class="govuk-list govuk-list--bullet">
+                        <li>Your Digital ID is the 8-digit number on your identity card</li>
+                        <li>If you've forgotten your password, use the 'Forgot your password?' link</li>
+                        <li>For technical support, call the helpline: +423 260 4500</li>
+                        <li>The portal is available 24/7 except for maintenance (Sundays 2-4 AM)</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div id="forgot-password-section" style="display: none;">
+            <h1 class="govuk-heading-xl">Reset your password</h1>
+            
+            <form id="forgot-form">
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="reset-email">
+                        Email address
+                    </label>
+                    <div class="govuk-hint">
+                        We'll send you a link to reset your password
+                    </div>
+                    <input class="govuk-input" id="reset-email" name="reset-email" type="email">
+                </div>
+
+                <div class="govuk-button-group">
+                    <button type="button" class="govuk-button" onclick="sendResetLink()">Send reset link</button>
+                    <a href="#" class="govuk-link" onclick="showLogin(); return false;">Back to sign in</a>
+                </div>
+            </form>
+        </div>
+
+        <div id="registration-section" style="display: none;">
+            <h1 class="govuk-heading-xl">Create Citizen Portal account</h1>
+            
+            <div class="govuk-warning-text">
+                <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                <strong class="govuk-warning-text__text">
+                    <span class="govuk-warning-text__assistive">Warning</span>
+                    You need a valid Digital ID to create an account
+                </strong>
+            </div>
+
+            <form id="registration-form">
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="digital-id">
+                        Digital ID Number
+                    </label>
+                    <div class="govuk-hint">
+                        The 8-digit number on your identity card (e.g., RP123456)
+                    </div>
+                    <input class="govuk-input govuk-input--width-10" id="digital-id" name="digital-id" type="text" pattern="RP[0-9]{6}">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="reg-email">
+                        Email address
+                    </label>
+                    <input class="govuk-input" id="reg-email" name="reg-email" type="email">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="reg-password">
+                        Create password
+                    </label>
+                    <div class="govuk-hint">
+                        Must be at least 8 characters with numbers and letters
+                    </div>
+                    <input class="govuk-input" id="reg-password" name="reg-password" type="password">
+                </div>
+
+                <div class="govuk-form-group">
+                    <label class="govuk-label govuk-label--m" for="confirm-password">
+                        Confirm password
+                    </label>
+                    <input class="govuk-input" id="confirm-password" name="confirm-password" type="password">
+                </div>
+
+                <div class="govuk-form-group">
+                    <div class="govuk-checkboxes">
+                        <div class="govuk-checkboxes__item">
+                            <input class="govuk-checkboxes__input" id="terms" name="terms" type="checkbox" required>
+                            <label class="govuk-label govuk-checkboxes__label" for="terms">
+                                I agree to the <a href="#" onclick="showPage('terms'); return false;" class="govuk-link">Terms of Service</a> and <a href="#" onclick="showPage('privacy'); return false;" class="govuk-link">Privacy Policy</a>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="govuk-button-group">
+                    <button type="button" class="govuk-button" onclick="createAccount()">Create account</button>
+                    <a href="#" class="govuk-link" onclick="showLogin(); return false;">Already have an account?</a>
+                </div>
+            </form>
+        </div>
+
+        <div id="dashboard-section" style="display: none;">
+            <h1 class="govuk-heading-xl">Your Citizen Dashboard</h1>
+            
+            <div class="govuk-notification-banner govuk-notification-banner--success">
+                <div class="govuk-notification-banner__header">
+                    <h2 class="govuk-notification-banner__title">Success</h2>
+                </div>
+                <div class="govuk-notification-banner__content">
+                    <p class="govuk-notification-banner__heading">Welcome to your Citizen Portal</p>
+                </div>
+            </div>
+
+            <div class="govuk-summary-list">
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Digital ID</dt>
+                    <dd class="govuk-summary-list__value" id="user-digital-id">RP123456</dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Account Status</dt>
+                    <dd class="govuk-summary-list__value">
+                        <strong class="govuk-tag govuk-tag--green">Verified</strong>
+                    </dd>
+                </div>
+                <div class="govuk-summary-list__row">
+                    <dt class="govuk-summary-list__key">Last Login</dt>
+                    <dd class="govuk-summary-list__value" id="last-login">Today</dd>
+                </div>
+            </div>
+
+            <h2 class="govuk-heading-l">Quick Actions</h2>
+            
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h3 class="govuk-heading-m">Applications</h3>
+                        <p class="govuk-body">View and track your applications</p>
+                        <a href="appointments.html" class="govuk-link">Manage applications</a>
+                    </div>
+                </div>
+                <div class="govuk-grid-column-one-half">
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h3 class="govuk-heading-m">Benefits</h3>
+                        <p class="govuk-body">Check benefit status and payments</p>
+                        <a href="benefits-checker.html" class="govuk-link">View benefits</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="govuk-grid-row">
+                <div class="govuk-grid-column-one-half">
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h3 class="govuk-heading-m">Tax Information</h3>
+                        <p class="govuk-body">View tax statements and calculate payments</p>
+                        <a href="index-spa.html#tax-calculator" class="govuk-link">Tax calculator</a>
+                    </div>
+                </div>
+                <div class="govuk-grid-column-one-half">
+                    <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                        <h3 class="govuk-heading-m">Documents</h3>
+                        <p class="govuk-body">Download certificates and official documents</p>
+                        <a href="forms/residence-permit-application.html" class="govuk-link">Download forms</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="govuk-button-group" style="margin-top: 30px;">
+                <button type="button" class="govuk-button govuk-button--secondary" onclick="signOut()">Sign out</button>
+                <a href="index-spa.html" class="govuk-link">Return to main site</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showLogin() {
+            document.querySelectorAll('[id$="-section"]').forEach(el => el.style.display = 'none');
+            document.getElementById('login-section').style.display = 'block';
+        }
+
+        function showForgotPassword() {
+            document.querySelectorAll('[id$="-section"]').forEach(el => el.style.display = 'none');
+            document.getElementById('forgot-password-section').style.display = 'block';
+        }
+
+        function showRegistration() {
+            document.querySelectorAll('[id$="-section"]').forEach(el => el.style.display = 'none');
+            document.getElementById('registration-section').style.display = 'block';
+        }
+
+        function signIn() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (!username || !password) {
+                alert('Please enter both username and password');
+                return;
+            }
+
+            // Simulate authentication
+            setTimeout(() => {
+                document.getElementById('user-digital-id').textContent = username.startsWith('RP') ? username : 'RP' + Math.floor(Math.random() * 900000 + 100000);
+                document.getElementById('last-login').textContent = new Date().toLocaleDateString();
+                
+                document.querySelectorAll('[id$="-section"]').forEach(el => el.style.display = 'none');
+                document.getElementById('dashboard-section').style.display = 'block';
+            }, 1000);
+        }
+
+        function sendResetLink() {
+            const email = document.getElementById('reset-email').value;
+            
+            if (!email) {
+                alert('Please enter your email address');
+                return;
+            }
+
+            alert('Password reset link sent to ' + email + '. Check your email.');
+            showLogin();
+        }
+
+        function createAccount() {
+            const digitalId = document.getElementById('digital-id').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const terms = document.getElementById('terms').checked;
+
+            if (!digitalId || !email || !password || !confirmPassword) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+
+            if (!terms) {
+                alert('Please accept the Terms of Service and Privacy Policy');
+                return;
+            }
+
+            if (!/^RP\d{6}$/.test(digitalId)) {
+                alert('Digital ID must be in format RP123456');
+                return;
+            }
+
+            // Simulate account creation
+            setTimeout(() => {
+                alert('Account created successfully! You can now sign in.');
+                showLogin();
+            }, 1000);
+        }
+
+        function signOut() {
+            showLogin();
+            // Clear form fields
+            document.getElementById('login-form').reset();
+        }
+
+        // Initialize page
+        window.onload = function() {
+            showLogin();
+        };
+    </script>
+</body>
+</html>
