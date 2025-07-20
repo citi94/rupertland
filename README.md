@@ -1,10 +1,13 @@
 # 🏰 Principality of Rupertland - Official Government Website
 
-A fictional UK Government-style website for the imaginary Principality of Rupertland, featuring authentic GOV.UK design patterns and comprehensive government services.
+A comprehensive fictional UK Government-style website following exact GOV.UK design patterns and standards, built as a modern Single-Page Application (SPA).
 
 ## 🌟 Overview
 
-The Principality of Rupertland is a fictional small European sovereign state founded by His Serene Highness Prince Rupert Harding in 2018. This website serves as the official government portal, providing services, information, and resources for the 247 citizens of this innovative micronation.
+The Principality of Rupertland is a fictional constitutional monarchy showcasing digital innovation and environmental leadership. This website serves as the official government portal, providing comprehensive services and information through an efficient single-page application architecture.
+
+**🚀 Live Site:** [rupertland.gov.rp](https://rupertland.netlify.app)  
+**📋 Architecture:** Single-Page Application (SPA) for optimal performance
 
 ## 🎯 Features
 
@@ -52,32 +55,53 @@ The Principality of Rupertland is a fictional small European sovereign state fou
 
 ```
 rupertland-gov/
-├── index.html                 # Homepage
-├── about.html                 # About Rupertland
-├── services.html              # Government Services
-├── news.html                  # News & Announcements
-├── contact.html               # Contact Government
-├── laws-regulations.html      # Laws & Regulations
-├── tourism-culture.html       # Tourism & Culture
-├── styles.css                 # GOV.UK Design System CSS
-├── assets/                    # Static assets directory
-│   └── images/               # Images and icons
-└── README.md                 # This file
+├── index-spa.html             # Main SPA file (primary)
+├── styles.css                 # GOV.UK Design System CSS  
+├── netlify.toml               # Deployment configuration
+├── CLAUDE.md                  # Development documentation
+├── README.md                  # This file
+├── [legacy-files/]            # Static HTML files (superseded by SPA)
+└── assets/                    # Images and resources
 ```
+
+## 🏗️ SPA Architecture
+
+### Single-Page Application Benefits
+- **🚀 Instant Navigation** - No page reloads, immediate response
+- **🔄 Zero Code Duplication** - Single header, footer, navigation
+- **⚡ Optimized Performance** - Loads once, navigates instantly
+- **🔧 Easy Maintenance** - One file to update, not 16+
+
+### Core Pages Included
+- **Home** - Government services overview
+- **About** - Constitutional monarchy and values  
+- **Services** - Comprehensive service catalog
+- **Digital ID** - Citizen portal access
+- **Immigration** - Visas, permits, citizenship
+- **Legal Aid** - Free legal assistance
+- **Royal Family** - Prince Rupert information
+- **Data Protection** - Privacy rights and GDPR compliance
 
 ## 🚀 Deployment
 
 ### Quick Start
-1. Clone this repository
-2. Open `index.html` in a web browser
-3. Navigate between pages using the main navigation
+```bash
+# Clone repository
+git clone https://github.com/citi94/rupertland.git
+cd rupertland
 
-### Netlify Deployment
-1. Connect repository to Netlify
-2. Build settings: 
-   - Build command: (none required)
-   - Publish directory: `/` (root)
-3. Deploy automatically on git push
+# Serve locally
+python -m http.server 8000
+# or open index-spa.html directly
+
+# View at http://localhost:8000/index-spa.html
+```
+
+### Netlify Deployment (Current)
+- **Build Command:** None (static SPA)
+- **Publish Directory:** `.` (root)
+- **Redirects:** All routes → `/index-spa.html` (SPA support)
+- **Auto-deploy:** On git push to main branch
 
 ### GitHub Pages
 1. Go to repository Settings → Pages

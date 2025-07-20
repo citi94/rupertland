@@ -51,9 +51,9 @@
   to = "/consultation"
   status = 301
 
-# Catch-all redirect for any other undefined pages
+# Redirect to SPA for all pages
 [[redirects]]
   from = "/*"
-  to = "/coming-soon"
-  status = 302
+  to = "/index-spa.html"
+  status = 200
   force = false

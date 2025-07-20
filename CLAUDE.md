@@ -3,38 +3,117 @@
 ## Project Overview
 This is a fictional UK Government-style website for the "Principality of Rupertland" that follows exact GOV.UK design patterns and contains comprehensive government services.
 
-## Development Process - Iterative Link Completion
+**Architecture:** Single-Page Application (SPA) using JavaScript navigation for maximum efficiency and maintainability.
 
-Follow this process as a feedback loop to eliminate all dead links and make the site as realistic as possible:
+## Current Architecture - Single-Page Application (SPA)
 
-### 1. Scan for Dead Links
-- Use grep/search tools to find all `<a href="..."` links across all HTML files
-- Identify which links point to pages that don't exist
-- Prioritize links that appear multiple times across the site
+### Overview
+The site has been refactored from multiple static HTML files to a single-page application (`index-spa.html`) for improved efficiency and maintainability. This approach eliminates code duplication and provides instant navigation.
 
-### 2. Create Template System
-- Use existing pages as templates to avoid rewriting common HTML structure
-- Copy the header, footer, and navigation from existing pages
-- Follow GOV.UK design patterns consistently
-- Maintain the same CSS classes and semantic structure
+### Key Files
+- **`index-spa.html`** - Main SPA file containing all pages as sections
+- **`netlify.toml`** - Configuration with catch-all redirect to SPA
+- **`styles.css`** - External CSS file for GOV.UK styling
+- **Static HTML files** - Legacy files, now superseded by SPA
 
-### 3. Generate Content
-- Create realistic, comprehensive content for each new page
-- Follow government website content patterns
-- Include practical information citizens would actually need
-- Add cross-references and related links between pages
+### SPA Structure
+```
+index-spa.html
+├── Single <head> with CSS and metadata
+├── Shared <header> with navigation
+├── Page sections with id="page-name" class="page"
+│   ├── Home page (active by default)
+│   ├── About Rupertland
+│   ├── Government Services
+│   ├── Digital ID & Citizen Portal
+│   ├── Identity Card Application
+│   ├── Tax Calculator
+│   ├── News & Announcements
+│   ├── Contact Government
+│   ├── Immigration Services
+│   ├── Legal Aid
+│   ├── Royal Family
+│   └── Data Protection
+├── Shared <footer>
+└── JavaScript navigation system
+```
 
-### 4. Deploy and Test
-- Push changes to GitHub
-- Deploy to Netlify
-- Test the live site for any new broken links
+### Navigation System
+- **showPage(pageId)** - Core navigation function
+- **Browser history support** - Back/forward buttons work correctly
+- **URL hash routing** - Direct links to pages work (e.g., #digital-id)
+- **Dynamic page titles** - Page title updates based on current page
+- **Scroll to top** - Automatic scroll on page change
 
-### 5. Repeat Until Complete
-- Continue this cycle until there are genuinely 0% dead links
-- Each iteration should add substantial content and functionality
-- Focus on the most commonly referenced links first
+### Form Handling
+All forms include client-side JavaScript handlers:
+- **Tax Calculator** - Real-time tax calculation with breakdown
+- **ID Application** - Application submission with reference numbers
+- **Contact Form** - Message submission with confirmation
+- **Form Styling** - Matches ofcat standards with proper form classes
+
+### CSS Architecture
+```css
+/* Page visibility control */
+.page { display: none; }
+.page.active { display: block; }
+
+/* Navigation styling */
+.nav-link { cursor: pointer; }
+.govuk-breadcrumbs__link--js { cursor: pointer; }
+
+/* Form components (matching ofcat) */
+.form-group, .form-label, .form-input, .form-hint
+.radio-group, .radio-item
+.success-panel, .error-panel
+.button, .button:hover
+```
+
+## Development Process - SPA Maintenance
+
+### 1. Adding New Pages
+```javascript
+// 1. Add new page section in HTML
+<div id="new-page" class="page">
+    <!-- Page content -->
+</div>
+
+// 2. Update page titles in JavaScript
+const titles = {
+    'new-page': 'New Page Title - GOV.RP',
+    // ... existing titles
+};
+
+// 3. Add navigation links
+<a onclick="showPage('new-page')" class="govuk-link nav-link">New Page</a>
+```
+
+### 2. Testing Navigation
+```bash
+# Check all showPage references
+grep -o "showPage('[^']*')" index-spa.html | sort | uniq
+
+# Check existing page definitions
+grep -o "id=\"[^\"]*\" class=\"page\"" index-spa.html
+
+# Find missing pages
+# Compare the two lists above
+```
+
+### 3. Form Development
+- Use standardized form classes matching ofcat patterns
+- Include proper validation and accessibility attributes
+- Add JavaScript handlers for client-side processing
+- Display success/error messages with proper styling
 
 ## Key Principles
+
+### SPA Benefits
+- **No code duplication** - Single header, footer, navigation
+- **Instant navigation** - No page reloads, immediate response
+- **Easier maintenance** - One file to update, not 16+
+- **Consistent styling** - Guaranteed consistency across all pages
+- **Better performance** - Loads once, navigates instantly
 
 ### Content Quality
 - All content should be realistic and useful
@@ -45,19 +124,45 @@ Follow this process as a feedback loop to eliminate all dead links and make the 
 ### Technical Standards
 - Maintain exact GOV.UK styling and responsive design
 - Use semantic HTML and proper accessibility features
-- Keep consistent navigation across all pages
-- Ensure all internal links work correctly
+- Follow ofcat form patterns and CSS classes
+- Ensure all navigation links work correctly in SPA
 
-### Site Completeness
-- Every link should lead to actual content, not placeholders
-- Related pages should reference each other appropriately
-- Footer links should all be functional
-- Service pages should include complete workflows
+### SPA Completeness
+- Every showPage() call should have corresponding page section
+- Related pages should cross-reference each other appropriately
+- Footer links should all be functional within SPA
+- Service pages should include complete workflows with working forms
 
 ## Testing Commands
-- Use `grep -r "href=\"/" . --include="*.html"` to find all internal links
-- Check netlify.toml for any remaining coming-soon redirects
-- Verify all navigation menus point to existing pages
+```bash
+# Check navigation completeness
+grep -o "showPage('[^']*')" index-spa.html | sort | uniq
+
+# Check existing pages
+grep -o "id=\"[^\"]*\" class=\"page\"" index-spa.html
+
+# Test form classes
+grep -c "form-group\|form-label\|form-input" index-spa.html
+
+# Verify netlify.toml SPA redirect
+grep -A 5 "Redirect to SPA" netlify.toml
+```
 
 ## Current Status
-The site has 16+ comprehensive pages with full content and should have minimal dead links. Continue the scan-create-deploy cycle to achieve 100% link completion.
+**✅ SPA Architecture Complete**
+- 12+ comprehensive pages with full content
+- JavaScript navigation system working
+- Forms comply with ofcat standards
+- All major government services included
+- Zero code duplication achieved
+
+**📋 Pages Included:**
+- Home, About, Services, Digital ID, Identity Card, Tax Calculator
+- News, Contact, Immigration, Legal Aid, Royal Family, Data Protection
+
+**🔗 Navigation Status:**
+- Core pages: ✅ Complete
+- Referenced pages: Some missing (e.g., parliament, ministers, departments)
+- Footer links: Some missing (e.g., privacy, cookies, terms)
+
+Continue adding missing page sections to eliminate any remaining dead links.
