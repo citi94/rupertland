@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="en" class="govuk-template">
+<head>
+    <meta charset="utf-8">
+    <title>Principality of Rupertland - GOV.RP</title>
+    <meta name="description" content="Official website of the Principality of Rupertland government - digital services, information, and citizen support.">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b0c0c">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏰</text></svg>">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        .nav-link {
+            cursor: pointer;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #0b0c0c;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        .back-link:before {
+            content: "← ";
+        }
+        
+        /* Breadcrumb styling */
+        .govuk-breadcrumbs__link--js {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body class="govuk-template__body">
+    <a href="#main-content" class="govuk-skip-link">Skip to main content</a>
+
+    <header class="govuk-header" role="banner">
+        <div class="govuk-header__container govuk-width-container">
+            <div class="govuk-header__logo">
+                <a href="#" class="govuk-header__link govuk-header__link--homepage" onclick="showPage('home'); return false;">
+                    <span class="govuk-header__logotype">
+                        <span class="govuk-header__logotype-text">GOV.RP</span>
+                    </span>
+                </a>
+            </div>
+            <div class="govuk-header__content">
+                <a href="#" class="govuk-header__link govuk-header__service-name" onclick="showPage('home'); return false;">
+                    Principality of Rupertland
+                </a>
+                <nav aria-label="Top level navigation" class="govuk-header__navigation">
+                    <ul id="navigation" class="govuk-header__navigation-list">
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link nav-link" onclick="showPage('home')">Home</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link nav-link" onclick="showPage('about')">About Rupertland</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link nav-link" onclick="showPage('services')">Services</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link nav-link" onclick="showPage('news')">News</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link nav-link" onclick="showPage('laws-regulations')">Laws</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link nav-link" onclick="showPage('tourism-culture')">Tourism</a>
+                        </li>
+                        <li class="govuk-header__navigation-item">
+                            <a class="govuk-header__link nav-link" onclick="showPage('contact')">Contact</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <div class="govuk-width-container">
+        
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">Welcome to the Principality of Rupertland</h1>
+                        
+                        <p class="govuk-body-l">
+                            The official website for government services, information and support for citizens, 
+                            businesses, and visitors to our principality.
+                        </p>
+
+                        <div class="govuk-notification-banner" role="region" aria-labelledby="govuk-notification-banner-title">
+                            <div class="govuk-notification-banner__header">
+                                <h2 class="govuk-notification-banner__title" id="govuk-notification-banner-title">
+                                    Latest update
+                                </h2>
+                            </div>
+                            <div class="govuk-notification-banner__content">
+                                <p class="govuk-notification-banner__heading">
+                                    Digital Rights Amendment Bill - Parliamentary session today at 2:00 PM
+                                </p>
+                                <p class="govuk-body">
+                                    Watch the live debate on digital privacy rights and data protection. 
+                                    <a class="govuk-notification-banner__link" onclick="showPage('parliament')">Follow Parliament updates</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Most Popular Services</h2>
+                        
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-half">
+                                <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                                    <h3 class="govuk-heading-m">
+                                        <a onclick="showPage('digital-id')" class="govuk-link nav-link">Digital ID and Citizen Portal</a>
+                                    </h3>
+                                    <p class="govuk-body">Access all government services with your secure digital identity. Apply for permits, pay taxes, and manage your citizen account online.</p>
+                                </div>
+                            </div>
+                            <div class="govuk-grid-column-one-half">
+                                <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                                    <h3 class="govuk-heading-m">
+                                        <a onclick="showPage('identity-card')" class="govuk-link nav-link">Apply for Identity Card</a>
+                                    </h3>
+                                    <p class="govuk-body">Get your official Rupertland identity card for travel, banking, and accessing government services.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-half">
+                                <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                                    <h3 class="govuk-heading-m">
+                                        <a onclick="showPage('tax-calculator')" class="govuk-link nav-link">Tax Calculator</a>
+                                    </h3>
+                                    <p class="govuk-body">Calculate your income tax, VAT, and other obligations. File returns and make payments online.</p>
+                                </div>
+                            </div>
+                            <div class="govuk-grid-column-one-half">
+                                <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                                    <h3 class="govuk-heading-m">
+                                        <a onclick="showPage('residence-permit')" class="govuk-link nav-link">Residence Permits</a>
+                                    </h3>
+                                    <p class="govuk-body">Apply for temporary or permanent residence permits, extend existing permits, or check application status.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Latest News</h2>
+                        
+                        <div style="border-left: 4px solid #1d70b8; padding-left: 15px; margin-bottom: 20px;">
+                            <h3 class="govuk-heading-s">Rupertland Reaches 65% Renewable Energy Target Ahead of Schedule</h3>
+                            <p class="govuk-body">
+                                <strong>19 July 2025</strong> - The principality has exceeded its 2025 renewable energy target, 
+                                with solar and wind power now providing 65% of our electricity needs.
+                            </p>
+                        </div>
+                        
+                        <div style="border-left: 4px solid #1d70b8; padding-left: 15px; margin-bottom: 20px;">
+                            <h3 class="govuk-heading-s">New Digital Rights Amendment Bill Enters Second Reading</h3>
+                            <p class="govuk-body">
+                                <strong>18 July 2025</strong> - Parliament debates enhanced digital privacy protections and 
+                                stronger data rights for all citizens.
+                            </p>
+                        </div>
+
+                        <p class="govuk-body">
+                            <a onclick="showPage('news')" class="govuk-link nav-link">View all news and announcements</a>
+                        </p>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">Emergency Information</h2>
+                            <div style="background-color: #d4351c; color: #ffffff; padding: 15px; margin-bottom: 20px;">
+                                <h3 class="govuk-heading-s" style="color: #ffffff; margin-top: 0;">Emergency Services</h3>
+                                <p style="margin: 0; color: #ffffff; font-size: 1.5em;">
+                                    <strong>Call 999</strong>
+                                </p>
+                            </div>
+                            
+                            <h2 class="govuk-heading-m">Quick Services</h2>
+                            <nav role="navigation">
+                                <ul class="govuk-list govuk-!-font-size-16">
+                                    <li><a onclick="showPage('business-registration')" class="govuk-link nav-link">Register a business</a></li>
+                                    <li><a onclick="showPage('property-registry')" class="govuk-link nav-link">Property records</a></li>
+                                    <li><a onclick="showPage('immigration')" class="govuk-link nav-link">Immigration services</a></li>
+                                    <li><a onclick="showPage('benefits')" class="govuk-link nav-link">Benefits and support</a></li>
+                                </ul>
+                            </nav>
+
+                            <h2 class="govuk-heading-m">Government</h2>
+                            <nav role="navigation">
+                                <ul class="govuk-list govuk-!-font-size-16">
+                                    <li><a onclick="showPage('ministers')" class="govuk-link nav-link">Ministers and officials</a></li>
+                                    <li><a onclick="showPage('parliament')" class="govuk-link nav-link">Parliament</a></li>
+                                    <li><a onclick="showPage('departments')" class="govuk-link nav-link">Government departments</a></li>
+                                    <li><a onclick="showPage('transparency')" class="govuk-link nav-link">Transparency and accountability</a></li>
+                                </ul>
+                            </nav>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        About Rupertland
+                    </li>
+                </ol>
+            </div>
+
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">About the Principality of Rupertland</h1>
+                        
+                        <p class="govuk-body-l">
+                            A modern constitutional monarchy committed to digital innovation, environmental sustainability, 
+                            and citizen welfare in the heart of Europe.
+                        </p>
+
+                        <h2 class="govuk-heading-l">Our Story</h2>
+                        <p class="govuk-body">
+                            Founded in 2018 by Prince Rupert Harding, the Principality of Rupertland represents a new model 
+                            of governance that combines traditional constitutional monarchy with cutting-edge digital government 
+                            and unwavering commitment to environmental protection.
+                        </p>
+
+                        <h2 class="govuk-heading-l">Key Facts</h2>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li><strong>Population:</strong> 4,750 residents</li>
+                            <li><strong>Area:</strong> 12.3 square kilometers</li>
+                            <li><strong>Capital:</strong> New Rupertville</li>
+                            <li><strong>Languages:</strong> English (official), French (official)</li>
+                            <li><strong>Currency:</strong> Swiss Franc (CHF)</li>
+                            <li><strong>Time Zone:</strong> Central European Time (CET)</li>
+                            <li><strong>Government:</strong> Constitutional monarchy with parliamentary democracy</li>
+                        </ul>
+
+                        <h2 class="govuk-heading-l">Government Structure</h2>
+                        <div style="background-color: #f8f8f8; padding: 20px; margin-bottom: 20px;">
+                            <h3 class="govuk-heading-m">Head of State</h3>
+                            <p class="govuk-body">
+                                <strong>His Serene Highness Prince Rupert Harding</strong> serves as constitutional monarch and Head of State, 
+                                with ceremonial duties and constitutional responsibilities.
+                            </p>
+                            <p class="govuk-body">
+                                <a onclick="showPage('royal-family')" class="govuk-link nav-link">Learn more about the Royal Family</a>
+                            </p>
+                        </div>
+
+                        <div style="background-color: #f8f8f8; padding: 20px; margin-bottom: 20px;">
+                            <h3 class="govuk-heading-m">Head of Government</h3>
+                            <p class="govuk-body">
+                                <strong>The Rt Hon. Sarah Chen MP</strong> serves as Prime Minister and leads the democratically 
+                                elected government, with executive power exercised by the Cabinet.
+                            </p>
+                            <p class="govuk-body">
+                                <a onclick="showPage('ministers')" class="govuk-link nav-link">Meet the government ministers</a>
+                            </p>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Our Values</h2>
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-half">
+                                <h3 class="govuk-heading-m">Environmental Leadership</h3>
+                                <p class="govuk-body">
+                                    Committed to carbon neutrality by 2030, with 65% renewable energy and 
+                                    comprehensive environmental protection laws.
+                                </p>
+                            </div>
+                            <div class="govuk-grid-column-one-half">
+                                <h3 class="govuk-heading-m">Digital Innovation</h3>
+                                <p class="govuk-body">
+                                    Leading Europe in digital government services with our comprehensive 
+                                    digital ID system and online citizen portal.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">Related information</h2>
+                            <nav role="navigation">
+                                <ul class="govuk-list govuk-!-font-size-16">
+                                    <li><a onclick="showPage('constitution')" class="govuk-link nav-link">Constitution of Rupertland</a></li>
+                                    <li><a onclick="showPage('parliament')" class="govuk-link nav-link">Parliament and democracy</a></li>
+                                    <li><a onclick="showPage('departments')" class="govuk-link nav-link">Government departments</a></li>
+                                    <li><a onclick="showPage('laws-regulations')" class="govuk-link nav-link">Laws and regulations</a></li>
+                                </ul>
+                            </nav>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- SERVICES PAGE -->
+        <div id="services" class="page">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        Services
+                    </li>
+                </ol>
+            </div>
+
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">Government Services</h1>
+                        
+                        <p class="govuk-body-l">
+                            Access government services online through our digital portal or find information 
+                            about applying for permits, licenses, and official documents.
+                        </p>
+
+                        <div class="govuk-inset-text">
+                            Most services are available 24/7 through our <a onclick="showPage('digital-id')" class="govuk-link nav-link">Citizen Portal</a> 
+                            with your secure digital ID.
+                        </div>
+
+                        <h2 class="govuk-heading-l">Popular Services</h2>
+                        
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-full">
+                                <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                                    <h3 class="govuk-heading-m">
+                                        <a onclick="showPage('identity-card')" class="govuk-link nav-link">Apply for Identity Card</a>
+                                    </h3>
+                                    <p class="govuk-body">Get your official Rupertland identity card for travel and accessing services.</p>
+                                    <p class="govuk-body"><strong>Processing time:</strong> 5-10 working days | <strong>Cost:</strong> 45 CHF</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-full">
+                                <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                                    <h3 class="govuk-heading-m">
+                                        <a onclick="showPage('tax-calculator')" class="govuk-link nav-link">Tax Calculator and Filing</a>
+                                    </h3>
+                                    <p class="govuk-body">Calculate taxes, file returns, and make payments online.</p>
+                                    <p class="govuk-body"><strong>Available:</strong> 24/7 online | <strong>Support:</strong> Multilingual help</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="govuk-heading-l">All Services by Category</h2>
+
+                        <h3 class="govuk-heading-m">Identity and Citizenship</h3>
+                        <ul class="govuk-list">
+                            <li><a onclick="showPage('identity-card')" class="govuk-link nav-link">Apply for identity card</a></li>
+                            <li><a onclick="showPage('digital-id')" class="govuk-link nav-link">Digital ID registration</a></li>
+                            <li><a onclick="showPage('citizenship')" class="govuk-link nav-link">Citizenship applications</a></li>
+                            <li><a onclick="showPage('immigration')" class="govuk-link nav-link">Immigration services</a></li>
+                        </ul>
+
+                        <h3 class="govuk-heading-m">Business and Commerce</h3>
+                        <ul class="govuk-list">
+                            <li><a onclick="showPage('business-registration')" class="govuk-link nav-link">Register a business</a></li>
+                            <li><a onclick="showPage('property-registry')" class="govuk-link nav-link">Property registry services</a></li>
+                            <li><a onclick="showPage('tax-calculator')" class="govuk-link nav-link">Business tax calculator</a></li>
+                        </ul>
+
+                        <h3 class="govuk-heading-m">Housing and Residency</h3>
+                        <ul class="govuk-list">
+                            <li><a onclick="showPage('residence-permit')" class="govuk-link nav-link">Apply for residence permit</a></li>
+                            <li><a onclick="showPage('property-registry')" class="govuk-link nav-link">Property registration</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">Digital services</h2>
+                            <div style="background-color: #1d70b8; color: #ffffff; padding: 15px; margin-bottom: 20px;">
+                                <h3 class="govuk-heading-s" style="color: #ffffff; margin-top: 0;">Citizen Portal</h3>
+                                <p style="margin-bottom: 10px; color: #ffffff;">
+                                    Access all services with your digital ID
+                                </p>
+                                <p style="margin: 0;">
+                                    <a onclick="showPage('digital-id')" style="color: #ffffff; text-decoration: underline;">Sign in or register</a>
+                                </p>
+                            </div>
+
+                            <h2 class="govuk-heading-m">Need help?</h2>
+                            <p class="govuk-body govuk-!-font-size-16">
+                                Contact our service center for assistance with any government service.
+                            </p>
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><strong>Phone:</strong> +41 555 100 200</li>
+                                <li><strong>Email:</strong> services@gov.rp</li>
+                                <li><strong>Hours:</strong> Mon-Fri 8:00-17:00</li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- DIGITAL ID PAGE -->
+        <div id="digital-id" class="page">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('services')">Services</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        Digital ID
+                    </li>
+                </ol>
+            </div>
+
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">Digital ID and Citizen Portal</h1>
+                        
+                        <p class="govuk-body-l">
+                            Access all government services with your secure digital identity. 
+                            The most advanced digital government system in Europe.
+                        </p>
+
+                        <div class="govuk-inset-text">
+                            Your digital ID provides secure, convenient access to over 200 government services 
+                            available 24 hours a day, 7 days a week.
+                        </div>
+
+                        <h2 class="govuk-heading-l">What You Can Do</h2>
+
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-half">
+                                <h3 class="govuk-heading-m">Government Services</h3>
+                                <ul class="govuk-list govuk-list--bullet">
+                                    <li>Apply for identity cards and documents</li>
+                                    <li>File tax returns and make payments</li>
+                                    <li>Apply for permits and licenses</li>
+                                    <li>Access health and education records</li>
+                                    <li>Register births, deaths, marriages</li>
+                                </ul>
+                            </div>
+                            <div class="govuk-grid-column-one-half">
+                                <h3 class="govuk-heading-m">Business Services</h3>
+                                <ul class="govuk-list govuk-list--bullet">
+                                    <li>Register and manage businesses</li>
+                                    <li>Submit regulatory filings</li>
+                                    <li>Access procurement opportunities</li>
+                                    <li>Manage employee records</li>
+                                    <li>File corporate tax returns</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h2 class="govuk-heading-l">How to Get Started</h2>
+
+                        <ol class="govuk-list govuk-list--number">
+                            <li><strong>Verify your identity</strong> - Use your identity card or passport</li>
+                            <li><strong>Create your account</strong> - Set up secure authentication</li>
+                            <li><strong>Add services</strong> - Choose which services you need</li>
+                            <li><strong>Start using services</strong> - Access everything from one place</li>
+                        </ol>
+
+                        <div style="background-color: #f8f8f8; padding: 20px; margin: 20px 0;">
+                            <h3 class="govuk-heading-m">Security and Privacy</h3>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li><strong>Bank-level security</strong> with multi-factor authentication</li>
+                                <li><strong>Privacy by design</strong> - you control your data</li>
+                                <li><strong>Encrypted communications</strong> and secure data storage</li>
+                                <li><strong>Regular security audits</strong> by independent experts</li>
+                            </ul>
+                        </div>
+
+                        <button class="button">Register for Digital ID</button>
+                        <p class="govuk-body">
+                            Already have an account? <a href="#" class="govuk-link">Sign in to Citizen Portal</a>
+                        </p>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">System status</h2>
+                            <div style="background-color: #00703c; color: #ffffff; padding: 15px; margin-bottom: 20px;">
+                                <h3 class="govuk-heading-s" style="color: #ffffff; margin-top: 0;">All systems operational</h3>
+                                <p style="margin: 0; color: #ffffff;">
+                                    99.9% uptime this month
+                                </p>
+                            </div>
+
+                            <h2 class="govuk-heading-m">Support</h2>
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><strong>Digital ID helpline:</strong> +41 555 100 300</li>
+                                <li><strong>Email:</strong> digitalid@gov.rp</li>
+                                <li><strong>Live chat:</strong> Available 24/7</li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- IDENTITY CARD PAGE -->
+        <div id="identity-card" class="page">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('services')">Services</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        Apply for Identity Card
+                    </li>
+                </ol>
+            </div>
+
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">Apply for Rupertland Identity Card</h1>
+                        
+                        <p class="govuk-body-l">
+                            Get your official Rupertland identity card for travel, banking, and accessing government services.
+                        </p>
+
+                        <div class="govuk-inset-text">
+                            <strong>Processing time:</strong> 5-10 working days<br>
+                            <strong>Cost:</strong> 45 CHF (includes secure delivery)
+                        </div>
+
+                        <h2 class="govuk-heading-l">What You Need</h2>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li>Proof of residence in Rupertland</li>
+                            <li>Valid passport or existing ID document</li>
+                            <li>Recent passport photograph (digital upload)</li>
+                            <li>Payment method for application fee</li>
+                        </ul>
+
+                        <h2 class="govuk-heading-l">Apply Online</h2>
+                        
+                        <form onsubmit="submitIDApplication(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="full-name">Full name</label>
+                                <div class="form-hint">As shown on your passport or birth certificate</div>
+                                <input type="text" id="full-name" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="date-of-birth">Date of birth</label>
+                                <input type="date" id="date-of-birth" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="address">Current address in Rupertland</label>
+                                <textarea id="address" class="form-input" rows="3" required></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Card type</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="card-type" value="standard" required>
+                                        Standard card (45 CHF)
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="card-type" value="express">
+                                        Express processing - 2 days (95 CHF)
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="button">Continue application</button>
+                        </form>
+
+                        <div id="id-application-success" style="display: none;">
+                            <div class="success-panel">
+                                <h2>Application submitted</h2>
+                                <p>Your reference number is: <strong>ID-2025-<span id="id-ref-number"></span></strong></p>
+                                <p>You'll receive an email with payment instructions and next steps.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">Related services</h2>
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><a onclick="showPage('digital-id')" class="govuk-link nav-link">Digital ID registration</a></li>
+                                <li><a onclick="showPage('citizenship')" class="govuk-link nav-link">Apply for citizenship</a></li>
+                                <li><a onclick="showPage('residence-permit')" class="govuk-link nav-link">Residence permits</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- TAX CALCULATOR PAGE -->
+        <div id="tax-calculator" class="page">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('services')">Services</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        Tax Calculator
+                    </li>
+                </ol>
+            </div>
+
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">Tax Calculator</h1>
+                        
+                        <p class="govuk-body-l">
+                            Calculate your income tax obligations for Rupertland. 
+                            Get an instant estimate and file your return online.
+                        </p>
+
+                        <div class="govuk-warning-text">
+                            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                            <strong class="govuk-warning-text__text">
+                                <span class="govuk-warning-text__assistive">Important</span>
+                                This calculator provides estimates only. Official calculations may vary.
+                            </strong>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Calculate Your Income Tax</h2>
+                        
+                        <form onsubmit="calculateTax(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="annual-income">Annual gross income (CHF)</label>
+                                <div class="form-hint">Include all income from employment, self-employment, and investments</div>
+                                <input type="number" id="annual-income" class="form-input" min="0" step="100" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">Tax status</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="tax-status" value="single" required>
+                                        Single person
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="tax-status" value="married">
+                                        Married/Partnership
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="tax-status" value="single-parent">
+                                        Single parent
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="dependents">Number of dependent children</label>
+                                <input type="number" id="dependents" class="form-input" min="0" max="10" value="0">
+                            </div>
+                            
+                            <button type="submit" class="button">Calculate tax</button>
+                        </form>
+
+                        <div id="tax-results" style="display: none;">
+                            <div class="success-panel">
+                                <h2>Your estimated tax calculation</h2>
+                                <div id="tax-breakdown"></div>
+                                <p><strong>Next steps:</strong> Use your <a onclick="showPage('digital-id')" class="govuk-link nav-link">Digital ID</a> to file your official tax return.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">Tax information</h2>
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><strong>Tax year:</strong> January 1 - December 31</li>
+                                <li><strong>Filing deadline:</strong> March 31</li>
+                                <li><strong>Payment due:</strong> June 30</li>
+                            </ul>
+
+                            <h2 class="govuk-heading-m">Need help?</h2>
+                            <p class="govuk-body govuk-!-font-size-16">
+                                <strong>Tax helpline:</strong> +41 555 100 400<br>
+                                <strong>Email:</strong> tax@gov.rp
+                            </p>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- NEWS PAGE -->
+        <div id="news" class="page">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        News
+                    </li>
+                </ol>
+            </div>
+
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">Government News</h1>
+                        
+                        <p class="govuk-body-l">
+                            Latest news, announcements, and updates from the Rupertland government.
+                        </p>
+
+                        <div style="border-left: 4px solid #1d70b8; padding-left: 15px; margin-bottom: 30px;">
+                            <h2 class="govuk-heading-m">Rupertland Reaches 65% Renewable Energy Target Ahead of Schedule</h2>
+                            <p class="govuk-body">
+                                <strong>19 July 2025</strong> - The Principality of Rupertland has successfully exceeded its 2025 renewable energy target, 
+                                with solar and wind power now providing 65% of our electricity needs, five months ahead of the December deadline.
+                            </p>
+                            <p class="govuk-body">
+                                "This achievement demonstrates our commitment to environmental leadership and proves that small nations can make a big impact 
+                                on climate change," said Dr. Emily Harrison, Minister of Environment.
+                            </p>
+                        </div>
+
+                        <div style="border-left: 4px solid #00703c; padding-left: 15px; margin-bottom: 30px;">
+                            <h2 class="govuk-heading-m">Digital Rights Amendment Bill Enters Second Reading</h2>
+                            <p class="govuk-body">
+                                <strong>18 July 2025</strong> - Parliament will debate the Digital Rights Amendment Bill during today's session, 
+                                which aims to strengthen digital privacy protections and enhance data rights for all citizens.
+                            </p>
+                            <p class="govuk-body">
+                                The bill includes provisions for stronger consent mechanisms, enhanced data portability rights, 
+                                and increased penalties for data protection violations.
+                            </p>
+                            <p class="govuk-body">
+                                <a onclick="showPage('parliament')" class="govuk-link nav-link">Watch the parliamentary session live</a>
+                            </p>
+                        </div>
+
+                        <div style="border-left: 4px solid #f47738; padding-left: 15px; margin-bottom: 30px;">
+                            <h2 class="govuk-heading-m">New Cultural Festival to Showcase International Talent</h2>
+                            <p class="govuk-body">
+                                <strong>16 July 2025</strong> - The Ministry of Culture announced the inaugural Rupertland International Arts Festival, 
+                                scheduled for August 15-20, featuring artists from 12 countries.
+                            </p>
+                            <p class="govuk-body">
+                                The festival will include music, theater, visual arts, and digital media performances, 
+                                with all events free to the public.
+                            </p>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Recent Announcements</h2>
+                        <ul class="govuk-list">
+                            <li><strong>15 July:</strong> Budget 2025-26 approved by Parliament with 9-3 vote</li>
+                            <li><strong>12 July:</strong> New trade agreement signed with Switzerland</li>
+                            <li><strong>8 July:</strong> Digital ID system reaches 95% citizen adoption rate</li>
+                            <li><strong>5 July:</strong> Summer parliamentary recess begins August 1</li>
+                        </ul>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">Stay informed</h2>
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><a onclick="showPage('newsletter')" class="govuk-link nav-link">Subscribe to newsletter</a></li>
+                                <li><a onclick="showPage('social-media')" class="govuk-link nav-link">Follow on social media</a></li>
+                                <li><a onclick="showPage('rss')" class="govuk-link nav-link">RSS feeds</a></li>
+                                <li><a onclick="showPage('alerts')" class="govuk-link nav-link">Emergency alerts</a></li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- CONTACT PAGE -->
+        <div id="contact" class="page">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        Contact
+                    </li>
+                </ol>
+            </div>
+
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">Contact the Government</h1>
+                        
+                        <p class="govuk-body-l">
+                            Get in touch with government departments, report issues, or request information about public services.
+                        </p>
+
+                        <div style="background-color: #d4351c; color: #ffffff; padding: 20px; margin-bottom: 30px;">
+                            <h2 class="govuk-heading-m" style="color: #ffffff; margin-top: 0;">Emergency Services</h2>
+                            <p style="margin: 0; color: #ffffff; font-size: 2em;">
+                                <strong>Call 999</strong>
+                            </p>
+                            <p style="margin: 5px 0 0 0; color: #ffffff;">
+                                For police, fire, medical emergencies, or mountain rescue
+                            </p>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Government Services</h2>
+                        <div style="background-color: #f8f8f8; padding: 20px; margin-bottom: 20px;">
+                            <h3 class="govuk-heading-m">Main Government Helpline</h3>
+                            <ul class="govuk-list">
+                                <li><strong>Phone:</strong> +41 555 100 200</li>
+                                <li><strong>Email:</strong> info@gov.rp</li>
+                                <li><strong>Hours:</strong> Monday-Friday 8:00-17:00 CET</li>
+                                <li><strong>Languages:</strong> English, French, German</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Contact by Department</h2>
+                        <ul class="govuk-list">
+                            <li><strong>Interior Ministry:</strong> +41 555 200 100 - Digital ID, citizenship, residence permits</li>
+                            <li><strong>Finance Ministry:</strong> +41 555 200 200 - Taxes, customs, economic policy</li>
+                            <li><strong>Environment Ministry:</strong> +41 555 200 300 - Environmental permits, climate policy</li>
+                            <li><strong>Culture Ministry:</strong> +41 555 200 400 - Tourism, arts, sports, heritage</li>
+                            <li><strong>Commerce Ministry:</strong> +41 555 200 500 - Business registration, trade</li>
+                        </ul>
+
+                        <h2 class="govuk-heading-l">Send us a message</h2>
+                        <form onsubmit="submitContactForm(event)">
+                            <div class="form-group">
+                                <label class="form-label" for="contact-name">Your name</label>
+                                <input type="text" id="contact-name" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="contact-email">Email address</label>
+                                <input type="email" id="contact-email" class="form-input" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label">What is your enquiry about?</label>
+                                <div class="radio-group">
+                                    <label class="radio-item">
+                                        <input type="radio" name="enquiry-type" value="services" required>
+                                        Government services
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="enquiry-type" value="complaint">
+                                        Complaint about service
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="enquiry-type" value="suggestion">
+                                        Suggestion for improvement
+                                    </label>
+                                    <label class="radio-item">
+                                        <input type="radio" name="enquiry-type" value="other">
+                                        Other enquiry
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="form-label" for="contact-message">Your message</label>
+                                <div class="form-hint">Please include relevant details such as dates, reference numbers, or department names</div>
+                                <textarea id="contact-message" class="form-input" rows="6" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="button">Send message</button>
+                        </form>
+
+                        <div id="contact-success" style="display: none;">
+                            <div class="success-panel">
+                                <h2>Message sent</h2>
+                                <p>Thank you for contacting us. Your reference number is: <strong>GEN-2025-<span id="contact-ref-number"></span></strong></p>
+                                <p>We'll respond within 5 working days.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">Visit us</h2>
+                            <div style="background-color: #f3f2f1; padding: 15px; margin-bottom: 20px;">
+                                <p class="govuk-body-s">
+                                    <strong>Government Centre</strong><br>
+                                    1 Government Square<br>
+                                    New Rupertville<br>
+                                    Principality of Rupertland
+                                </p>
+                                <p class="govuk-body-s">
+                                    <strong>Opening hours:</strong><br>
+                                    Monday-Friday: 8:00-17:00<br>
+                                    Saturday: 9:00-12:00 (limited services)
+                                </p>
+                            </div>
+
+                            <h2 class="govuk-heading-m">Other contacts</h2>
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><a onclick="showPage('parliament')" class="govuk-link nav-link">Contact your MP</a></li>
+                                <li><a onclick="showPage('royal-family')" class="govuk-link nav-link">Write to Prince Rupert</a></li>
+                                <li><strong>Press enquiries:</strong> press@gov.rp</li>
+                                <li><strong>Website feedback:</strong> web@gov.rp</li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- IMMIGRATION PAGE -->
+        <div id="immigration" class="page">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('services')">Services</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        Immigration
+                    </li>
+                </ol>
+            </div>
+
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">Immigration Services</h1>
+                        
+                        <p class="govuk-body-l">
+                            Visa applications, residence permits, work permits, and citizenship pathways for the Principality of Rupertland.
+                        </p>
+
+                        <div class="govuk-inset-text">
+                            <strong>New arrivals:</strong> All visitors must present valid identification at border control. 
+                            EU/EEA citizens can stay for 90 days without a visa.
+                        </div>
+
+                        <h2 class="govuk-heading-l">Visitor Visas</h2>
+                        <div style="background-color: #f8f8f8; padding: 20px; margin-bottom: 20px;">
+                            <h3 class="govuk-heading-m">Tourist Visa (30 days)</h3>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li><strong>Fee:</strong> 60 CHF</li>
+                                <li><strong>Processing:</strong> 5-10 working days</li>
+                                <li><strong>Requirements:</strong> Valid passport, accommodation proof, return ticket</li>
+                            </ul>
+                            
+                            <h3 class="govuk-heading-m">Business Visa (90 days)</h3>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li><strong>Fee:</strong> 120 CHF</li>
+                                <li><strong>Processing:</strong> 10-15 working days</li>
+                                <li><strong>Requirements:</strong> Business invitation, company registration, financial proof</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Residence Permits</h2>
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-half">
+                                <h3 class="govuk-heading-m">Temporary Residence (B Permit)</h3>
+                                <ul class="govuk-list govuk-list--bullet">
+                                    <li>Valid for 1 year, renewable</li>
+                                    <li>Work authorization included</li>
+                                    <li>Path to permanent residence</li>
+                                    <li><strong>Fee:</strong> 350 CHF</li>
+                                </ul>
+                            </div>
+                            <div class="govuk-grid-column-one-half">
+                                <h3 class="govuk-heading-m">Permanent Residence (C Permit)</h3>
+                                <ul class="govuk-list govuk-list--bullet">
+                                    <li>Valid for 5 years, renewable</li>
+                                    <li>Unrestricted work rights</li>
+                                    <li>Access to social benefits</li>
+                                    <li><strong>Fee:</strong> 500 CHF</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Work Permits</h2>
+                        <div style="border: 1px solid #b1b4b6; padding: 20px; margin-bottom: 20px;">
+                            <h3 class="govuk-heading-m">Skilled Worker Permit</h3>
+                            <p class="govuk-body">For professionals with university qualifications or specialized skills</p>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>Job offer from Rupertland employer required</li>
+                                <li>Salary minimum: 75,000 CHF annually</li>
+                                <li>Processing time: 4-8 weeks</li>
+                                <li><strong>Fee:</strong> 400 CHF</li>
+                            </ul>
+                            
+                            <h3 class="govuk-heading-m">Entrepreneur Permit</h3>
+                            <p class="govuk-body">For investors and business founders</p>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li>Minimum investment: 250,000 CHF</li>
+                                <li>Business plan approval required</li>
+                                <li>Job creation commitment: 3+ positions</li>
+                                <li><strong>Fee:</strong> 800 CHF</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Citizenship</h2>
+                        <h3 class="govuk-heading-m">Naturalization Requirements</h3>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li><strong>Residence:</strong> 10 years continuous residence (5 years with EU citizenship)</li>
+                            <li><strong>Language:</strong> B2 level in English or French</li>
+                            <li><strong>Integration:</strong> Pass civic knowledge test</li>
+                            <li><strong>Character:</strong> Clean criminal record</li>
+                            <li><strong>Income:</strong> Stable employment or financial independence</li>
+                        </ul>
+
+                        <div style="background-color: #d4e8d4; padding: 20px; margin: 20px 0;">
+                            <h3 class="govuk-heading-m">Dual Citizenship</h3>
+                            <p class="govuk-body">
+                                Rupertland allows dual citizenship. You do not need to renounce your current nationality.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">Apply online</h2>
+                            <div style="background-color: #1d70b8; color: #ffffff; padding: 15px; margin-bottom: 20px;">
+                                <h3 class="govuk-heading-s" style="color: #ffffff; margin-top: 0;">Immigration Portal</h3>
+                                <p style="margin-bottom: 10px; color: #ffffff;">
+                                    Submit applications and track status
+                                </p>
+                                <p style="margin: 0;">
+                                    <a onclick="showPage('digital-id')" style="color: #ffffff; text-decoration: underline;">Access portal</a>
+                                </p>
+                            </div>
+
+                            <h2 class="govuk-heading-m">Support services</h2>
+                            <ul class="govuk-list govuk-!-font-size-16">
+                                <li><strong>Immigration Office:</strong> +41 555 300 100</li>
+                                <li><strong>Legal aid:</strong> <a onclick="showPage('legal-aid')" class="govuk-link nav-link">Free legal assistance</a></li>
+                                <li><strong>Translation:</strong> Certified document translation</li>
+                                <li><strong>Integration courses:</strong> Language and civic education</li>
+                            </ul>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- LEGAL AID PAGE -->
+        <div id="legal-aid" class="page">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('services')">Services</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        Legal Aid
+                    </li>
+                </ol>
+            </div>
+
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">Legal Aid</h1>
+                        
+                        <p class="govuk-body-l">
+                            Free legal advice and representation for people who cannot afford a lawyer in the Principality of Rupertland.
+                        </p>
+
+                        <div class="govuk-inset-text">
+                            <strong>Constitutional right:</strong> Every person in Rupertland has the right to legal representation. 
+                            If you cannot afford a lawyer, the state will provide one at no cost.
+                        </div>
+
+                        <h2 class="govuk-heading-l">Eligibility</h2>
+                        <div style="background-color: #f8f8f8; padding: 20px; margin-bottom: 20px;">
+                            <h3 class="govuk-heading-m">Financial Eligibility (2025)</h3>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li><strong>Single person:</strong> Monthly income below 3,500 CHF</li>
+                                <li><strong>Couple:</strong> Combined monthly income below 5,200 CHF</li>
+                                <li><strong>Each dependent child:</strong> Additional 800 CHF allowance</li>
+                                <li><strong>Assets:</strong> Savings and property below 15,000 CHF</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Services Available</h2>
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-half">
+                                <h3 class="govuk-heading-m">Criminal Law</h3>
+                                <ul class="govuk-list govuk-list--bullet">
+                                    <li>Criminal defense representation</li>
+                                    <li>Appeals of criminal convictions</li>
+                                    <li>Victims' rights assistance</li>
+                                    <li>Juvenile justice cases</li>
+                                </ul>
+                            </div>
+                            <div class="govuk-grid-column-one-half">
+                                <h3 class="govuk-heading-m">Family Law</h3>
+                                <ul class="govuk-list govuk-list--bullet">
+                                    <li>Divorce and separation proceedings</li>
+                                    <li>Child custody and support disputes</li>
+                                    <li>Domestic violence protection orders</li>
+                                    <li>Adoption and guardianship matters</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div style="background-color: #d4351c; color: #ffffff; padding: 20px; margin-bottom: 20px;">
+                            <h3 class="govuk-heading-m" style="color: #ffffff; margin-top: 0;">Emergency Legal Aid Hotline</h3>
+                            <p style="margin: 0; color: #ffffff; font-size: 1.5em;">
+                                <strong>Call +41 555 LEGAL (53425)</strong><br>
+                                Available 24 hours a day, 7 days a week
+                            </p>
+                        </div>
+
+                        <h2 class="govuk-heading-l">How to Apply</h2>
+                        <ol class="govuk-list govuk-list--number">
+                            <li><strong>Contact the Legal Aid Office</strong> by phone, email, or in person</li>
+                            <li><strong>Initial screening</strong> to determine if your case qualifies</li>
+                            <li><strong>Complete application form</strong> with required documentation</li>
+                            <li><strong>Financial assessment</strong> to verify eligibility</li>
+                            <li><strong>Case assignment</strong> to appropriate lawyer or clinic</li>
+                            <li><strong>Begin legal assistance</strong> within 5 business days</li>
+                        </ol>
+
+                        <div class="govuk-warning-text">
+                            <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+                            <strong class="govuk-warning-text__text">
+                                <span class="govuk-warning-text__assistive">Warning</span>
+                                Apply as soon as possible. Legal deadlines can pass quickly, and waiting may harm your case.
+                            </strong>
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">Apply for legal aid</h2>
+                            <div style="background-color: #1d70b8; color: #ffffff; padding: 15px; margin-bottom: 20px;">
+                                <h3 class="govuk-heading-s" style="color: #ffffff; margin-top: 0;">Quick application</h3>
+                                <p style="margin-bottom: 10px; color: #ffffff;">
+                                    <strong>Phone:</strong> +41 555 400 500<br>
+                                    <strong>Online:</strong> <a onclick="showPage('digital-id')" style="color: #ffffff;">Citizen Portal</a>
+                                </p>
+                                <p style="margin: 0; color: #ffffff;">
+                                    <strong>Walk-in:</strong> Monday-Friday 8:00-17:00
+                                </p>
+                            </div>
+
+                            <h2 class="govuk-heading-m">Legal clinics schedule</h2>
+                            <div style="background-color: #f3f2f1; padding: 15px; margin-bottom: 20px;">
+                                <ul class="govuk-list govuk-!-font-size-16">
+                                    <li><strong>Tuesday:</strong> Immigration (1-4 PM)</li>
+                                    <li><strong>Wednesday:</strong> General Legal (2-5 PM)</li>
+                                    <li><strong>Thursday:</strong> Housing Rights (10-1 PM)</li>
+                                    <li><strong>Friday:</strong> Family Law (9-12 PM)</li>
+                                </ul>
+                                <p class="govuk-body-s" style="margin: 0;">
+                                    No appointment needed - first come, first served
+                                </p>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- ROYAL FAMILY PAGE -->
+        <div id="royal-family" class="page">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('about')">About Rupertland</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        The Royal Family
+                    </li>
+                </ol>
+            </div>
+
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">The Royal Family</h1>
+                        
+                        <p class="govuk-body-l">
+                            The Royal Family of Rupertland serves as the constitutional head of state, 
+                            providing continuity, stability, and representation for the Principality.
+                        </p>
+
+                        <div class="govuk-inset-text">
+                            <strong>Constitutional Role:</strong> Under the Constitution of Rupertland, the Crown serves as 
+                            Head of State in a parliamentary democracy, with executive power exercised by the 
+                            democratically elected government.
+                        </div>
+
+                        <h2 class="govuk-heading-l">His Serene Highness Prince Rupert Harding</h2>
+                        <div style="border: 2px solid #1d70b8; padding: 20px; margin-bottom: 30px; background-color: #f8f8f8;">
+                            <h3 class="govuk-heading-m">Head of State and Founding Prince</h3>
+                            <p class="govuk-body">
+                                <strong>Born:</strong> March 15, 1985 (age 40)<br>
+                                <strong>Reign:</strong> Since founding of Rupertland (2018)<br>
+                                <strong>Full title:</strong> His Serene Highness Prince Rupert Harding, Sovereign Prince of Rupertland<br>
+                                <strong>Residence:</strong> Rupert Castle, New Rupertville
+                            </p>
+                            
+                            <h4 class="govuk-heading-s">Education</h4>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li><strong>PhD in Environmental Science</strong> - Massachusetts Institute of Technology (MIT), 2012</li>
+                                <li><strong>MBA</strong> - Stanford Graduate School of Business, 2009</li>
+                                <li><strong>BA in Natural Sciences</strong> - Trinity College, Cambridge, 2007</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Constitutional Role and Duties</h2>
+                        <h3 class="govuk-heading-m">Head of State Functions</h3>
+                        <p class="govuk-body">
+                            As constitutional monarch, Prince Rupert performs important ceremonial and constitutional duties:
+                        </p>
+                        <ul class="govuk-list govuk-list--bullet">
+                            <li><strong>Royal Assent:</strong> Signing laws passed by Parliament into legal effect</li>
+                            <li><strong>Government Formation:</strong> Appointing the Prime Minister and Cabinet</li>
+                            <li><strong>State Representation:</strong> Representing Rupertland in international relations</li>
+                            <li><strong>Constitutional Guardian:</strong> Ensuring constitutional procedures are followed</li>
+                            <li><strong>National Unity:</strong> Serving as a unifying figure above party politics</li>
+                        </ul>
+
+                        <h2 class="govuk-heading-l">Royal Patronages and Interests</h2>
+                        <div style="background-color: #f8f8f8; padding: 20px; margin-bottom: 20px;">
+                            <h3 class="govuk-heading-m">Environmental Leadership</h3>
+                            <p class="govuk-body">
+                                Prince Rupert is a passionate advocate for environmental sustainability and climate action:
+                            </p>
+                            <ul class="govuk-list govuk-list--bullet">
+                                <li><strong>Patron:</strong> Rupertland Environmental Foundation</li>
+                                <li><strong>Founder:</strong> Alpine Conservation Trust</li>
+                                <li><strong>Ambassador:</strong> Global Climate Action Network</li>
+                                <li><strong>Supporter:</strong> Renewable Energy Initiative Rupertland</li>
+                            </ul>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Contact and Correspondence</h2>
+                        <h3 class="govuk-heading-m">Writing to Prince Rupert</h3>
+                        <p class="govuk-body">
+                            Citizens and visitors are welcome to write to Prince Rupert. All correspondence is 
+                            acknowledged, and letters on matters of public interest receive personal attention.
+                        </p>
+                        
+                        <div style="background-color: #f8f8f8; padding: 20px; margin-bottom: 20px;">
+                            <h4 class="govuk-heading-s">Postal Address</h4>
+                            <p class="govuk-body">
+                                His Serene Highness Prince Rupert<br>
+                                Private Secretary's Office<br>
+                                Rupert Castle<br>
+                                1 Castle Square<br>
+                                New Rupertville, Rupertland
+                            </p>
+                            
+                            <h4 class="govuk-heading-s">Email</h4>
+                            <p class="govuk-body">
+                                correspondence@rupertcastle.rp
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">Royal calendar</h2>
+                            <div style="background-color: #1d70b8; color: #ffffff; padding: 15px; margin-bottom: 20px;">
+                                <h3 class="govuk-heading-s" style="color: #ffffff; margin-top: 0;">Upcoming events</h3>
+                                <p style="margin-bottom: 10px; color: #ffffff;">
+                                    <strong>July 25, 2025</strong><br>
+                                    Digital Innovation Summit<br>
+                                    University of Rupertland
+                                </p>
+                                <p style="margin: 0; color: #ffffff;">
+                                    <strong>August 15, 2025</strong><br>
+                                    Cultural Festival Opening<br>
+                                    National Theatre
+                                </p>
+                            </div>
+
+                            <h2 class="govuk-heading-m">Royal patronages</h2>
+                            <div style="background-color: #f3f2f1; padding: 15px; margin-bottom: 20px;">
+                                <h3 class="govuk-heading-s">Environment</h3>
+                                <ul class="govuk-list govuk-!-font-size-16">
+                                    <li>Environmental Foundation</li>
+                                    <li>Alpine Conservation Trust</li>
+                                    <li>Climate Action Network</li>
+                                </ul>
+                                
+                                <h3 class="govuk-heading-s">Arts & Culture</h3>
+                                <ul class="govuk-list govuk-!-font-size-16">
+                                    <li>Royal Opera House</li>
+                                    <li>National Gallery</li>
+                                    <li>Heritage Society</li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <!-- DATA PROTECTION PAGE -->
+        <div id="data-protection" class="page">
+            <div class="govuk-breadcrumbs">
+                <ol class="govuk-breadcrumbs__list">
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('home')">Home</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        <a class="govuk-breadcrumbs__link govuk-breadcrumbs__link--js" onclick="showPage('laws-regulations')">Laws and Regulations</a>
+                    </li>
+                    <li class="govuk-breadcrumbs__list-item">
+                        Data Protection
+                    </li>
+                </ol>
+            </div>
+
+            <main class="govuk-main-wrapper" id="main-content" role="main">
+                <div class="govuk-grid-row">
+                    <div class="govuk-grid-column-two-thirds">
+                        <h1 class="govuk-heading-xl">Data Protection</h1>
+                        
+                        <p class="govuk-body-l">
+                            Your personal data is protected by law in Rupertland. Learn about your rights, 
+                            how organizations must handle your data, and how to file complaints.
+                        </p>
+
+                        <div class="govuk-inset-text">
+                            <strong>Constitutional right:</strong> Article 4 of the Constitution guarantees every person's 
+                            right to privacy and data protection. This fundamental right is protected by comprehensive 
+                            data protection laws and independent oversight.
+                        </div>
+
+                        <h2 class="govuk-heading-l">Your Data Protection Rights</h2>
+                        <h3 class="govuk-heading-m">Eight Fundamental Rights</h3>
+                        <p class="govuk-body">
+                            Under the Rupertland Data Protection Act 2023, you have the following rights:
+                        </p>
+
+                        <div class="govuk-grid-row">
+                            <div class="govuk-grid-column-one-half">
+                                <div style="border: 1px solid #b1b4b6; padding: 15px; margin-bottom: 15px;">
+                                    <h4 class="govuk-heading-s">1. Right to be Informed</h4>
+                                    <p class="govuk-body govuk-!-font-size-16">
+                                        Organizations must tell you how they collect and use your personal data.
+                                    </p>
+                                </div>
+                                
+                                <div style="border: 1px solid #b1b4b6; padding: 15px; margin-bottom: 15px;">
+                                    <h4 class="govuk-heading-s">2. Right of Access</h4>
+                                    <p class="govuk-body govuk-!-font-size-16">
+                                        You can request a copy of your personal data, free of charge.
+                                    </p>
+                                </div>
+                                
+                                <div style="border: 1px solid #b1b4b6; padding: 15px; margin-bottom: 15px;">
+                                    <h4 class="govuk-heading-s">3. Right to Rectification</h4>
+                                    <p class="govuk-body govuk-!-font-size-16">
+                                        You can ask organizations to correct inaccurate personal data.
+                                    </p>
+                                </div>
+                                
+                                <div style="border: 1px solid #b1b4b6; padding: 15px; margin-bottom: 15px;">
+                                    <h4 class="govuk-heading-s">4. Right to Erasure</h4>
+                                    <p class="govuk-body govuk-!-font-size-16">
+                                        You can ask organizations to delete your personal data.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="govuk-grid-column-one-half">
+                                <div style="border: 1px solid #b1b4b6; padding: 15px; margin-bottom: 15px;">
+                                    <h4 class="govuk-heading-s">5. Right to Restrict Processing</h4>
+                                    <p class="govuk-body govuk-!-font-size-16">
+                                        You can ask organizations to limit how they use your data.
+                                    </p>
+                                </div>
+                                
+                                <div style="border: 1px solid #b1b4b6; padding: 15px; margin-bottom: 15px;">
+                                    <h4 class="govuk-heading-s">6. Right to Data Portability</h4>
+                                    <p class="govuk-body govuk-!-font-size-16">
+                                        You can ask for your data in a commonly used electronic format.
+                                    </p>
+                                </div>
+                                
+                                <div style="border: 1px solid #b1b4b6; padding: 15px; margin-bottom: 15px;">
+                                    <h4 class="govuk-heading-s">7. Right to Object</h4>
+                                    <p class="govuk-body govuk-!-font-size-16">
+                                        You can object to the use of your data for marketing or research.
+                                    </p>
+                                </div>
+                                
+                                <div style="border: 1px solid #b1b4b6; padding: 15px; margin-bottom: 15px;">
+                                    <h4 class="govuk-heading-s">8. Automated Decision-Making Rights</h4>
+                                    <p class="govuk-body govuk-!-font-size-16">
+                                        You have rights regarding automated decisions and profiling.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <h2 class="govuk-heading-l">Filing a Complaint</h2>
+                        <h3 class="govuk-heading-m">Data Protection Authority</h3>
+                        <p class="govuk-body">
+                            The Data Protection Authority (DPA) is the independent regulator responsible for 
+                            enforcing data protection laws in Rupertland.
+                        </p>
+
+                        <h3 class="govuk-heading-m">How to File a Complaint</h3>
+                        <ol class="govuk-list govuk-list--number">
+                            <li><strong>Try to resolve directly first:</strong> Contact the organization's data protection officer</li>
+                            <li><strong>Gather evidence:</strong> Collect relevant documents, emails, and correspondence</li>
+                            <li><strong>Submit complaint:</strong> Use our online form or write to the DPA</li>
+                            <li><strong>Provide details:</strong> Explain what happened and what you want to achieve</li>
+                            <li><strong>Await response:</strong> The DPA will acknowledge within 5 working days</li>
+                        </ol>
+                    </div>
+
+                    <div class="govuk-grid-column-one-third">
+                        <aside class="app-related-items" role="complementary">
+                            <h2 class="govuk-heading-m">File a complaint</h2>
+                            <div style="background-color: #d4351c; color: #ffffff; padding: 15px; margin-bottom: 20px;">
+                                <h3 class="govuk-heading-s" style="color: #ffffff; margin-top: 0;">Data Protection Authority</h3>
+                                <p style="margin-bottom: 10px; color: #ffffff;">
+                                    <strong>Helpline:</strong> +41 555 DATA (3282)<br>
+                                    <strong>Email:</strong> complaints@dpa.rp
+                                </p>
+                                <p style="margin: 0; color: #ffffff;">
+                                    File complaint online (via Digital ID portal)
+                                </p>
+                            </div>
+
+                            <h2 class="govuk-heading-m">Your rights summary</h2>
+                            <div style="background-color: #f8f8f8; padding: 15px; margin-bottom: 20px;">
+                                <ul class="govuk-list govuk-!-font-size-16">
+                                    <li><strong>Access:</strong> Get copies of your data</li>
+                                    <li><strong>Rectify:</strong> Correct inaccurate data</li>
+                                    <li><strong>Erase:</strong> Delete unnecessary data</li>
+                                    <li><strong>Restrict:</strong> Limit data processing</li>
+                                    <li><strong>Portability:</strong> Transfer your data</li>
+                                    <li><strong>Object:</strong> Stop unwanted processing</li>
+                                </ul>
+                            </div>
+                        </aside>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+    </div>
+
+    <footer class="govuk-footer" role="contentinfo">
+        <div class="govuk-width-container">
+            <div class="govuk-footer__navigation">
+                <div class="govuk-footer__section govuk-grid-column-two-thirds">
+                    <h2 class="govuk-footer__heading govuk-heading-m">Services and information</h2>
+                    <ul class="govuk-footer__list govuk-footer__list--columns-2">
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('benefits')">Benefits</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('births-deaths-marriages')">Births, deaths, marriages</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('business')">Business and industry</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('environment')">Environment</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('education')">Education and learning</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('driving')">Driving and transport</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="govuk-footer__section govuk-grid-column-one-third">
+                    <h2 class="govuk-footer__heading govuk-heading-m">Government activity</h2>
+                    <ul class="govuk-footer__list">
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('departments')">Departments</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('news')">News</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('guidance')">Guidance and regulation</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('policy')">Policy papers</a>
+                        </li>
+                        <li class="govuk-footer__list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('transparency')">Transparency</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="govuk-footer__section-break">
+            <div class="govuk-footer__meta">
+                <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+                    <ul class="govuk-footer__inline-list">
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('help')">Help</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('privacy')">Privacy</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('cookies')">Cookies</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('accessibility')">Accessibility statement</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('contact')">Contact</a>
+                        </li>
+                        <li class="govuk-footer__inline-list-item">
+                            <a class="govuk-footer__link nav-link" onclick="showPage('terms')">Terms and conditions</a>
+                        </li>
+                    </ul>
+                    <span class="govuk-footer__licence-description">
+                        All content is available under the Open Government Licence v3.0, except where otherwise stated
+                    </span>
+                </div>
+                <div class="govuk-footer__meta-item">
+                    <a class="govuk-footer__link govuk-footer__copyright-logo" href="#">© Crown copyright</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.remove('active'));
+            
+            // Show selected page
+            const selectedPage = document.getElementById(pageId);
+            if (selectedPage) {
+                selectedPage.classList.add('active');
+                // Update page title
+                updatePageTitle(pageId);
+            } else {
+                // If page doesn't exist, show home page
+                document.getElementById('home').classList.add('active');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        function updatePageTitle(pageId) {
+            const titles = {
+                'home': 'Principality of Rupertland - GOV.RP',
+                'about': 'About Rupertland - GOV.RP',
+                'services': 'Government Services - GOV.RP',
+                'digital-id': 'Digital ID and Citizen Portal - GOV.RP',
+                'identity-card': 'Apply for Identity Card - GOV.RP',
+                'tax-calculator': 'Tax Calculator - GOV.RP',
+                'news': 'News and Announcements - GOV.RP',
+                'contact': 'Contact Government - GOV.RP',
+                'immigration': 'Immigration Services - GOV.RP',
+                'legal-aid': 'Legal Aid - GOV.RP',
+                'royal-family': 'The Royal Family - GOV.RP',
+                'data-protection': 'Data Protection - GOV.RP'
+            };
+            
+            document.title = titles[pageId] || 'Principality of Rupertland - GOV.RP';
+        }
+        
+        // Handle browser back/forward buttons
+        window.addEventListener('popstate', function(event) {
+            if (event.state && event.state.page) {
+                showPage(event.state.page);
+            }
+        });
+        
+        // Update browser history when changing pages
+        const originalShowPage = showPage;
+        showPage = function(pageId) {
+            originalShowPage(pageId);
+            history.pushState({page: pageId}, '', '#' + pageId);
+        };
+        
+        // Initialize page based on URL hash
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showPage(hash);
+            }
+        });
+        
+        // Form submission functions
+        function submitIDApplication(event) {
+            event.preventDefault();
+            const refNumber = Math.floor(Math.random() * 900000) + 100000;
+            document.getElementById('id-ref-number').textContent = refNumber;
+            event.target.style.display = 'none';
+            document.getElementById('id-application-success').style.display = 'block';
+        }
+        
+        function calculateTax(event) {
+            event.preventDefault();
+            
+            const income = parseFloat(document.getElementById('annual-income').value);
+            const status = document.querySelector('input[name="tax-status"]:checked').value;
+            const dependents = parseInt(document.getElementById('dependents').value);
+            
+            // Simplified tax calculation
+            let taxRate = 0.15; // Base rate 15%
+            if (income > 100000) taxRate = 0.25;
+            if (income > 200000) taxRate = 0.35;
+            
+            // Deductions
+            let deduction = 24000; // Standard deduction
+            if (status === 'married') deduction += 12000;
+            if (status === 'single-parent') deduction += 8000;
+            deduction += dependents * 4000;
+            
+            const taxableIncome = Math.max(0, income - deduction);
+            const annualTax = taxableIncome * taxRate;
+            const monthlyTax = annualTax / 12;
+            
+            const breakdown = `
+                <p><strong>Annual Income:</strong> ${income.toLocaleString()} CHF</p>
+                <p><strong>Deductions:</strong> ${deduction.toLocaleString()} CHF</p>
+                <p><strong>Taxable Income:</strong> ${taxableIncome.toLocaleString()} CHF</p>
+                <p><strong>Tax Rate:</strong> ${(taxRate * 100)}%</p>
+                <hr>
+                <p><strong>Annual Tax:</strong> ${annualTax.toLocaleString()} CHF</p>
+                <p><strong>Monthly Tax:</strong> ${monthlyTax.toLocaleString()} CHF</p>
+            `;
+            
+            document.getElementById('tax-breakdown').innerHTML = breakdown;
+            document.getElementById('tax-results').style.display = 'block';
+            document.getElementById('tax-results').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function submitContactForm(event) {
+            event.preventDefault();
+            const refNumber = Math.floor(Math.random() * 900000) + 100000;
+            document.getElementById('contact-ref-number').textContent = refNumber;
+            event.target.style.display = 'none';
+            document.getElementById('contact-success').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
