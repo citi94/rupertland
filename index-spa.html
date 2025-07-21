@@ -38,6 +38,19 @@
             cursor: pointer;
         }
         
+        /* Force proper width constraints on all pages to prevent text stretching to edges */
+        .page .govuk-main-wrapper {
+            max-width: 1020px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Ensure grid rows are properly contained */
+        .page .govuk-grid-row {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        
         /* Form styling to match ofcat standards */
         .form-group {
             margin-bottom: 30px;
